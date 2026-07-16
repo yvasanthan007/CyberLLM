@@ -13,3 +13,7 @@ print("Loaded API Key:", NVD_API_KEY)
 
 CVE_DATASET = PROJECT_ROOT / "dataset" / "raw" / "cve"
 CVE_DATASET.mkdir(parents=True, exist_ok=True)
+
+# MITRE Dataset Path
+MITRE_DATASET = PROJECT_ROOT / "dataset" / "raw" / "mitre"
+MITRE_DATASET.mkdir(parents=True, exist_ok=True)
