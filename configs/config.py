@@ -54,3 +54,16 @@ INSTRUCTION_DATASET = PROJECT_ROOT / "dataset" / "instruction"
 
 SIGMA_DATASET = PROJECT_ROOT / "dataset" / "raw" / "sigma"
 SIGMA_DATASET.mkdir(parents=True, exist_ok=True)
+
+# ============================
+# Sigma Paths
+# ============================
+
+SIGMA_RAW = PROJECT_ROOT / "dataset" / "raw" / "sigma"
+
+SIGMA_PROCESSED = (
+    PROJECT_ROOT
+    / "dataset"
+    / "processed"
+    / "sigma_clean.jsonl"
+)
