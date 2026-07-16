@@ -47,3 +47,10 @@ CYBERLLM_TRAIN = FINAL_DATASET / "cyberllm_train.jsonl"
 
 # Instruction Dataset Directory
 INSTRUCTION_DATASET = PROJECT_ROOT / "dataset" / "instruction"
+
+# ============================
+# Sigma Dataset
+# ============================
+
+SIGMA_DATASET = PROJECT_ROOT / "dataset" / "raw" / "sigma"
+SIGMA_DATASET.mkdir(parents=True, exist_ok=True)
