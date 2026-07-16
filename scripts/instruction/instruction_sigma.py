@@ -13,62 +13,74 @@ from configs.config import (
 
 def generate_examples(rule):
 
-    title = rule.get("title", "")
-    description = rule.get("description", "")
-    level = rule.get("level", "")
+    title = str(rule.get("title") or "").strip()
+
+    description = str(rule.get("description") or "").strip()
+    if not description:
+        description = "No description available."
+
+    level = str(rule.get("level") or "").strip()
+    if not level:
+        level = "unknown"
+
     tags = ", ".join(rule.get("tags", []))
+    if not tags:
+        tags = "No ATT&CK tags."
 
     logsource = json.dumps(
         rule.get("logsource", {}),
-        ensure_ascii=False,
-        indent=2
+        ensure_ascii=False
     )
+
+    if logsource == "{}":
+        logsource = "No log source information."
 
     detection = json.dumps(
         rule.get("detection", {}),
-        ensure_ascii=False,
-        indent=2
+        ensure_ascii=False
     )
 
-    examples = []
+    if detection == "{}":
+        detection = "No detection logic."
 
-    # Example 1
-    examples.append({
-        "instruction": "Explain this Sigma rule.",
-        "input": title,
-        "output": description
-    })
+    if not title:
+        return []
 
-    # Example 2
-    examples.append({
-        "instruction": "What severity level does this Sigma rule have?",
-        "input": title,
-        "output": level
-    })
+    examples = [
 
-    # Example 3
-    examples.append({
-        "instruction": "Which MITRE ATT&CK tags are associated with this Sigma rule?",
-        "input": title,
-        "output": tags
-    })
+        {
+            "instruction": "Explain this Sigma rule.",
+            "input": title,
+            "output": description
+        },
 
-    # Example 4
-    examples.append({
-        "instruction": "Describe the log source of this Sigma rule.",
-        "input": title,
-        "output": logsource
-    })
+        {
+            "instruction": "What severity level does this Sigma rule have?",
+            "input": title,
+            "output": level
+        },
 
-    # Example 5
-    examples.append({
-        "instruction": "Explain how this Sigma rule detects suspicious activity.",
-        "input": title,
-        "output": detection
-    })
+        {
+            "instruction": "Which MITRE ATT&CK tags are associated with this Sigma rule?",
+            "input": title,
+            "output": tags
+        },
+
+        {
+            "instruction": "Describe the log source.",
+            "input": title,
+            "output": logsource
+        },
+
+        {
+            "instruction": "Explain the detection logic.",
+            "input": title,
+            "output": detection
+        }
+
+    ]
 
     return examples
-
 
 def main():
 
