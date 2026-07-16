@@ -41,4 +41,4 @@ Fields:
 - input
 - output
 
-Each CVE produces multiple instruction examples.
+Each CVE produces multiple instruction examples.     
