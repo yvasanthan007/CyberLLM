@@ -67,3 +67,17 @@ SIGMA_PROCESSED = (
     / "processed"
     / "sigma_clean.jsonl"
 )
+
+SIGMA_CLEAN = (
+    PROJECT_ROOT
+    / "dataset"
+    / "processed"
+    / "sigma_clean.jsonl"
+)
+
+SIGMA_INSTRUCTION = (
+    PROJECT_ROOT
+    / "dataset"
+    / "instruction"
+    / "sigma_instruction.jsonl"
+)
