@@ -15,6 +15,9 @@ def generate_examples(rule):
 
     title = str(rule.get("title") or "").strip()
 
+    if not title:
+        return []
+
     description = str(rule.get("description") or "").strip()
     if not description:
         description = "No description available."
@@ -23,28 +26,36 @@ def generate_examples(rule):
     if not level:
         level = "unknown"
 
-    tags = ", ".join(rule.get("tags", []))
+    # ---------- FIX FOR TAGS ----------
+    tags = rule.get("tags", [])
+
     if not tags:
-        tags = "No ATT&CK tags."
+        tags_text = "No MITRE ATT&CK tags available."
+    else:
+        tags_text = ", ".join(str(tag) for tag in tags)
+    # ----------------------------------
 
-    logsource = json.dumps(
-        rule.get("logsource", {}),
-        ensure_ascii=False
-    )
+    logsource = rule.get("logsource", {})
 
-    if logsource == "{}":
-        logsource = "No log source information."
+    if not logsource:
+        logsource_text = "No log source available."
+    else:
+        logsource_text = json.dumps(
+            logsource,
+            ensure_ascii=False,
+            indent=2
+        )
 
-    detection = json.dumps(
-        rule.get("detection", {}),
-        ensure_ascii=False
-    )
+    detection = rule.get("detection", {})
 
-    if detection == "{}":
-        detection = "No detection logic."
-
-    if not title:
-        return []
+    if not detection:
+        detection_text = "No detection logic available."
+    else:
+        detection_text = json.dumps(
+            detection,
+            ensure_ascii=False,
+            indent=2
+        )
 
     examples = [
 
@@ -63,24 +74,25 @@ def generate_examples(rule):
         {
             "instruction": "Which MITRE ATT&CK tags are associated with this Sigma rule?",
             "input": title,
-            "output": tags
+            "output": tags_text
         },
 
         {
             "instruction": "Describe the log source.",
             "input": title,
-            "output": logsource
+            "output": logsource_text
         },
 
         {
             "instruction": "Explain the detection logic.",
             "input": title,
-            "output": detection
+            "output": detection_text
         }
 
     ]
 
     return examples
+
 
 def main():
 

@@ -4,12 +4,14 @@ Sigma Instruction Dataset Validator
 """
 
 import json
-from pathlib import Path
 
 from configs.config import SIGMA_INSTRUCTION
 
 
 def validate_record(record):
+    """
+    Validate a single instruction record.
+    """
 
     required = [
         "instruction",
@@ -53,10 +55,12 @@ def main():
             except json.JSONDecodeError:
 
                 invalid += 1
+
                 invalid_records.append(
                     (
                         total,
-                        "Invalid JSON"
+                        "Invalid JSON",
+                        line.strip()
                     )
                 )
 
@@ -90,15 +94,30 @@ def main():
 
     if invalid_records:
 
-        print("\nInvalid Examples")
+        print("\n")
+        print("=" * 60)
+        print("Invalid Examples")
+        print("=" * 60)
 
-        for line, reason, record in invalid_records:
+        for line_no, reason, record in invalid_records:
 
-            print("=" * 60)
-            print(f"Line : {line}")
+            print(f"\nLine : {line_no}")
             print(f"Reason : {reason}")
-            print("Record:")
-            print(json.dumps(record, indent=4, ensure_ascii=False))
+            print("Record :")
+
+            if isinstance(record, dict):
+
+                print(
+                    json.dumps(
+                        record,
+                        indent=4,
+                        ensure_ascii=False
+                    )
+                )
+
+            else:
+
+                print(record)
 
     else:
 
