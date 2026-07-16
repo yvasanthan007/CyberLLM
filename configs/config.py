@@ -23,3 +23,9 @@ PROCESSED_DATASET = PROJECT_ROOT / "dataset" / "processed"
 PROCESSED_DATASET.mkdir(parents=True, exist_ok=True)
 
 MITRE_OUTPUT = PROCESSED_DATASET / "mitre_clean.jsonl"
+
+# Instruction Dataset
+INSTRUCTION_DATASET = PROJECT_ROOT / "dataset" / "instruction"
+INSTRUCTION_DATASET.mkdir(parents=True, exist_ok=True)
+
+MITRE_INSTRUCTION = INSTRUCTION_DATASET / "mitre_instruction.jsonl"
