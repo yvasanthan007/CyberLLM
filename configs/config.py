@@ -17,3 +17,9 @@ CVE_DATASET.mkdir(parents=True, exist_ok=True)
 # MITRE Dataset Path
 MITRE_DATASET = PROJECT_ROOT / "dataset" / "raw" / "mitre"
 MITRE_DATASET.mkdir(parents=True, exist_ok=True)
+
+# Processed Dataset
+PROCESSED_DATASET = PROJECT_ROOT / "dataset" / "processed"
+PROCESSED_DATASET.mkdir(parents=True, exist_ok=True)
+
+MITRE_OUTPUT = PROCESSED_DATASET / "mitre_clean.jsonl"
