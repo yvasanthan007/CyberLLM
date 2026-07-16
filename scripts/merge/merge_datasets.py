@@ -1,72 +1,114 @@
 """
-CyberLLM Dataset Merger
-
-Merges all instruction datasets into one dataset
-and removes duplicate records.
+CyberLLM
+Dataset Merger
 """
 
 import json
 import random
+from pathlib import Path
 
 from configs.config import (
-    INSTRUCTION_DATASET,
+    CVE_INSTRUCTION,
+    MITRE_INSTRUCTION,
+    SIGMA_INSTRUCTION,
     CYBERLLM_TRAIN,
 )
 
-all_records = []
-seen = set()
 
-instruction_files = sorted(
-    INSTRUCTION_DATASET.glob("*_instruction.jsonl")
-)
+def load_dataset(file_path):
 
-print("=" * 60)
-print("CyberLLM Dataset Merger")
-print("=" * 60)
+    records = []
 
-for file in instruction_files:
+    if not Path(file_path).exists():
 
-    print(f"Loading: {file.name}")
+        print(f"[WARNING] Missing: {file_path}")
+        return records
 
-    with open(file, "r", encoding="utf-8") as f:
+    with open(file_path, "r", encoding="utf-8") as infile:
 
-        count = 0
+        for line in infile:
 
-        for line in f:
+            line = line.strip()
 
-            record = json.loads(line)
+            if not line:
+                continue
 
-            key = (
-                record["instruction"].strip(),
-                record["input"].strip(),
-                record["output"].strip(),
+            try:
+
+                records.append(json.loads(line))
+
+            except json.JSONDecodeError:
+
+                continue
+
+    print(f"Loaded {len(records)} records from {file_path.name}")
+
+    return records
+
+
+def save_dataset(records):
+
+    CYBERLLM_TRAIN.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    with open(
+        CYBERLLM_TRAIN,
+        "w",
+        encoding="utf-8"
+    ) as outfile:
+
+        for record in records:
+
+            outfile.write(
+                json.dumps(
+                    record,
+                    ensure_ascii=False
+                )
             )
 
-            if key not in seen:
-                seen.add(key)
-                all_records.append(record)
+            outfile.write("\n")
 
-            count += 1
 
-    print(f"Records Read : {count}")
+def main():
 
-print("\nRemoving duplicates...")
-print(f"Unique Records : {len(all_records)}")
+    print("=" * 60)
+    print("CyberLLM Dataset Merger")
+    print("=" * 60)
 
-print("\nShuffling dataset...")
-random.shuffle(all_records)
+    cve = load_dataset(CVE_INSTRUCTION)
 
-with open(CYBERLLM_TRAIN, "w", encoding="utf-8") as outfile:
+    mitre = load_dataset(MITRE_INSTRUCTION)
 
-    for record in all_records:
+    sigma = load_dataset(SIGMA_INSTRUCTION)
 
-        outfile.write(
-            json.dumps(record, ensure_ascii=False)
-            + "\n"
-        )
+    merged = cve + mitre + sigma
 
-print("=" * 60)
-print("Merge Completed")
-print("=" * 60)
-print(f"Final Records : {len(all_records)}")
-print(f"Saved To      : {CYBERLLM_TRAIN}")
+    print()
+
+    print(f"CVE Records    : {len(cve)}")
+    print(f"MITRE Records  : {len(mitre)}")
+    print(f"Sigma Records  : {len(sigma)}")
+
+    print("-" * 60)
+
+    print(f"Total Before Shuffle : {len(merged)}")
+
+    random.shuffle(merged)
+
+    save_dataset(merged)
+
+    print()
+
+    print("=" * 60)
+    print("Merge Completed")
+    print("=" * 60)
+
+    print(f"Saved Dataset : {CYBERLLM_TRAIN}")
+
+    print(f"Total Records : {len(merged)}")
+
+
+if __name__ == "__main__":
+    main()
