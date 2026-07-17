@@ -13,4 +13,6 @@ accelerate
 peft
 trl
 bitsandbytes
-sentencepiece
+sentencepiece   
+GitPython
+PyYAML 
