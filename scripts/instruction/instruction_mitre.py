@@ -1,87 +1,157 @@
 """
 CyberLLM
-MITRE Instruction Generator
+MITRE ATT&CK Instruction Generator
+
+Input:
+dataset/processed/mitre_clean.jsonl
+
+Output:
+dataset/instruction/mitre_instruction.jsonl
 """
 
 import json
 
 from configs.config import (
-    PROJECT_ROOT,
+    MITRE_OUTPUT,
     MITRE_INSTRUCTION
 )
 
-INPUT_FILE = (
-    PROJECT_ROOT
-    / "dataset"
-    / "processed"
-    / "mitre_clean.jsonl"
-)
+
+def clean(value):
+    """
+    Convert None to empty string and strip whitespace.
+    """
+    return str(value or "").strip()
 
 
 def generate_examples(record):
 
-    technique = record["technique_id"]
-    name = record["name"]
-    description = record["description"]
-    platforms = ", ".join(record["platforms"])
-
     examples = []
 
+    technique = clean(record.get("technique_id"))
+    name = clean(record.get("name"))
+    description = clean(record.get("description"))
+
+    platforms = record.get("platforms") or []
+
+    if isinstance(platforms, list):
+        platforms = ", ".join(platforms)
+    else:
+        platforms = clean(platforms)
+
+    # Skip invalid records
+    if not technique or not description:
+        return examples
+
+    # ----------------------------------------------------
+    # Example 1
+    # ----------------------------------------------------
     examples.append({
-        "instruction": f"What is technique {technique}?",
-        "input": "",
+        "instruction": "What is this MITRE ATT&CK technique?",
+        "input": technique,
         "output": description
     })
 
-    examples.append({
-        "instruction": f"Explain MITRE ATT&CK technique {technique}.",
-        "input": "",
-        "output":
-            f"{name}\n\n{description}"
-    })
+    # ----------------------------------------------------
+    # Example 2
+    # ----------------------------------------------------
+    explain = description
+
+    if name:
+        explain = f"{name}\n\n{description}"
 
     examples.append({
-        "instruction": f"Which platforms are affected by {technique}?",
-        "input": "",
-        "output": platforms
+        "instruction": "Explain this MITRE ATT&CK technique.",
+        "input": technique,
+        "output": explain
     })
 
-    examples.append({
-        "instruction": f"What is {name}?",
-        "input": "",
-        "output": description
-    })
+    # ----------------------------------------------------
+    # Example 3
+    # ----------------------------------------------------
+    if platforms:
+
+        examples.append({
+            "instruction": "Which platforms are affected by this MITRE ATT&CK technique?",
+            "input": technique,
+            "output": platforms
+        })
+
+    # ----------------------------------------------------
+    # Example 4
+    # ----------------------------------------------------
+    if name:
+
+        examples.append({
+            "instruction": "Describe this attack technique.",
+            "input": name,
+            "output": description
+        })
 
     return examples
 
 
 def main():
 
-    total = 0
+    print("=" * 60)
+    print("CyberLLM MITRE Instruction Generator")
+    print("=" * 60)
 
-    with open(INPUT_FILE, encoding="utf-8") as infile, \
-         open(MITRE_INSTRUCTION, "w", encoding="utf-8") as outfile:
+    total_examples = 0
+    skipped = 0
+
+    with open(
+        MITRE_OUTPUT,
+        "r",
+        encoding="utf-8"
+    ) as infile, open(
+        MITRE_INSTRUCTION,
+        "w",
+        encoding="utf-8"
+    ) as outfile:
 
         for line in infile:
 
-            record = json.loads(line)
+            line = line.strip()
+
+            if not line:
+                continue
+
+            try:
+
+                record = json.loads(line)
+
+            except json.JSONDecodeError:
+
+                skipped += 1
+                continue
 
             examples = generate_examples(record)
+
+            if not examples:
+                skipped += 1
+                continue
 
             for example in examples:
 
                 outfile.write(
-                    json.dumps(example, ensure_ascii=False)
-                    + "\n"
+                    json.dumps(
+                        example,
+                        ensure_ascii=False
+                    )
                 )
 
-                total += 1
+                outfile.write("\n")
+
+                total_examples += 1
 
     print("=" * 60)
-    print("MITRE Instruction Dataset Created")
+    print("Instruction Dataset Created")
     print("=" * 60)
-    print("Output:", MITRE_INSTRUCTION)
-    print("Examples:", total)
+    print("Examples Generated :", total_examples)
+    print("Skipped Records    :", skipped)
+    print("Saved File         :", MITRE_INSTRUCTION)
+    print("=" * 60)
 
 
 if __name__ == "__main__":
