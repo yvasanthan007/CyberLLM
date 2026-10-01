@@ -1,0 +1,117 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop, 'feature/**']
+  pull_request:
+    branches: [main, develop]
+
+# Cancel superseded runs on the same ref.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Custom static check
+        # Catches the defect classes this project actually hit: undefined
+        # names, stub bodies, silent excepts, backslash continuations.
+        run: python scripts/static_check.py
+
+      - name: Test suite
+        run: python -m pytest tests -q --tb=short
+
+      - name: Secret scan
+        # Blocks obvious credential shapes in the diff. This complements the
+        # runtime log redaction; it does not replace it.
+        run: |
+          if git diff --unified=0 "${{ github.event.pull_request.base.sha || '' }}" \
+                      HEAD 2>/dev/null | grep -nE '^\+.*(sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16})'; then
+            echo "::error::Possible credential in diff. Remove it and rotate the key."
+            exit 1
+          fi
+          echo "no credential patterns in diff"
+
+      - name: Verify nothing large was committed
+        run: |
+          large=$(git ls-files -z | xargs -0 -I{} sh -c \
+            'test -f "{}" && stat -c%s "{}"' 2>/dev/null | awk '$1 > 2000000' || true)
+          if [ -n "$large" ]; then
+            echo "::error::Files over 2 MB are committed:"
+            echo "$large"
+            exit 1
+          fi
+          echo "no oversized files tracked"
+
+  cli-smoke:
+    name: CLI smoke test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Commands run without crashing
+        env:
+          CYBERLLM_PROVIDER: demo
+        run: |
+          python -m cyberllm.cli --help
+          python -m cyberllm.cli datasets list
+          python -m cyberllm.cli health
+          python -m cyberllm.cli rag status
+
+  api-smoke:
+    name: API smoke test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Health endpoint responds
+        env:
+          CYBERLLM_PROVIDER: demo
+        run: |
+          python - <<'PY'
+          from fastapi.testclient import TestClient
+          from cyberllm.api.app import app
+          client = TestClient(app, raise_server_exceptions=False)
+          r = client.get("/health")
+          assert r.status_code == 200, r.text
+          assert r.json()["status"] in {"ok", "degraded"}
+          # An unconfigured capability must instruct, not fabricate.
+          m = client.post("/malware/analyse", json={"features": [{"x": 1}]})
+          assert m.status_code in {200, 503}, m.text
+          if m.status_code == 503:
+              assert m.json()["details"]["setup_hint"]
+          # Oversized bodies are rejected before parsing.
+          big = client.post("/phishing/analyse", content=b"x" * 3_000_000,
+                            headers={"content-type": "application/json",
+                                     "content-length": "3000000"})
+          assert big.status_code == 413, big.text
+          print("API smoke test OK")
+          PY

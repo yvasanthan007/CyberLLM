@@ -1,18 +1,47 @@
-requests
-python-dotenv
-pandas
-numpy
-PyYAML
-beautifulsoup4
-lxml
-tqdm
-datasets
-transformers
-torch
-accelerate
-peft
-trl
-bitsandbytes
-sentencepiece   
-GitPython
-PyYAML 
+# CyberLLM runtime dependencies.
+#
+# Pinned to compatible ranges rather than exact versions so both developers
+# can install without conflicts; CI records the resolved versions in every
+# model card, so a run is always attributable to a specific build.
+#
+#   python -m pip install -r requirements.txt
+
+# --- core ---------------------------------------------------------------
+numpy>=1.24,<3
+pandas>=2.0
+PyYAML>=6.0
+python-dotenv>=1.0
+requests>=2.31
+tqdm>=4.65
+
+# --- configuration and CLI ----------------------------------------------
+typer>=0.9
+rich>=13.0
+
+# --- retrieval ----------------------------------------------------------
+chromadb>=0.4                 # optional alternative vector store
+sentence-transformers>=2.2    # optional semantic embeddings; falls back to hashing
+
+# --- detection models ---------------------------------------------------
+scikit-learn>=1.3
+lightgbm>=4.0                 # optional; falls back to HistGradientBoosting
+joblib>=1.3
+
+# --- language models ----------------------------------------------------
+transformers>=4.40
+torch>=2.1                   # CPU wheel is sufficient
+
+# --- optional: parameter-efficient fine-tuning (Phase 8) ----------------
+peft>=0.10
+trl>=0.9
+accelerate>=0.30
+datasets>=2.18
+
+# --- web service --------------------------------------------------------
+fastapi>=0.110
+uvicorn>=0.27
+pydantic>=2.5
+python-multipart>=0.0.9
+
+# --- console ------------------------------------------------------------
+streamlit>=1.30
