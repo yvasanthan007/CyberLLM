@@ -298,8 +298,6 @@ class LoadedModel:
             },
             "path": str(self.directory),
         }
-
-
 def load_bundle(directory: Path) -> LoadedModel:
     """Restore a saved model bundle."""
     import joblib
