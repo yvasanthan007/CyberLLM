@@ -269,6 +269,31 @@ def _conditional_bindings(tree: ast.Module) -> set[str]:
     return names
 
 
+def check_line_continuations(source: str, path_name: str) -> list[Issue]:
+    """Flag backslash line continuations.
+
+    They are legal Python but are a reliable source of subtle breakage: an
+    interrupted edit leaves a trailing ``\\`` with nothing valid after it, and
+    ``py_compile`` can even accept a dangling one inside a string. The
+    project's style uses parentheses instead, so treat them as errors.
+    """
+    issues: list[Issue] = []
+    for number, line in enumerate(source.splitlines(), start=1):
+        stripped = line.rstrip()
+        if not stripped.endswith("\\"):
+            continue
+        # `\\` at end of a non-raw string is an escaped backslash, not a
+        # continuation; require whitespace-or-backslash preceded by a
+        # non-string context, approximated by checking the quote balance.
+        if stripped.count('"') % 2 == 1 or stripped.count("'") % 2 == 1:
+            continue
+        issues.append(Issue(
+            path_name, number, "line_continuation",
+            "trailing backslash continuation - use parentheses instead",
+        ))
+    return issues
+
+
 def check_file(path: Path) -> list[Issue]:
     """Return every issue found in one module."""
     issues: list[Issue] = []
@@ -313,6 +338,7 @@ def check_file(path: Path) -> list[Issue]:
         issues.append(Issue(rel, 1, "no_imports", "module defines code but imports nothing"))
 
     issues.extend(check_undefined_names(tree, rel))
+    issues.extend(check_line_continuations(source, rel))
     return issues
 
 

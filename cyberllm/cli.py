@@ -534,8 +534,8 @@ def health() -> None:
                   f"{len(kb.get('sources', []))} sources")
     nids = payload["intrusion_detection"]
     if nids.get("available"):
-        detail = f"{nids.get('name', '?')} ({nids.get('algorithm', '?')}), " \
-                 f"{len(nids.get('classes', []))} classes"
+        detail = (f"{nids.get('name', '?')} ({nids.get('algorithm', '?')}), "
+                  f"{len(nids.get('classes', []))} classes")
         if nids.get("is_synthetic"):
             detail += " [SYNTHETIC]"
     else:

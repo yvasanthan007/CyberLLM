@@ -296,11 +296,18 @@ def test_get_logger_does_not_double_add_filter():
 
 
 def test_configure_logging_is_idempotent():
+    """Calling configure_logging repeatedly must not stack handlers.
+
+    Asserted as "the second call adds nothing" rather than as an absolute
+    handler count: importing cyberllm.api.app already configures logging, so
+    the number of handlers present when this test runs is not fixed.
+    """
     root = logging.getLogger()
-    before = len(root.handlers)
     logging_config.configure_logging("INFO")
+    after_first = len(root.handlers)
     logging_config.configure_logging("DEBUG")
-    assert len(root.handlers) == before + 1, "configure_logging must not stack handlers"
+    logging_config.configure_logging("INFO")
+    assert len(root.handlers) == after_first
 
 
 def test_configure_logging_adds_redaction_filter_to_handler():
