@@ -204,8 +204,6 @@ def _attack_ref_url(stix_id: str) -> str:
         return ATTACK_URL_TEMPLATE.format(technique_id=tail)
     return ""
 
-    return docs
-
 
 def _stix_descriptions(obj: dict) -> str:
     for desc in obj.get("description", "") or []:

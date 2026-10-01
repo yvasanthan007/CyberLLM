@@ -90,6 +90,185 @@ def _is_abstract(node: ast.FunctionDef | ast.AsyncFunctionDef) -> bool:
     return False
 
 
+def _module_scope(tree: ast.Module) -> dict[str, ast.AST]:
+    """Names bound at module level (imports, defs, classes, assignments)."""
+    bound: dict[str, ast.AST] = {}
+    for node in tree.body:
+        if isinstance(node, ast.Import):
+            for alias in node.names:
+                bound[(alias.asname or alias.name).split(".")[0]] = node
+        elif isinstance(node, ast.ImportFrom):
+            for alias in node.names:
+                if alias.name != "*":
+                    bound[alias.asname or alias.name] = node
+        elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            bound[node.name] = node
+        elif isinstance(node, ast.Assign):
+            for target in node.targets:
+                if isinstance(target, ast.Name):
+                    bound[target.id] = node
+        elif isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name):
+            bound[node.target.id] = node
+    return bound
+
+
+def _function_locals(node: ast.FunctionDef | ast.AsyncFunctionDef) -> set[str]:
+    """Every name bound inside a function: args, assignments, comprehensions."""
+    names: set[str] = set()
+
+    # Parameters, including *args / **kwargs and posonly/kwonly forms.
+    args = node.args
+    for group in (args.posonlyargs, args.args, args.kwonlyargs):
+        for arg in group:
+            names.add(arg.arg)
+    for extra in (args.vararg, args.kwarg):
+        if extra is not None:
+            names.add(extra.arg)
+
+    for child in ast.walk(node):
+        if isinstance(child, ast.Name) and isinstance(child.ctx, (ast.Store, ast.Del)):
+            names.add(child.id)
+        elif isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            names.add(child.name)
+        elif isinstance(child, (ast.Import, ast.ImportFrom)):
+            for alias in child.names:
+                if alias.name != "*":
+                    names.add(alias.asname or alias.name.split(".")[0])
+        elif isinstance(child, ast.ExceptHandler) and child.name:
+            names.add(child.name)
+        elif isinstance(child, (ast.Global, ast.Nonlocal)):
+            names.update(child.names)
+    return names
+
+
+def _builtins() -> set[str]:
+    import builtins
+
+    return set(dir(builtins))
+
+
+def check_undefined_names(tree: ast.Module, path_name: str) -> list[Issue]:
+    """Flag module-level names that are used but never imported or defined.
+
+    A missing ``import numpy as np`` compiles perfectly and only fails at
+    runtime, in the middle of a long training run - so it is worth catching
+    statically.
+
+    The check is deliberately *conservative*: its only goal is to find names
+    that appear in a function body, are not Python builtins, are not module
+    level bindings, are not bound anywhere in that function (parameters,
+    assignments, comprehensions, lambdas, nested defs), and are not imported
+    conditionally. Anything ambiguous is skipped rather than reported.
+    """
+    issues: list[Issue] = []
+    allowed = _builtins() | set(_module_scope(tree)) | _conditional_bindings(tree)
+    reported: set[str] = set()
+
+    # Map every node to its parent so closure capture can be resolved by
+    # walking *outward* to the enclosing function.
+    parent: dict[ast.AST, ast.AST] = {}
+    for outer in ast.walk(tree):
+        for child in ast.iter_child_nodes(outer):
+            parent[child] = outer
+
+    # Walk every function in the file, including methods on classes - a
+    # missing import inside a method fails just as hard as one in a function.
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            continue
+        # Names bound anywhere inside this function, nested scopes included.
+        # Over-approximating only suppresses findings, which is the safe
+        # direction for a lint that must not produce false alarms.
+        local = _all_local_names(node)
+        for child in ast.walk(node):
+            if not isinstance(child, ast.Name) or not isinstance(child.ctx, ast.Load):
+                continue
+            name = child.id
+            if name in allowed or name in local or name in reported:
+                continue
+            # A closure may read a variable bound in an enclosing function.
+            if _captured_from_enclosing(parent, child, name):
+                continue
+            reported.add(name)
+            issues.append(Issue(
+                path_name, child.lineno, "undefined_name",
+                f"'{name}' is used but not imported or defined at module level",
+            ))
+    return issues
+
+
+def _captured_from_enclosing(parent: dict[ast.AST, ast.AST], node: ast.AST,
+                             name: str) -> bool:
+    """True when ``name`` resolves to a binding in an enclosing function."""
+    current: ast.AST | None = node
+    while current is not None:
+        current = parent.get(current)
+        if isinstance(current, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            if name in _all_local_names(current):
+                return True
+    return False
+
+
+def _all_local_names(node: ast.AST) -> set[str]:
+    """Every name bound anywhere within ``node``, nested scopes included.
+
+    Over-approximating here only suppresses findings, which is the safe
+    direction for a lint that must not produce false alarms.
+    """
+    names: set[str] = set()
+
+    for current in ast.walk(node):
+        args = getattr(current, "args", None)
+        if isinstance(args, ast.arguments):
+            # Covers regular functions, lambdas and methods alike.
+            names.update(_names_bound_by(args))
+        if isinstance(current, ast.Name) and isinstance(current.ctx, (ast.Store, ast.Del)):
+            names.add(current.id)
+        elif isinstance(current, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            names.add(current.name)
+        elif isinstance(current, (ast.Import, ast.ImportFrom)):
+            for alias in current.names:
+                if alias.name != "*":
+                    names.add(alias.asname or alias.name.split(".")[0])
+        elif isinstance(current, ast.ExceptHandler) and current.name:
+            names.add(current.name)
+        elif isinstance(current, (ast.Global, ast.Nonlocal)):
+            names.update(current.names)
+        elif isinstance(current, ast.alias):
+            names.add((current.asname or current.name).split(".")[0])
+    return names
+
+
+def _names_bound_by(args: ast.arguments) -> set[str]:
+    names = {a.arg for group in (args.posonlyargs, args.args, args.kwonlyargs)
+             for a in group}
+    for extra in (args.vararg, args.kwarg):
+        if extra is not None:
+            names.add(extra.arg)
+    return names
+
+
+def _conditional_bindings(tree: ast.Module) -> set[str]:
+    """Names bound inside ``try``/``if``/``with`` blocks (optional imports)."""
+    names: set[str] = set()
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.Try, ast.If, ast.With)):
+            continue
+        for child in ast.walk(node):
+            if isinstance(child, ast.Name) and isinstance(child.ctx, ast.Store):
+                names.add(child.id)
+            elif isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef,
+                                    ast.ClassDef)):
+                names.add(child.name)
+            elif isinstance(child, (ast.Import, ast.ImportFrom)):
+                for alias in child.names:
+                    if alias.name != "*":
+                        names.add(alias.asname or alias.name.split(".")[0])
+            elif isinstance(child, ast.alias):
+                names.add((child.asname or child.name).split(".")[0])
+    return names
+
+
 def check_file(path: Path) -> list[Issue]:
     """Return every issue found in one module."""
     issues: list[Issue] = []
@@ -132,6 +311,8 @@ def check_file(path: Path) -> list[Issue]:
     )
     if has_definition and not has_import:
         issues.append(Issue(rel, 1, "no_imports", "module defines code but imports nothing"))
+
+    issues.extend(check_undefined_names(tree, rel))
     return issues
 
 
