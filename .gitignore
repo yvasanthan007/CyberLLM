@@ -216,3 +216,49 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml7
+# ---- CyberLLM: datasets, model weights and derived artefacts ---------------
+# Raw/processed datasets are large and separately licensed. Only the manifest
+# and dataset documentation are tracked.
+data/raw/
+data/processed/
+!data/dataset_manifest.csv
+!data/README.md
+datasets/
+*.pcap
+*.pcapng
+
+# Model weights and checkpoints
+models/
+artifacts/models/
+artifacts/vectorstore/
+artifacts/reports/
+artifacts/*.db
+artifacts/*.sqlite3
+*.bin
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.gguf
+*.ggml
+runs/
+wandb/
+mlruns/
+checkpoints/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+service-account*.json
+*.pem
+*.key
+
+# Transient manifest copies
+data/dataset_manifest.csv.tmp
+
+# Temporary scratch used during interactive development
+_t*.py
+_fix*.py
