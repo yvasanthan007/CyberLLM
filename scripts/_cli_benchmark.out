@@ -1,0 +1,34 @@
+UNSW-NB15 network intrusion detection
+  dataset   : UNSW-NB15 (real data)
+
+ deduplicated stratified random split | train 113,921 / test 48,824
+  leakage: 3,367 duplicated test row(s) (6.90%), 2,445 conflicting-label 
+vector(s)
+  baseline majority_class   acc=0.5267 f1_macro=0.0690
+  baseline uniform_random   acc=0.0998 f1_macro=0.0646
+  model    random_forest    acc=0.7793 f1_macro=0.5747 recall_macro=0.5948
+  model    lightgbm         acc=0.7936 f1_macro=0.5982 recall_macro=0.6267
+
+ de-duplicated stratified conversation-group split | train 110,481 / test 
+52,264
+  leakage: 0 duplicated test row(s) (0.00%), 2,445 conflicting-label vector(s)
+  baseline majority_class   acc=0.5455 f1_macro=0.0706
+  baseline uniform_random   acc=0.1005 f1_macro=0.0624
+  model    random_forest    acc=0.6763 f1_macro=0.3653 recall_macro=0.4145
+  model    lightgbm         acc=0.6694 f1_macro=0.3729 recall_macro=0.4097
+
+ publisher's own train/test partition, used as released | train 175,341 / test 
+82,332
+  leakage: 8,541 duplicated test row(s) (10.37%), 2,445 conflicting-label 
+vector(s)
+  baseline majority_class   acc=0.4494 f1_macro=0.0620
+  baseline uniform_random   acc=0.1007 f1_macro=0.0668
+  model    random_forest    acc=0.6952 f1_macro=0.5102 recall_macro=0.6074
+  model    lightgbm         acc=0.7027 f1_macro=0.5292 recall_macro=0.6328
+
+Artifacts:
+  - D:\CyberLLM\artifacts\models\nids\lightgbm
+  - D:\CyberLLM\artifacts\reports\unsw_nb15\PROVENANCE.json
+
+Registered model: lightgbm (macro-F1 0.5982) -> 
+D:\CyberLLM\artifacts\models\nids\lightgbm

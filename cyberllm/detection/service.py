@@ -4,6 +4,15 @@ This is the layer the CLI and the API call. It keeps the ordering guarantees
 in one place - inspect before training, de-duplicate before splitting, record
 every transformation - so a caller cannot accidentally skip a step.
 """
+# service.py — CyberLLM phishing detection service
+from features import extract_url_features, model
+import pandas as pd
+
+def analyze_link(url: str) -> str:
+    """Analyze a URL and return safe/malicious classification."""
+    features = pd.DataFrame([extract_url_features(url)])
+    prediction = model.predict(features)[0]
+    return "malicious" if prediction == 1 else "safe"
 
 from __future__ import annotations
 

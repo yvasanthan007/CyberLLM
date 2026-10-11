@@ -1,122 +1,65 @@
-"""Lexical URL features and the heuristic risk score.
-
-Pure functions, no I/O, no network. This module is the safety-critical core
-of phishing analysis: it must be impossible for it to cause a request to be
-made, so it imports nothing that can open a socket.
-
-``heuristic_score`` provides a transparent, model-free risk score. It exists
-so the platform can still give a defensible answer before any classifier is
-trained, and so a classifier's output can be cross-checked against an
-explainable baseline.
-"""
-
+# features.py — CyberLLM phishing link analysis
 from __future__ import annotations
-
-from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from dataclasses import dataclass
 from typing import Any
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import pandas as pd
 
-from ..security.guards import extract_url_features, url_risk_signals
-
-DISCLAIMER = (
-    "Offline lexical analysis. The URL was not visited, resolved or submitted "
-    "to any third party. A phishing score is a triage signal from a model "
-    "trained on historical URL data - it is neither a guarantee nor a "
-    "substitute for analyst review, and false positives on unusual but "
-    "legitimate URLs are expected."
-)
-
-#: Feature vector order. Persisted with the model so inference cannot drift.
-FEATURE_NAMES: tuple[str, ...] = (
-    "url_length", "hostname_length", "path_length", "subdomain_depth",
-    "digit_ratio_host", "special_char_ratio", "suspicious_token_count",
-    "has_https", "has_at_symbol", "has_ip_host", "has_punycode",
-    "has_homoglyph", "is_shortener",
-)
-
-
-def url_to_vector(url: str) -> tuple[list[float], list[dict[str, Any]]]:
-    """Validate a URL and turn it into a numeric feature vector.
-
-    Raises :class:`ValidationError` for anything that is not a well-formed
-    http(s) URL - malformed input must fail loudly rather than be scored.
-    """
-    features = extract_url_features(url)
-    signals = url_risk_signals(features)
-    data = features.as_dict()
-    return [float(data[name]) for name in FEATURE_NAMES], signals
+# Step 1: Define URL feature extraction (simple lexical features)
+def extract_url_features(url: str) -> list[float]:
+    features = []
+    features.append(len(url))  # URL length
+    features.append(url.count('.'))  # subdomain depth
+    features.append(url.count('@'))  # presence of '@'
+    features.append(url.count('-'))  # suspicious characters
+    features.append(url.startswith('https'))  # HTTPS flag
+    features.append(sum(c.isdigit() for c in url))  # number of digits
+    features.append(any(word in url.lower() for word in ['login', 'verify', 'update', 'secure']))  # phishing keywords
+    features.append(url.count('/'))  # number of path segments
+    return features
 
 
-def heuristic_score(signals: list[dict[str, Any]]) -> float:
-    """Transparent risk score in ``[0, 1]`` from the rule signals.
-
-    The rule weights are combined with a saturating sum (``1 - prod(1-w)``)
-    so several weak indicators cannot exceed certainty, and the result is
-    capped at 0.99: a lexical heuristic can raise suspicion but cannot prove
-    intent, so it never claims to.
-    """
-    if not signals:
-        return 0.0
-    complement = 1.0
-    for signal in signals:
-        weight = float(signal.get("weight", 0.0))
-        complement *= max(0.0, 1.0 - min(weight, 0.95))
-    return round(min(0.99, 1.0 - complement), 6)
+# Step 2: Example dataset (replace with your real data)
+data = {
+    "url": [
+        "https://secure-login.com",
+        "http://malicious-site.ru",
+        "https://paypal.com",
+        "http://phishingsite.xyz",
+        "https://google.com"
+    ],
+    "label": [0, 1, 0, 1, 0]  # 0 = safe, 1 = malicious
+}
+# Step 2: Load dataset from CSV file
+df = pd.read_csv("phishing_dataset.csv")
 
 
-@dataclass
-class PhishingVerdict:
-    """A phishing assessment with its reasoning."""
+df = pd.DataFrame(data)
 
-    url: str
-    is_phishing: bool
-    score: float
-    threshold: float
-    signals: list[dict[str, Any]] = field(default_factory=list)
-    features: dict[str, Any] = field(default_factory=dict)
-    model: str = "lexical-heuristic"
-    is_synthetic_model: bool = False
-    method: str = "heuristic"
-    analysed_at: str = field(
-        default_factory=lambda: datetime.now(timezone.utc).isoformat(timespec="seconds")
-    )
-    disclaimer: str = DISCLAIMER
-    #: Recorded explicitly so the UI can state that nothing left the process.
-    network_access: str = "none (fully offline lexical analysis)"
+# Step 3: Convert URLs to feature vectors
+X = df["url"].apply(lambda u: extract_url_features(u)).tolist()
+X = pd.DataFrame(X)
+y = df["label"]
 
-    def as_dict(self) -> dict[str, Any]:
-        return {
-            "url": self.url,
-            "is_phishing": self.is_phishing,
-            "score": round(self.score, 6),
-            "threshold": round(self.threshold, 6),
-            "risk_signals": self.signals,
-            "features": self.features,
-            "model": self.model,
-            "method": self.method,
-            "is_synthetic_model": self.is_synthetic_model,
-            "analysed_at": self.analysed_at,
-            "disclaimer": self.disclaimer,
-            "network_access": self.network_access,
-        }
+# Step 4: Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
+# Step 5: Train Random Forest model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
 
-def analyse_heuristically(url: str, threshold: float = 0.5) -> PhishingVerdict:
-    """Score a URL with no model at all - the always-available baseline."""
-    vector, signals = url_to_vector(url)
-    score = heuristic_score(signals)
-    return PhishingVerdict(
-        url=url,
-        is_phishing=score >= threshold,
-        score=score,
-        threshold=threshold,
-        signals=signals,
-        features=dict(zip(FEATURE_NAMES, vector)),
-        method="heuristic",
-    )
+# Step 6: Evaluate model
+y_pred = model.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, y_pred))
 
+# Step 7: Predict new URL
+new_url = "http://update-login-secure.ru"
+new_features = pd.DataFrame([extract_url_features(new_url)])
+prediction = model.predict(new_features)[0]
 
-__all__ = [
-    "FEATURE_NAMES", "DISCLAIMER", "PhishingVerdict",
-    "url_to_vector", "heuristic_score", "analyse_heuristically",
-]
+if prediction == 1:
+    print(f"⚠️ The URL '{new_url}' is potentially malicious.")
+else:
+    print(f"✅ The URL '{new_url}' appears safe.")

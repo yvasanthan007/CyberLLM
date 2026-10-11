@@ -1,0 +1,43 @@
+12:46:11 INFO     cyberllm.detection.benchmark: audit train
+UNSW_NB15_training-set.csv: 175,341 rows x 45 columns
+  target        : attack_cat
+  dropped       : attack_cat, id, label
+  missing values: 0 | infinite: 0
+  duplicates    : 0 full-row, 74,301 feature-only
+  class distribution:
+    Normal                56,000  (31.94%)
+    Generic               40,000  (22.81%)
+    Exploits              33,393  (19.04%)
+    Fuzzers               18,184  (10.37%)
+    DoS                   12,264  ( 6.99%)
+    Reconnaissance        10,491  ( 5.98%)
+    Analysis               2,000  ( 1.14%)
+    Backdoor               1,746  ( 1.00%)
+    Shellcode              1,133  ( 0.65%)
+    Worms                    130  ( 0.07%)
+  ! no IP/port columns in this file (expected in the released partitions) - conversation grouping falls back to a feature proxy and the model cannot see host or service-port identity
+  ! undocumented column(s) present: spkts, dpkts, rate
+12:46:12 INFO     cyberllm.detection.benchmark: audit test
+UNSW_NB15_testing-set.csv: 82,332 rows x 45 columns
+  target        : attack_cat
+  dropped       : attack_cat, id, label
+  missing values: 0 | infinite: 0
+  duplicates    : 0 full-row, 28,386 feature-only
+  class distribution:
+    Normal                37,000  (44.94%)
+    Generic               18,871  (22.92%)
+    Exploits              11,132  (13.52%)
+    Fuzzers                6,062  ( 7.36%)
+    DoS                    4,089  ( 4.97%)
+    Reconnaissance         3,496  ( 4.25%)
+    Analysis                 677  ( 0.82%)
+    Backdoor                 583  ( 0.71%)
+    Shellcode                378  ( 0.46%)
+    Worms                     44  ( 0.05%)
+  ! no IP/port columns in this file (expected in the released partitions) - conversation grouping falls back to a feature proxy and the model cannot see host or service-port identity
+  ! undocumented column(s) present: spkts, dpkts, rate
+12:48:10 INFO     cyberllm.detection.benchmark: split dedup_random done: {'random_forest': 0.574669, 'lightgbm': 0.598157}
+12:48:43 INFO     cyberllm.detection.benchmark: split grouped done: {'random_forest': 0.365255, 'lightgbm': 0.37294}
+12:49:33 INFO     cyberllm.detection.benchmark: split publisher done: {'random_forest': 0.510195, 'lightgbm': 0.529214}
+12:49:33 INFO     cyberllm.detection.train: saved model bundle to D:\CyberLLM\artifacts\models\nids\lightgbm
+12:49:33 INFO     cyberllm.detection.benchmark: benchmark report written to D:\CyberLLM\artifacts\reports\unsw_nb15\benchmark.json

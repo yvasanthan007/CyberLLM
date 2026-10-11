@@ -7,6 +7,7 @@ Documented commands (all work as written)::
     python -m cyberllm.cli datasets validate [--name N]
     python -m cyberllm.cli datasets preprocess [--name N]
     python -m cyberllm.cli models train --task nids|phishing --data PATH
+    python -m cyberllm.cli models benchmark --dataset unsw_nb15
     python -m cyberllm.cli models evaluate --task nids|phishing
     python -m cyberllm.cli rag ingest [--source NAME] [--rebuild]
     python -m cyberllm.cli rag search "query"
@@ -268,6 +269,88 @@ def models_train(
             console.print(f"[yellow]Hint:[/] {result['setup_hint']}")
         return
     _render_training_report(result)
+
+
+@models_app.command("benchmark")
+def models_benchmark(
+    dataset: str = typer.Option("unsw_nb15", "--dataset", help="Registry dataset id."),
+    algorithms: str = typer.Option(
+        "random_forest,lightgbm", "--algorithms", help="Comma-separated list."),
+    strategies: str = typer.Option(
+        "dedup_random,grouped,publisher", "--strategies",
+        help="Comma-separated split strategies.",
+    ),
+    seed: int = typer.Option(42, "--seed", help="Random seed (recorded in the report)."),
+    test_size: float = typer.Option(0.3, "--test-size", help="Held-out fraction."),
+    max_rows: int = typer.Option(
+        None, "--max-rows", help="Cap rows for a quick run; omit to use everything.",
+    ),
+) -> None:
+    """Run the reproducible real-data benchmark for an acquired dataset.
+
+    Unlike ``models train`` this command audits the data, measures leakage and
+    duplicates across the split, reports per-class metrics and baselines, and
+    writes a report that carries the full configuration. It only produces
+    ``is_synthetic=False`` results and refuses synthetic inputs.
+    """
+    from pathlib import Path
+
+    from .core.config import get_settings
+    from .datasets.registry import get_dataset
+    from .detection.benchmark import BenchmarkConfig, run_benchmark, summarise
+    from .detection.service import detect_synthetic
+
+    try:
+        spec = get_dataset(dataset)
+    except CyberLLMError as exc:
+        _fail(exc.message, "Run `datasets list` to see valid ids.")
+        return
+
+    settings = get_settings()
+    data_dir = settings.paths.raw_dir / spec.name
+    if not data_dir.exists():
+        _fail(
+            f"No real {spec.name} data under {data_dir}.",
+            f"Acquire it first: `datasets download --name {spec.name}`",
+        )
+        return
+
+    # A benchmark that quietly accepted a generated fixture would produce
+    # numbers indistinguishable from real ones. Refuse before doing any work.
+    synthetic_files = [
+        path.name for path in sorted(data_dir.glob("*"))
+        if path.is_file() and detect_synthetic(path)
+    ]
+    if synthetic_files:
+        _fail(
+            f"{data_dir} contains SYNTHETIC fixture(s): "
+            f"{', '.join(synthetic_files)}.",
+            "The benchmark only accepts real data; point it at an acquired "
+            "dataset or move the fixture out of this directory.",
+        )
+        return
+
+    config = BenchmarkConfig(
+        data_dir=Path(data_dir),
+        strategies=tuple(s.strip() for s in strategies.split(",") if s.strip()),
+        algorithms=tuple(a.strip() for a in algorithms.split(",") if a.strip()),
+        seed=seed, test_size=test_size, max_rows=max_rows,
+        out_dir=settings.paths.reports_dir / spec.name,
+        model_dir=settings.paths.models_dir / "nids",
+    )
+    report = run_benchmark(config)
+    if _wants_json():
+        _print_json(report)
+        return
+    console.print(summarise(report))
+    if report.get("artifacts"):
+        console.print("\n[bold]Artifacts:[/]")
+        for artifact in report["artifacts"]:
+            console.print(f"  - {artifact}")
+    if report.get("registered_model"):
+        model = report["registered_model"]
+        console.print(f"\n[green]Registered model:[/] {model['algorithm']} "
+                      f"(macro-F1 {model['f1_macro']:.4f}) -> {model['path']}")
 
 
 def _render_training_report(result: dict) -> None:

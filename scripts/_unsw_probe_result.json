@@ -1,0 +1,136 @@
+{
+  "source_page": "https://research.unsw.edu.au/projects/unsw-nb15-dataset",
+  "download_link": "https://unsw-my.sharepoint.com/:f:/g/personal/z5025758_ad_unsw_edu_au/EnuQZZn3XuNBjgfcUu4DIVMBLCHyoLHqOswirpOQifr1ag?e=gKWkLS",
+  "landing_status": 200,
+  "landing_url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fz5025758_ad_unsw_edu_au%2FDocuments%2FUNSW-NB15%20dataset&ga=1",
+  "cookies": [
+    "FedAuth",
+    "ScaleCompatibilityDeviceId"
+  ],
+  "api_attempts": {
+    "rest_files": {
+      "status": 200,
+      "content_type": "application/json;odata=nometadata;streaming=true;charset=utf",
+      "bytes": 679,
+      "json": {
+        "value": [
+          {
+            "CheckInComment": "",
+            "CheckOutType": 2,
+            "ContentTag": "{CE660296-CE65-4843-AAC0-622F7B5F43FB},1,1",
+            "CustomizedPageStatus": 0,
+            "ETag": "\"{CE660296-CE65-4843-AAC0-622F7B5F43FB},1\"",
+            "Exists": true,
+            "ExistsAllowThrowForPolicyFailures": true,
+            "ExistsWithException": true,
+            "IrmEnabled": false,
+            "Length": "38849",
+            "Level": 1,
+            "LinkingUri": null,
+            "LinkingUrl": "",
+            "MajorVersion": 1,
+            "MinorVersion": 0,
+            "Name": "ReadMe.pdf",
+            "ServerRelativeUrl": "/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/ReadMe.pdf",
+            "TimeCreated": "2024-02-09T00:29:36Z",
+            "TimeLastModified": "2024-02-09T00:29:36Z",
+            "Title": null,
+            "UIVersion": 512,
+            "UIVersionLabel": "1.0",
+            "UniqueId": "ce660296-ce65-4843-aac0-622f7b5f43fb"
+          }
+        ]
+      }
+    },
+    "rest_folders": {
+      "status": 200,
+      "content_type": "application/json;odata=nometadata;streaming=true;charset=utf",
+      "bytes": 1978,
+      "json": {
+        "value": [
+          {
+            "Exists": true,
+            "ExistsAllowThrowForPolicyFailures": true,
+            "ExistsWithException": true,
+            "IsWOPIEnabled": false,
+            "ItemCount": 9,
+            "Name": "CSV Files",
+            "ProgID": null,
+            "ServerRelativeUrl": "/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files",
+            "TimeCreated": "2024-02-08T22:25:43Z",
+            "TimeLastModified": "2024-02-09T00:29:32Z",
+            "UniqueId": "d3349891-66c6-42fe-b8ed-77ba7d29ebe6",
+            "WelcomePage": ""
+          },
+          {
+            "Exists": true,
+            "ExistsAllowThrowForPolicyFailures": true,
+            "ExistsWithException": true,
+            "IsWOPIEnabled": false,
+            "ItemCount": 2,
+            "Name": "BRO Files",
+            "ProgID": null,
+            "ServerRelativeUrl": "/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/BRO Files",
+            "TimeCreated": "2024-02-08T22:23:38Z",
+            "TimeLastModified": "2024-02-08T22:23:39Z",
+            "UniqueId": "9646e68c-318c-410d-a2ab-d95505ced3ea",
+            "WelcomePage": ""
+          },
+          {
+            "Exists": true,
+            "ExistsAllowThrowForPolicyFailures": true,
+            "ExistsWithException": true,
+            "IsWOPIEnabled": false,
+            "ItemCount": 2,
+            "Name": "pcap files",
+            "ProgID": null,
+            "ServerRelativeUrl": "/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files",
+            "TimeCreated": "2024-02-08T22:23:57Z",
+            "TimeLastModified": "2024-02-08T22:23:58Z",
+            "UniqueId": "cc96affb-be05-4686-82e4-e62af70f618c",
+            "WelcomePage": ""
+          },
+          {
+            "Exists": true,
+            "ExistsAllowThrowForPolicyFailures": true,
+            "ExistsWithException": true,
+            "IsWOPIEnabled": false,
+            "ItemCount": 2,
+            "Name": "Argus Files",
+            "ProgID": null,
+            "ServerRelativeUrl": "/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files",
+            "TimeCreated": "2024-02-08T22:23:24Z",
+            "TimeLastModified": "2024-02-08T22:23:25Z",
+            "UniqueId": "3dfe505d-dd7a-4658-b197-f6b197b1c214",
+            "WelcomePage": ""
+          },
+          {
+            "Exists": true,
+            "ExistsAllowThrowForPolicyFailures": true,
+            "ExistsWithException": true,
+            "IsWOPIEnabled": false,
+            "ItemCount": 2,
+            "Name": "Reports",
+            "ProgID": null,
+            "ServerRelativeUrl": "/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Reports",
+            "TimeCreated": "2024-02-08T22:24:13Z",
+            "TimeLastModified": "2024-02-09T00:28:34Z",
+            "UniqueId": "21b8fa7a-c6fe-4a22-bedd-fa242208d411",
+            "WelcomePage": ""
+          }
+        ]
+      }
+    },
+    "onedrive_root": {
+      "status": 400,
+      "content_type": "application/json;odata.metadata=minimal;odata.streaming=true",
+      "bytes": 131,
+      "json": {
+        "error": {
+          "code": "invalidRequest",
+          "message": "The provided drive id appears to be malformed, or does not represent a valid drive."
+        }
+      }
+    }
+  }
+}

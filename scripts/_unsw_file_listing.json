@@ -1,0 +1,1263 @@
+[
+  {
+    "kind": "file",
+    "name": "ReadMe.pdf",
+    "bytes": 38849,
+    "modified": "2024-02-09T00:29:36Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/ReadMe.pdf?download=1"
+  },
+  {
+    "kind": "folder",
+    "name": "CSV Files",
+    "item_count": 9
+  },
+  {
+    "kind": "file",
+    "name": "UNSW-NB15_4.csv",
+    "bytes": 97588754,
+    "modified": "2024-02-09T00:29:32Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/UNSW-NB15_4.csv?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "NUSW-NB15_GT.csv",
+    "bytes": 86426111,
+    "modified": "2024-02-09T00:28:53Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/NUSW-NB15_GT.csv?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "UNSW-NB15_LIST_EVENTS.csv",
+    "bytes": 4639,
+    "modified": "2024-02-09T00:29:32Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/UNSW-NB15_LIST_EVENTS.csv?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "NUSW-NB15_features.csv",
+    "bytes": 4044,
+    "modified": "2024-02-09T00:28:35Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/NUSW-NB15_features.csv?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "UNSW-NB15_1.csv",
+    "bytes": 168979718,
+    "modified": "2024-02-09T00:29:18Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/UNSW-NB15_1.csv?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "The UNSW-NB15 description.pdf",
+    "bytes": 189112,
+    "modified": "2024-02-09T00:28:54Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/The UNSW-NB15 description.pdf?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "UNSW-NB15_2.csv",
+    "bytes": 165221021,
+    "modified": "2024-02-09T00:29:23Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/UNSW-NB15_2.csv?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "UNSW-NB15_3.csv",
+    "bytes": 154588103,
+    "modified": "2024-02-09T00:29:32Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/UNSW-NB15_3.csv?download=1"
+  },
+  {
+    "kind": "folder",
+    "name": "Training and Testing Sets",
+    "item_count": 2
+  },
+  {
+    "kind": "file",
+    "name": "UNSW_NB15_training-set.csv",
+    "bytes": 32293018,
+    "modified": "2024-02-09T00:29:36Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/Training and Testing Sets/UNSW_NB15_training-set.csv?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "UNSW_NB15_testing-set.csv",
+    "bytes": 15380800,
+    "modified": "2024-02-09T00:29:37Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/CSV Files/Training and Testing Sets/UNSW_NB15_testing-set.csv?download=1"
+  },
+  {
+    "kind": "folder",
+    "name": "BRO Files",
+    "item_count": 2
+  },
+  {
+    "kind": "folder",
+    "name": "BRO Files 17-2-2015",
+    "item_count": 27
+  },
+  {
+    "kind": "folder",
+    "name": "15",
+    "item_count": 14
+  },
+  {
+    "kind": "folder",
+    "name": "2",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "3",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "9",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "12",
+    "item_count": 14
+  },
+  {
+    "kind": "folder",
+    "name": "24",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "18",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "5",
+    "item_count": 17
+  },
+  {
+    "kind": "folder",
+    "name": "17",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "27",
+    "item_count": 12
+  },
+  {
+    "kind": "folder",
+    "name": "11",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "26",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "21",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "13",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "19",
+    "item_count": 17
+  },
+  {
+    "kind": "folder",
+    "name": "7",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "14",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "25",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "20",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "1",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "16",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "23",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "22",
+    "item_count": 14
+  },
+  {
+    "kind": "folder",
+    "name": "4",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "6",
+    "item_count": 16
+  },
+  {
+    "kind": "folder",
+    "name": "8",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "10",
+    "item_count": 17
+  },
+  {
+    "kind": "folder",
+    "name": "BRO Files 22-1-2015",
+    "item_count": 18
+  },
+  {
+    "kind": "folder",
+    "name": "14",
+    "item_count": 10
+  },
+  {
+    "kind": "folder",
+    "name": "8",
+    "item_count": 9
+  },
+  {
+    "kind": "folder",
+    "name": "3",
+    "item_count": 3
+  },
+  {
+    "kind": "folder",
+    "name": "6",
+    "item_count": 11
+  },
+  {
+    "kind": "folder",
+    "name": "16",
+    "item_count": 10
+  },
+  {
+    "kind": "folder",
+    "name": "1",
+    "item_count": 17
+  },
+  {
+    "kind": "folder",
+    "name": "17",
+    "item_count": 9
+  },
+  {
+    "kind": "folder",
+    "name": "9",
+    "item_count": 10
+  },
+  {
+    "kind": "folder",
+    "name": "7",
+    "item_count": 10
+  },
+  {
+    "kind": "folder",
+    "name": "5",
+    "item_count": 10
+  },
+  {
+    "kind": "folder",
+    "name": "10",
+    "item_count": 9
+  },
+  {
+    "kind": "folder",
+    "name": "18",
+    "item_count": 9
+  },
+  {
+    "kind": "folder",
+    "name": "2",
+    "item_count": 15
+  },
+  {
+    "kind": "folder",
+    "name": "15",
+    "item_count": 10
+  },
+  {
+    "kind": "folder",
+    "name": "11",
+    "item_count": 11
+  },
+  {
+    "kind": "folder",
+    "name": "13",
+    "item_count": 9
+  },
+  {
+    "kind": "folder",
+    "name": "12",
+    "item_count": 10
+  },
+  {
+    "kind": "folder",
+    "name": "4",
+    "item_count": 10
+  },
+  {
+    "kind": "folder",
+    "name": "pcap files",
+    "item_count": 2
+  },
+  {
+    "kind": "folder",
+    "name": "pcaps 17-2-2015",
+    "item_count": 27
+  },
+  {
+    "kind": "file",
+    "name": "8.pcap",
+    "bytes": 2000000016,
+    "modified": "2024-02-08T23:44:22Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/8.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "17.pcap",
+    "bytes": 2000001268,
+    "modified": "2024-02-08T23:20:49Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/17.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "25.pcap",
+    "bytes": 2000000161,
+    "modified": "2024-02-08T23:37:45Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/25.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "2.pcap",
+    "bytes": 2000001364,
+    "modified": "2024-02-08T23:29:24Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/2.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "20.pcap",
+    "bytes": 2000000015,
+    "modified": "2024-02-08T23:26:34Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/20.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "16.pcap",
+    "bytes": 2000000702,
+    "modified": "2024-02-08T23:24:57Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/16.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "22.pcap",
+    "bytes": 2000000400,
+    "modified": "2024-02-08T23:31:09Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/22.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "1.pcap",
+    "bytes": 2000000048,
+    "modified": "2024-02-08T23:08:32Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/1.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "21.pcap",
+    "bytes": 2000001451,
+    "modified": "2024-02-08T23:32:32Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/21.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "15.pcap",
+    "bytes": 2000001401,
+    "modified": "2024-02-08T23:20:34Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/15.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "7.pcap",
+    "bytes": 2000001207,
+    "modified": "2024-02-08T23:43:53Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/7.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "19.pcap",
+    "bytes": 2000000351,
+    "modified": "2024-02-08T23:23:55Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/19.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "6.pcap",
+    "bytes": 2000000521,
+    "modified": "2024-02-08T23:41:38Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/6.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "23.pcap",
+    "bytes": 2000000216,
+    "modified": "2024-02-08T23:32:39Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/23.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "9.pcap",
+    "bytes": 2000000642,
+    "modified": "2024-02-08T23:45:51Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/9.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "12.pcap",
+    "bytes": 2000001051,
+    "modified": "2024-02-08T23:15:13Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/12.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "3.pcap",
+    "bytes": 2000001175,
+    "modified": "2024-02-08T23:39:02Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/3.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "13.pcap",
+    "bytes": 2000001262,
+    "modified": "2024-02-08T23:15:23Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/13.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "5.pcap",
+    "bytes": 2000000838,
+    "modified": "2024-02-08T23:40:40Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/5.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "24.pcap",
+    "bytes": 2000000547,
+    "modified": "2024-02-08T23:34:16Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/24.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "26.pcap",
+    "bytes": 2000000687,
+    "modified": "2024-02-08T23:38:03Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/26.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "10.pcap",
+    "bytes": 2000000053,
+    "modified": "2024-02-08T23:12:05Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/10.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "11.pcap",
+    "bytes": 2000000224,
+    "modified": "2024-02-08T23:08:32Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/11.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "27.pcap",
+    "bytes": 596074496,
+    "modified": "2024-02-08T23:35:36Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/27.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "18.pcap",
+    "bytes": 2000000178,
+    "modified": "2024-02-08T23:23:44Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/18.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "14.pcap",
+    "bytes": 2000000111,
+    "modified": "2024-02-08T23:16:17Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/14.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "4.pcap",
+    "bytes": 2000000017,
+    "modified": "2024-02-08T23:40:28Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 17-2-2015/4.pcap?download=1"
+  },
+  {
+    "kind": "folder",
+    "name": "pcaps 22-1-2015",
+    "item_count": 53
+  },
+  {
+    "kind": "file",
+    "name": "21.pcap",
+    "bytes": 1028743892,
+    "modified": "2024-02-08T23:55:00Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/21.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "29.pcap",
+    "bytes": 1029534980,
+    "modified": "2024-02-09T00:01:36Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/29.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "46.pcap",
+    "bytes": 1029000080,
+    "modified": "2024-02-09T00:20:51Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/46.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "52.pcap",
+    "bytes": 1028743892,
+    "modified": "2024-02-09T00:23:52Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/52.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "32.pcap",
+    "bytes": 1028743892,
+    "modified": "2024-02-09T00:04:57Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/32.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "33.pcap",
+    "bytes": 1028181760,
+    "modified": "2024-02-09T00:06:30Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/33.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "23.pcap",
+    "bytes": 1029096252,
+    "modified": "2024-02-08T23:56:45Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/23.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "44.pcap",
+    "bytes": 1028317452,
+    "modified": "2024-02-09T00:15:38Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/44.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "45.pcap",
+    "bytes": 1029676040,
+    "modified": "2024-02-09T00:17:13Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/45.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "48.pcap",
+    "bytes": 1030509848,
+    "modified": "2024-02-09T00:19:19Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/48.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "47.pcap",
+    "bytes": 1029687268,
+    "modified": "2024-02-09T00:19:03Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/47.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "7.pcap",
+    "bytes": 1029959340,
+    "modified": "2024-02-09T00:28:11Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/7.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "41.pcap",
+    "bytes": 1032461900,
+    "modified": "2024-02-09T00:12:59Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/41.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "10.pcap",
+    "bytes": 1000001192,
+    "modified": "2024-02-08T23:45:59Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/10.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "17.pcap",
+    "bytes": 1030213624,
+    "modified": "2024-02-08T23:50:49Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/17.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "14.pcap",
+    "bytes": 1028986624,
+    "modified": "2024-02-08T23:49:03Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/14.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "42.pcap",
+    "bytes": 1029065668,
+    "modified": "2024-02-09T00:13:05Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/42.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "6.pcap",
+    "bytes": 1028295840,
+    "modified": "2024-02-09T00:28:18Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/6.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "27.pcap",
+    "bytes": 1028678596,
+    "modified": "2024-02-09T00:00:47Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/27.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "4.pcap",
+    "bytes": 1000000277,
+    "modified": "2024-02-09T00:11:03Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/4.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "26.pcap",
+    "bytes": 1030712176,
+    "modified": "2024-02-08T23:58:31Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/26.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "36.pcap",
+    "bytes": 1030369756,
+    "modified": "2024-02-09T00:08:39Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/36.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "25.pcap",
+    "bytes": 1029881776,
+    "modified": "2024-02-08T23:58:16Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/25.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "31.pcap",
+    "bytes": 1031926768,
+    "modified": "2024-02-09T00:04:35Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/31.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "28.pcap",
+    "bytes": 1029165796,
+    "modified": "2024-02-09T00:01:28Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/28.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "24.pcap",
+    "bytes": 1029809696,
+    "modified": "2024-02-08T23:58:36Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/24.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "37.pcap",
+    "bytes": 1030400572,
+    "modified": "2024-02-09T00:08:59Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/37.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "18.pcap",
+    "bytes": 1029238692,
+    "modified": "2024-02-08T23:52:14Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/18.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "40.pcap",
+    "bytes": 1030546968,
+    "modified": "2024-02-09T00:14:23Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/40.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "30.pcap",
+    "bytes": 1029949252,
+    "modified": "2024-02-09T00:04:16Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/30.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "50.pcap",
+    "bytes": 1030494104,
+    "modified": "2024-02-09T00:23:37Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/50.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "22.pcap",
+    "bytes": 1029011312,
+    "modified": "2024-02-08T23:55:18Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/22.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "1.pcap",
+    "bytes": 1000000847,
+    "modified": "2024-02-08T23:45:40Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/1.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "15.pcap",
+    "bytes": 1000000964,
+    "modified": "2024-02-08T23:49:17Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/15.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "11.pcap",
+    "bytes": 1000000075,
+    "modified": "2024-02-08T23:47:21Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/11.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "53.pcap",
+    "bytes": 649457304,
+    "modified": "2024-02-09T00:25:28Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/53.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "49.pcap",
+    "bytes": 1030485472,
+    "modified": "2024-02-09T00:21:02Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/49.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "12.pcap",
+    "bytes": 1000001417,
+    "modified": "2024-02-08T23:47:34Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/12.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "39.pcap",
+    "bytes": 1029212604,
+    "modified": "2024-02-09T00:11:03Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/39.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "2.pcap",
+    "bytes": 1000000159,
+    "modified": "2024-02-08T23:52:57Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/2.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "43.pcap",
+    "bytes": 1027982068,
+    "modified": "2024-02-09T00:15:39Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/43.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "38.pcap",
+    "bytes": 1030708608,
+    "modified": "2024-02-09T00:10:49Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/38.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "8.pcap",
+    "bytes": 1000001035,
+    "modified": "2024-02-09T00:29:06Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/8.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "19.pcap",
+    "bytes": 1028414664,
+    "modified": "2024-02-08T23:51:25Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/19.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "13.pcap",
+    "bytes": 1028497020,
+    "modified": "2024-02-08T23:47:54Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/13.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "51.pcap",
+    "bytes": 1029098860,
+    "modified": "2024-02-09T00:26:37Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/51.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "20.pcap",
+    "bytes": 1030212288,
+    "modified": "2024-02-08T23:55:19Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/20.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "3.pcap",
+    "bytes": 1000000694,
+    "modified": "2024-02-09T00:02:47Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/3.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "9.pcap",
+    "bytes": 1000001414,
+    "modified": "2024-02-09T00:29:40Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/9.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "16.pcap",
+    "bytes": 1030797880,
+    "modified": "2024-02-08T23:49:40Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/16.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "5.pcap",
+    "bytes": 1000000832,
+    "modified": "2024-02-09T00:21:08Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/5.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "34.pcap",
+    "bytes": 1029400540,
+    "modified": "2024-02-09T00:07:28Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/34.pcap?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "35.pcap",
+    "bytes": 1028184240,
+    "modified": "2024-02-09T00:06:57Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/pcap files/pcaps 22-1-2015/35.pcap?download=1"
+  },
+  {
+    "kind": "folder",
+    "name": "Argus Files",
+    "item_count": 2
+  },
+  {
+    "kind": "folder",
+    "name": "Argus Files 22-1-2015",
+    "item_count": 19
+  },
+  {
+    "kind": "file",
+    "name": "16.argus",
+    "bytes": 15861308,
+    "modified": "2024-02-08T23:01:05Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/16.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "5.argus",
+    "bytes": 15197000,
+    "modified": "2024-02-08T23:01:09Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/5.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "18.argus",
+    "bytes": 8205264,
+    "modified": "2024-02-08T23:01:06Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/18.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "1.argus",
+    "bytes": 15568844,
+    "modified": "2024-02-08T23:01:00Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/1.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "4.argus",
+    "bytes": 16003368,
+    "modified": "2024-02-08T23:01:08Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/4.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "6.argus",
+    "bytes": 16128320,
+    "modified": "2024-02-08T23:01:09Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/6.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "17.argus",
+    "bytes": 16554048,
+    "modified": "2024-02-08T23:01:07Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/17.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "7.argus",
+    "bytes": 14863024,
+    "modified": "2024-02-08T23:01:10Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/7.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "10.argus",
+    "bytes": 14930444,
+    "modified": "2024-02-08T23:01:00Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/10.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "13.argus",
+    "bytes": 16451248,
+    "modified": "2024-02-08T23:01:03Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/13.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "2.argus",
+    "bytes": 15535096,
+    "modified": "2024-02-08T23:01:07Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/2.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "12.argus",
+    "bytes": 15506372,
+    "modified": "2024-02-08T23:01:02Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/12.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "15.argus",
+    "bytes": 14278828,
+    "modified": "2024-02-08T23:01:04Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/15.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "8.argus",
+    "bytes": 15237352,
+    "modified": "2024-02-08T23:01:11Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/8.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "14.argus",
+    "bytes": 18033356,
+    "modified": "2024-02-08T23:01:04Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/14.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "3.argus",
+    "bytes": 15807332,
+    "modified": "2024-02-08T23:01:08Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/3.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "11.argus",
+    "bytes": 15994340,
+    "modified": "2024-02-08T23:01:00Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/11.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "9.argus",
+    "bytes": 15818392,
+    "modified": "2024-02-08T23:01:12Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 22-1-2015/9.argus?download=1"
+  },
+  {
+    "kind": "folder",
+    "name": "CSV of Argus",
+    "item_count": 18
+  },
+  {
+    "kind": "folder",
+    "name": "Argus Files 17-2-2015",
+    "item_count": 28
+  },
+  {
+    "kind": "file",
+    "name": "26.argus",
+    "bytes": 11196128,
+    "modified": "2024-02-08T23:01:22Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/26.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "19.argus",
+    "bytes": 9526304,
+    "modified": "2024-02-08T23:01:18Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/19.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "20.argus",
+    "bytes": 10950960,
+    "modified": "2024-02-08T23:01:18Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/20.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "17.argus",
+    "bytes": 9744132,
+    "modified": "2024-02-08T23:01:16Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/17.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "18.argus",
+    "bytes": 8963584,
+    "modified": "2024-02-08T23:01:16Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/18.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "1.argus",
+    "bytes": 11641780,
+    "modified": "2024-02-08T23:01:12Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/1.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "14.argus",
+    "bytes": 9731244,
+    "modified": "2024-02-08T23:01:14Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/14.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "6.argus",
+    "bytes": 10859512,
+    "modified": "2024-02-08T23:01:24Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/6.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "7.argus",
+    "bytes": 10436544,
+    "modified": "2024-02-08T23:01:24Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/7.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "15.argus",
+    "bytes": 9733624,
+    "modified": "2024-02-08T23:01:15Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/15.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "4.argus",
+    "bytes": 10747368,
+    "modified": "2024-02-08T23:01:23Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/4.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "5.argus",
+    "bytes": 10421816,
+    "modified": "2024-02-08T23:01:23Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/5.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "12.argus",
+    "bytes": 10552228,
+    "modified": "2024-02-08T23:01:13Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/12.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "9.argus",
+    "bytes": 11162044,
+    "modified": "2024-02-08T23:01:26Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/9.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "13.argus",
+    "bytes": 11203124,
+    "modified": "2024-02-08T23:01:14Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/13.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "11.argus",
+    "bytes": 10559208,
+    "modified": "2024-02-08T23:01:13Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/11.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "24.argus",
+    "bytes": 10803164,
+    "modified": "2024-02-08T23:01:21Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/24.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "25.argus",
+    "bytes": 11170256,
+    "modified": "2024-02-08T23:01:21Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/25.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "22.argus",
+    "bytes": 13442080,
+    "modified": "2024-02-08T23:01:21Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/22.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "23.argus",
+    "bytes": 9605056,
+    "modified": "2024-02-08T23:01:20Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/23.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "27.argus",
+    "bytes": 3166236,
+    "modified": "2024-02-08T23:01:22Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/27.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "16.argus",
+    "bytes": 11482964,
+    "modified": "2024-02-08T23:01:16Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/16.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "10.argus",
+    "bytes": 10113984,
+    "modified": "2024-02-08T23:01:12Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/10.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "8.argus",
+    "bytes": 10162836,
+    "modified": "2024-02-08T23:01:25Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/8.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "2.argus",
+    "bytes": 9432860,
+    "modified": "2024-02-08T23:01:18Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/2.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "21.argus",
+    "bytes": 11077800,
+    "modified": "2024-02-08T23:01:19Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/21.argus?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "3.argus",
+    "bytes": 10953608,
+    "modified": "2024-02-08T23:01:23Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Argus Files/Argus Files 17-2-2015/3.argus?download=1"
+  },
+  {
+    "kind": "folder",
+    "name": "CSV of Argus",
+    "item_count": 27
+  },
+  {
+    "kind": "folder",
+    "name": "Reports",
+    "item_count": 2
+  },
+  {
+    "kind": "file",
+    "name": "report 17-2-2015.pdf",
+    "bytes": 54270656,
+    "modified": "2024-02-09T00:28:26Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Reports/report 17-2-2015.pdf?download=1"
+  },
+  {
+    "kind": "file",
+    "name": "report 22-1-2015.pdf",
+    "bytes": 20468347,
+    "modified": "2024-02-09T00:28:34Z",
+    "url": "https://unsw-my.sharepoint.com/personal/z5025758_ad_unsw_edu_au/personal/z5025758_ad_unsw_edu_au/Documents/UNSW-NB15 dataset/Reports/report 22-1-2015.pdf?download=1"
+  }
+]

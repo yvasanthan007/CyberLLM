@@ -1,0 +1,7 @@
+url,label
+https://google.com,0
+https://paypal.com,0
+http://malicious-site.ru,1
+http://phishingsite.xyz,1
+https://secure-login.com,0
+http://update-login-secure.ru,1

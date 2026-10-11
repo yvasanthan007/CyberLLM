@@ -32,9 +32,16 @@ logger = get_logger("detection.preprocess")
 #: Column names that must never become features.
 #:  - the label itself (obviously)
 #:  - ids that are unique per flow and would let the model memorise rows
+#:  - *any* column that trivially encodes the label
+#:
+#: ``attack cat`` is the important addition found by auditing real UNSW-NB15
+#: data: its ``attack_cat`` column is in 1:1 correspondence with the binary
+#: ``label`` column (Normal -> 0, every attack family -> 1). Leaving it in made
+#: a trivially-separable leak look like a strong result.
 LEAKAGE_COLUMNS = {
     "label", "labels", "class", "attack", "attacktype", "attack_type",
-    "category", "id", "flowid", "flow_id", "srcipport", "dstipport",
+    "attack cat", "attackcat", "attack category", "category",
+    "id", "flowid", "flow_id", "srcipport", "dstipport",
     "timestamp", "ts", "expiration", "flowstartmillis", "flowstarmillis",
     "flowendmillis", "stime", "ltime", "fwdflags", "bwdflags",
     "sourceip", "destip", "srcip", "dstip", "srcport", "dstport",
@@ -72,10 +79,27 @@ COLUMN_ALIASES: dict[str, tuple[str, ...]] = {
 #: Irregular whitespace / stray characters in published CSV headers.
 _HEADER_CLEAN_RE = re.compile(r"[\s_\-]+")
 
+#: Byte-order marks and zero-width characters that ride along with the first
+#: column name. UNSW-NB15's CSVs are written with a UTF-8 BOM, which turns
+#: ``id`` into ``\ufeffid`` and silently defeats every column-name match.
+_INVISIBLE_CHARS = "\ufeff\u200b\u200c\u200d\u2060"
+_INVISIBLE_TABLE = {ord(c): None for c in _INVISIBLE_CHARS}
+
+
+def strip_invisible(name: str) -> str:
+    """Remove BOM/zero-width characters from a raw header cell."""
+    return str(name).translate(_INVISIBLE_TABLE)
+
 
 def canonical_column(name: str) -> str:
-    """Normalise a raw column name to a stable lowercase key."""
-    cleaned = str(name).strip().lower()
+    """Normalise a raw column name to a stable lowercase key.
+
+    Strips a BOM and other invisible characters first: several published IDS
+    CSVs begin with one, and a BOM makes ``id`` fail to match the leakage
+    blocklist - which is exactly the kind of failure that silently removes
+    the protection instead of raising.
+    """
+    cleaned = strip_invisible(name).strip().lower()
     cleaned = _HEADER_CLEAN_RE.sub(" ", cleaned).strip()
     return cleaned
 
@@ -174,8 +198,11 @@ def inspect_csv(path: Path, *, label_column: str | None = None,
         raise ValidationError(f"Flow CSV not found: {path}")
 
     report = SchemaReport(file=path.name)
-    frame = pd.read_csv(path, nrows=max_rows, low_memory=False)
-    frame.columns = [str(c).strip() for c in frame.columns]
+    frame = pd.read_csv(path, nrows=max_rows, low_memory=False,
+                        encoding="utf-8", encoding_errors="replace")
+    # A UTF-8 BOM on the first header cell would rename `id` to `\ufeffid` and
+    # quietly bypass the leakage blocklist, so headers are cleaned on read.
+    frame.columns = [strip_invisible(c).strip() for c in frame.columns]
 
     report.rows = int(len(frame))
     report.columns = list(frame.columns)
@@ -410,21 +437,14 @@ def prepare_flow_data(
                 f"replaced {inf_count:,} infinite value(s) with NaN for imputation"
             )
 
-    nulls = int(feature_frame.isna().sum().sum())
-    if nulls:
-        medians = feature_frame.median(numeric_only=True)
-        feature_frame = feature_frame.fillna(medians).fillna(0.0)
-        transformations.append(f"median-imputed {nulls:,} missing value(s)")
-
     labels = sorted(set(map(str, y)))
     label_encoder = {name: i for i, name in enumerate(labels)}
     y_encoded = y.astype(str).map(label_encoder).astype("int64")
     class_distribution = {str(k): int(v) for k, v in y.value_counts().to_dict().items()}
 
     can_stratify = len(class_distribution) >= 2 and min(class_distribution.values()) >= 2
-    X_train, X_test, y_train, y_test = train_test_split(
-        feature_frame.to_numpy(dtype="float32"),
-        y_encoded.to_numpy(),
+    train_idx, test_idx = train_test_split(
+        np.arange(len(feature_frame)),
         test_size=test_size, random_state=seed,
         stratify=y_encoded if can_stratify else None,
     )
@@ -434,6 +454,24 @@ def prepare_flow_data(
         f"random train/test split {1 - test_size:.0%}/{test_size:.0%} (seed={seed}); "
         "stratification skipped - a class has fewer than 2 members"
     )
+
+    # Imputation is fitted on the TRAINING ROWS ONLY. Computing the medians
+    # over the whole frame lets the test split influence the transformation
+    # the model is fitted with, which is a (small but real) form of leakage
+    # and makes the reported test score optimistic.
+    train_frame = feature_frame.iloc[train_idx]
+    nulls = int(train_frame.isna().sum().sum())
+    if nulls:
+        medians = train_frame.median(numeric_only=True)
+        feature_frame = feature_frame.fillna(medians).fillna(0.0)
+        transformations.append(
+            f"median-imputed {nulls:,} missing value(s) using training-split medians"
+        )
+
+    X_train = feature_frame.iloc[train_idx].to_numpy(dtype="float32")
+    X_test = feature_frame.iloc[test_idx].to_numpy(dtype="float32")
+    y_train = y_encoded.iloc[train_idx].to_numpy()
+    y_test = y_encoded.iloc[test_idx].to_numpy()
 
     return PreparedData(
         X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test,
@@ -450,6 +488,7 @@ def prepare_flow_data(
 __all__ = [
     "SchemaReport", "PreparedData", "inspect_csv", "prepare_flow_data",
     "canonical_column", "identify_label_column", "map_columns",
-    "normalise_labels", "file_sha256", "LEAKAGE_COLUMNS", "COLUMN_ALIASES",
+    "normalise_labels", "file_sha256", "strip_invisible",
+    "LEAKAGE_COLUMNS", "COLUMN_ALIASES",
 ]
 

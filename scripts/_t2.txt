@@ -1,0 +1,11 @@
+..............................                                           [100%]
+============================= slowest 8 durations =============================
+8.85s call     tests/test_unsw_benchmark.py::test_report_records_the_full_configuration_and_citation
+2.63s call     tests/test_unsw_benchmark.py::test_benchmark_end_to_end_produces_a_real_data_report
+2.60s call     tests/test_unsw_benchmark.py::test_prepare_flow_data_drops_attack_cat_from_features
+0.51s call     tests/test_unsw_benchmark.py::test_grouped_split_holds_out_whole_conversations
+0.25s call     tests/test_unsw_benchmark.py::test_audit_excludes_a_bom_prefixed_identifier_from_the_overlap_count
+0.12s call     tests/test_unsw_benchmark.py::test_audit_names_a_dropped_column_that_is_an_answer_key
+0.12s call     tests/test_unsw_benchmark.py::test_audit_reports_conflicting_labels_and_cross_split_duplicates
+0.08s call     tests/test_unsw_benchmark.py::test_grouped_split_reports_classes_it_cannot_place_on_both_sides
+30 passed in 17.05s

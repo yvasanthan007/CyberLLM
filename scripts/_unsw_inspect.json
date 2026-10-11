@@ -1,0 +1,110 @@
+=== raw header of the first data line of each file ===
+NUSW-NB15_features.csv: No.,Name,Type ,Description
+UNSW_NB15_training-set.csv: ﻿id,dur,proto,service,state,spkts,dpkts,sbytes,dbytes,rate,sttl,dttl,sload,dload,sloss,dloss,sinpkt,dinpkt,sjit,djit,swin,stcpb,dtcpb,dwin,tcprtt,synack,ackdat,smean,dmean,trans_depth,response_body_len,ct_srv_src,ct_state_ttl,ct_dst_ltm,ct_src_dport_ltm,ct_dst_sport_ltm,ct_dst_src_ltm,is_ftp_login,ct_ftp_cmd,ct_flw_http_mthd,ct_src_ltm,ct_srv_dst,is_sm_ips_ports,attack_cat,label
+UNSW_NB15_testing-set.csv: ﻿id,dur,proto,service,state,spkts,dpkts,sbytes,dbytes,rate,sttl,dttl,sload,dload,sloss,dloss,sinpkt,dinpkt,sjit,djit,swin,stcpb,dtcpb,dwin,tcprtt,synack,ackdat,smean,dmean,trans_depth,response_body_len,ct_srv_src,ct_state_ttl,ct_dst_ltm,ct_src_dport_ltm,ct_dst_sport_ltm,ct_dst_src_ltm,is_ftp_login,ct_ftp_cmd,ct_flw_http_mthd,ct_src_ltm,ct_srv_dst,is_sm_ips_ports,attack_cat,label
+
+=== feature dictionary ===
+    No.              Name      Type                                                                                                                                                          Description
+0     1             srcip    nominal                                                                                                                                                   Source IP address
+1     2             sport    integer                                                                                                                                                  Source port number
+2     3             dstip    nominal                                                                                                                                              Destination IP address
+3     4            dsport    integer                                                                                                                                             Destination port number
+4     5             proto    nominal                                                                                                                                                Transaction protocol
+5     6             state    nominal      Indicates to the state and its dependent protocol, e.g. ACC, CLO, CON, ECO, ECR, FIN, INT, MAS, PAR, REQ, RST, TST, TXD, URH, URN, and (-) (if not used state)
+6     7               dur      Float                                                                                                                                               Record total duration
+7     8            sbytes    Integer                                                                                                                            Source to destination transaction bytes 
+8     9            dbytes    Integer                                                                                                                             Destination to source transaction bytes
+9    10              sttl    Integer                                                                                                                           Source to destination time to live value 
+10   11              dttl    Integer                                                                                                                            Destination to source time to live value
+11   12             sloss    Integer                                                                                                                            Source packets retransmitted or dropped 
+12   13             dloss    Integer                                                                                                                        Destination packets retransmitted or dropped
+13   14           service    nominal                                                                                          http, ftp, smtp, ssh, dns, ftp-data ,irc  and (-) if not much used service
+14   15             Sload      Float                                                                                                                                              Source bits per second
+15   16             Dload      Float                                                                                                                                         Destination bits per second
+16   17             Spkts    integer                                                                                                                                 Source to destination packet count 
+17   18             Dpkts    integer                                                                                                                                  Destination to source packet count
+18   19              swin    integer                                                                                                                               Source TCP window advertisement value
+19   20              dwin    integer                                                                                                                          Destination TCP window advertisement value
+20   21             stcpb    integer                                                                                                                                     Source TCP base sequence number
+21   22             dtcpb    integer                                                                                                                                Destination TCP base sequence number
+22   23           smeansz    integer                                                                                                                 Mean of the ?ow packet size transmitted by the src 
+23   24           dmeansz    integer                                                                                                                 Mean of the ?ow packet size transmitted by the dst 
+24   25       trans_depth    integer                                                                             Represents the pipelined depth into the connection of http request/response transaction
+25   26       res_bdy_len    integer                                                                            Actual uncompressed content size of the data transferred from the server�s http service.
+26   27              Sjit      Float                                                                                                                                                Source jitter (mSec)
+27   28              Djit      Float                                                                                                                                           Destination jitter (mSec)
+28   29             Stime  Timestamp                                                                                                                                                   record start time
+29   30             Ltime  Timestamp                                                                                                                                                    record last time
+30   31           Sintpkt      Float                                                                                                                              Source interpacket arrival time (mSec)
+31   32           Dintpkt      Float                                                                                                                         Destination interpacket arrival time (mSec)
+32   33            tcprtt      Float                                                                                             TCP connection setup round-trip time, the sum of �synack� and �ackdat�.
+33   34            synack      Float                                                                                        TCP connection setup time, the time between the SYN and the SYN_ACK packets.
+34   35            ackdat      Float                                                                                        TCP connection setup time, the time between the SYN_ACK and the ACK packets.
+35   36   is_sm_ips_ports     Binary                                         If source (1) and destination (3)IP addresses equal and port numbers (2)(4)  equal then, this variable takes value 1 else 0
+36   37      ct_state_ttl    Integer                                                         No. for each state (6) according to specific range of values for source/destination time to live (10) (11).
+37   38  ct_flw_http_mthd    Integer                                                                                                 No. of flows that has methods such as Get and Post in http service.
+38   39      is_ftp_login     Binary                                                                                                 If the ftp session is accessed by user and password then 1 else 0. 
+39   40        ct_ftp_cmd    integer                                                                                                                      No of flows that has a command in ftp session.
+40   41        ct_srv_src    integer                                    No. of connections that contain the same service (14) and source address (1) in 100 connections according to the last time (26).
+41   42        ct_srv_dst    integer                               No. of connections that contain the same service (14) and destination address (3) in 100 connections according to the last time (26).
+42   43        ct_dst_ltm    integer                                                          No. of connections of the same destination address (3) in 100 connections according to the last time (26).
+43   44       ct_src_ ltm    integer                                                               No. of connections of the same source address (1) in 100 connections according to the last time (26).
+44   45  ct_src_dport_ltm    integer                                   No of connections of the same source address (1) and the destination port (4) in 100 connections according to the last time (26).
+45   46  ct_dst_sport_ltm    integer                                   No of connections of the same destination address (3) and the source port (2) in 100 connections according to the last time (26).
+46   47    ct_dst_src_ltm    integer                                     No of connections of the same source (1) and the destination (3) address in in 100 connections according to the last time (26).
+47   48        attack_cat    nominal  The name of each attack category. In this data set , nine categories e.g. Fuzzers, Analysis, Backdoors, DoS Exploits, Generic, Reconnaissance, Shellcode and Worms
+48   49             Label     binary                                                                                                                               0 for normal and 1 for attack records
+
+=== UNSW_NB15_training-set.csv ===
+shape: (175341, 45)
+columns: ['id', 'dur', 'proto', 'service', 'state', 'spkts', 'dpkts', 'sbytes', 'dbytes', 'rate', 'sttl', 'dttl', 'sload', 'dload', 'sloss', 'dloss', 'sinpkt', 'dinpkt', 'sjit', 'djit', 'swin', 'stcpb', 'dtcpb', 'dwin', 'tcprtt', 'synack', 'ackdat', 'smean', 'dmean', 'trans_depth', 'response_body_len', 'ct_srv_src', 'ct_state_ttl', 'ct_dst_ltm', 'ct_src_dport_ltm', 'ct_dst_sport_ltm', 'ct_dst_src_ltm', 'is_ftp_login', 'ct_ftp_cmd', 'ct_flw_http_mthd', 'ct_src_ltm', 'ct_srv_dst', 'is_sm_ips_ports', 'attack_cat', 'label']
+dtypes: {'id': 'int64', 'dur': 'float64', 'proto': 'str', 'service': 'str', 'state': 'str', 'spkts': 'int64', 'dpkts': 'int64', 'sbytes': 'int64', 'dbytes': 'int64', 'rate': 'float64', 'sttl': 'int64', 'dttl': 'int64', 'sload': 'float64', 'dload': 'float64', 'sloss': 'int64', 'dloss': 'int64', 'sinpkt': 'float64', 'dinpkt': 'float64', 'sjit': 'float64', 'djit': 'float64', 'swin': 'int64', 'stcpb': 'int64', 'dtcpb': 'int64', 'dwin': 'int64', 'tcprtt': 'float64', 'synack': 'float64', 'ackdat': 'float64', 'smean': 'int64', 'dmean': 'int64', 'trans_depth': 'int64', 'response_body_len': 'int64', 'ct_srv_src': 'int64', 'ct_state_ttl': 'int64', 'ct_dst_ltm': 'int64', 'ct_src_dport_ltm': 'int64', 'ct_dst_sport_ltm': 'int64', 'ct_dst_src_ltm': 'int64', 'is_ftp_login': 'int64', 'ct_ftp_cmd': 'int64', 'ct_flw_http_mthd': 'int64', 'ct_src_ltm': 'int64', 'ct_srv_dst': 'int64', 'is_sm_ips_ports': 'int64', 'attack_cat': 'str', 'label': 'int64'}
+nulls: 0
+label: {1: 119341, 0: 56000}
+attack_cat: {'Normal': 56000, 'Generic': 40000, 'Exploits': 33393, 'Fuzzers': 18184, 'DoS': 12264, 'Reconnaissance': 10491, 'Analysis': 2000, 'Backdoor': 1746, 'Shellcode': 1133, 'Worms': 130}
+exact duplicate rows (all cols): 0
+duplicates on features only: 0
+
+=== UNSW_NB15_testing-set.csv ===
+shape: (82332, 45)
+columns: ['id', 'dur', 'proto', 'service', 'state', 'spkts', 'dpkts', 'sbytes', 'dbytes', 'rate', 'sttl', 'dttl', 'sload', 'dload', 'sloss', 'dloss', 'sinpkt', 'dinpkt', 'sjit', 'djit', 'swin', 'stcpb', 'dtcpb', 'dwin', 'tcprtt', 'synack', 'ackdat', 'smean', 'dmean', 'trans_depth', 'response_body_len', 'ct_srv_src', 'ct_state_ttl', 'ct_dst_ltm', 'ct_src_dport_ltm', 'ct_dst_sport_ltm', 'ct_dst_src_ltm', 'is_ftp_login', 'ct_ftp_cmd', 'ct_flw_http_mthd', 'ct_src_ltm', 'ct_srv_dst', 'is_sm_ips_ports', 'attack_cat', 'label']
+dtypes: {'id': 'int64', 'dur': 'float64', 'proto': 'str', 'service': 'str', 'state': 'str', 'spkts': 'int64', 'dpkts': 'int64', 'sbytes': 'int64', 'dbytes': 'int64', 'rate': 'float64', 'sttl': 'int64', 'dttl': 'int64', 'sload': 'float64', 'dload': 'float64', 'sloss': 'int64', 'dloss': 'int64', 'sinpkt': 'float64', 'dinpkt': 'float64', 'sjit': 'float64', 'djit': 'float64', 'swin': 'int64', 'stcpb': 'int64', 'dtcpb': 'int64', 'dwin': 'int64', 'tcprtt': 'float64', 'synack': 'float64', 'ackdat': 'float64', 'smean': 'int64', 'dmean': 'int64', 'trans_depth': 'int64', 'response_body_len': 'int64', 'ct_srv_src': 'int64', 'ct_state_ttl': 'int64', 'ct_dst_ltm': 'int64', 'ct_src_dport_ltm': 'int64', 'ct_dst_sport_ltm': 'int64', 'ct_dst_src_ltm': 'int64', 'is_ftp_login': 'int64', 'ct_ftp_cmd': 'int64', 'ct_flw_http_mthd': 'int64', 'ct_src_ltm': 'int64', 'ct_srv_dst': 'int64', 'is_sm_ips_ports': 'int64', 'attack_cat': 'str', 'label': 'int64'}
+nulls: 0
+label: {1: 45332, 0: 37000}
+attack_cat: {'Normal': 37000, 'Generic': 18871, 'Exploits': 11132, 'Fuzzers': 6062, 'DoS': 4089, 'Reconnaissance': 3496, 'Analysis': 677, 'Backdoor': 583, 'Shellcode': 378, 'Worms': 44}
+exact duplicate rows (all cols): 0
+duplicates on features only: 0
+
+=== cross-split overlap ===
+feature-only columns: 42
+distinct feature tuples: train=101,040 test=53,946
+identical feature tuples in BOTH splits: 1,302
+share of test rows matching a train row exactly: 2.4135%
+
+UNSW_NB15_training-set.csv: attack_cat x label crosstab
+label               0      1
+attack_cat                  
+Analysis            0   2000
+Backdoor            0   1746
+DoS                 0  12264
+Exploits            0  33393
+Fuzzers             0  18184
+Generic             0  40000
+Normal          56000      0
+Reconnaissance      0  10491
+Shellcode           0   1133
+Worms               0    130
+
+UNSW_NB15_testing-set.csv: attack_cat x label crosstab
+label               0      1
+attack_cat                  
+Analysis            0    677
+Backdoor            0    583
+DoS                 0   4089
+Exploits            0  11132
+Fuzzers             0   6062
+Generic             0  18871
+Normal          37000      0
+Reconnaissance      0   3496
+Shellcode           0    378
+Worms               0     44

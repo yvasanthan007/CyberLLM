@@ -1,0 +1,23 @@
+UNSW-NB15 network intrusion detection
+  dataset   : UNSW-NB15 (real data)
+
+[dedup_random] deduplicated stratified random split | train 14,000 / test 6,000
+  leakage: 130 duplicated test row(s) (0.94%), 269 conflicting-label vector(s)
+  baseline majority_class   acc=0.5228 f1_macro=0.0687
+  baseline uniform_random   acc=0.0917 f1_macro=0.0626
+  model    random_forest    acc=0.7708 f1_macro=0.5592 recall_macro=0.5905
+  model    lightgbm         acc=0.7952 f1_macro=0.5736 recall_macro=0.5669
+
+[grouped] de-duplicated conversation-group split | train 16,037 / test 3,963
+  leakage: 55 duplicated test row(s) (0.35%), 269 conflicting-label vector(s)
+  baseline majority_class   acc=0.5455 f1_macro=0.0706
+  baseline uniform_random   acc=0.1040 f1_macro=0.0671
+  model    random_forest    acc=0.6076 f1_macro=0.3012 recall_macro=0.3319
+  model    lightgbm         acc=0.6561 f1_macro=0.2781 recall_macro=0.2907
+
+[publisher] publisher's own train/test partition, used as released | train 175,341 / test 82,332
+  leakage: 1,302 duplicated test row(s) (1.29%), 2,445 conflicting-label vector(s)
+  baseline majority_class   acc=0.4494 f1_macro=0.0620
+  baseline uniform_random   acc=0.1007 f1_macro=0.0668
+  model    random_forest    acc=0.6952 f1_macro=0.5102 recall_macro=0.6074
+  model    lightgbm         acc=0.7027 f1_macro=0.5292 recall_macro=0.6328
