@@ -1,0 +1,791 @@
+{
+  "name": "nids_lightgbm_unsw_nb15",
+  "algorithm": "lightgbm",
+  "task": "UNSW-NB15 attack_cat classification (tabular network-flow features)",
+  "dataset": "unsw_nb15",
+  "dataset_sha256": "0db394b7e6a3016d0796695135d97f9c0a25a8c392040b2803b58214f1ba6410",
+  "features": [
+    "dur",
+    "proto",
+    "service",
+    "state",
+    "spkts",
+    "dpkts",
+    "sbytes",
+    "dbytes",
+    "rate",
+    "sttl",
+    "dttl",
+    "sload",
+    "dload",
+    "sloss",
+    "dloss",
+    "sinpkt",
+    "dinpkt",
+    "sjit",
+    "djit",
+    "swin",
+    "stcpb",
+    "dtcpb",
+    "dwin",
+    "tcprtt",
+    "synack",
+    "ackdat",
+    "smean",
+    "dmean",
+    "trans_depth",
+    "response_body_len",
+    "ct_srv_src",
+    "ct_state_ttl",
+    "ct_dst_ltm",
+    "ct_src_dport_ltm",
+    "ct_dst_sport_ltm",
+    "ct_dst_src_ltm",
+    "is_ftp_login",
+    "ct_ftp_cmd",
+    "ct_flw_http_mthd",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "is_sm_ips_ports"
+  ],
+  "classes": [
+    "Analysis",
+    "Backdoor",
+    "DoS",
+    "Exploits",
+    "Fuzzers",
+    "Generic",
+    "Normal",
+    "Reconnaissance",
+    "Shellcode",
+    "Worms"
+  ],
+  "label_encoder": {
+    "Analysis": 0,
+    "Backdoor": 1,
+    "DoS": 2,
+    "Exploits": 3,
+    "Fuzzers": 4,
+    "Generic": 5,
+    "Normal": 6,
+    "Reconnaissance": 7,
+    "Shellcode": 8,
+    "Worms": 9
+  },
+  "seed": 42,
+  "split_strategy": "dedup_random: deduplicated stratified random split (test_size=0.3, seed=42)",
+  "rows_total": 162745,
+  "rows_train": 113921,
+  "rows_test": 48824,
+  "class_distribution": {
+    "Normal": 25717,
+    "Exploits": 8230,
+    "Fuzzers": 6288,
+    "Reconnaissance": 2997,
+    "Generic": 2280,
+    "DoS": 1650,
+    "Analysis": 610,
+    "Backdoor": 564,
+    "Shellcode": 437,
+    "Worms": 51
+  },
+  "metrics": {
+    "accuracy": 0.793626,
+    "precision_weighted": 0.846351,
+    "recall_weighted": 0.793626,
+    "f1_weighted": 0.813502,
+    "precision_macro": 0.593387,
+    "recall_macro": 0.626665,
+    "f1_macro": 0.598157,
+    "per_class": {
+      "Analysis": {
+        "precision": 0.095359,
+        "recall": 0.245902,
+        "f1-score": 0.137426,
+        "support": 610.0
+      },
+      "Backdoor": {
+        "precision": 0.083387,
+        "recall": 0.230496,
+        "f1-score": 0.122468,
+        "support": 564.0
+      },
+      "DoS": {
+        "precision": 0.436217,
+        "recall": 0.360606,
+        "f1-score": 0.394824,
+        "support": 1650.0
+      },
+      "Exploits": {
+        "precision": 0.861026,
+        "recall": 0.788943,
+        "f1-score": 0.82341,
+        "support": 8230.0
+      },
+      "Fuzzers": {
+        "precision": 0.568445,
+        "recall": 0.805025,
+        "f1-score": 0.66636,
+        "support": 6288.0
+      },
+      "Generic": {
+        "precision": 0.953271,
+        "recall": 0.894737,
+        "f1-score": 0.923077,
+        "support": 2280.0
+      },
+      "Normal": {
+        "precision": 0.967712,
+        "recall": 0.840261,
+        "f1-score": 0.899494,
+        "support": 25717.0
+      },
+      "Reconnaissance": {
+        "precision": 0.834726,
+        "recall": 0.766767,
+        "f1-score": 0.799304,
+        "support": 2997.0
+      },
+      "Shellcode": {
+        "precision": 0.562295,
+        "recall": 0.784897,
+        "f1-score": 0.655205,
+        "support": 437.0
+      },
+      "Worms": {
+        "precision": 0.571429,
+        "recall": 0.54902,
+        "f1-score": 0.56,
+        "support": 51.0
+      },
+      "macro avg": {
+        "precision": 0.593387,
+        "recall": 0.626665,
+        "f1-score": 0.598157,
+        "support": 48824.0
+      },
+      "weighted avg": {
+        "precision": 0.846351,
+        "recall": 0.793626,
+        "f1-score": 0.813502,
+        "support": 48824.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        150,
+        326,
+        49,
+        14,
+        1,
+        0,
+        68,
+        2,
+        0,
+        0
+      ],
+      [
+        340,
+        130,
+        59,
+        15,
+        4,
+        1,
+        0,
+        5,
+        10,
+        0
+      ],
+      [
+        236,
+        270,
+        595,
+        428,
+        22,
+        19,
+        10,
+        36,
+        33,
+        1
+      ],
+      [
+        246,
+        282,
+        449,
+        6493,
+        121,
+        64,
+        97,
+        377,
+        88,
+        13
+      ],
+      [
+        249,
+        277,
+        36,
+        68,
+        5062,
+        8,
+        523,
+        8,
+        56,
+        1
+      ],
+      [
+        35,
+        37,
+        42,
+        89,
+        16,
+        2040,
+        7,
+        1,
+        9,
+        4
+      ],
+      [
+        103,
+        0,
+        74,
+        227,
+        3622,
+        6,
+        21609,
+        21,
+        54,
+        1
+      ],
+      [
+        214,
+        237,
+        43,
+        174,
+        12,
+        2,
+        4,
+        2298,
+        13,
+        0
+      ],
+      [
+        0,
+        0,
+        16,
+        16,
+        44,
+        0,
+        12,
+        5,
+        343,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        17,
+        1,
+        0,
+        0,
+        0,
+        4,
+        28
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "Analysis",
+      "Backdoor",
+      "DoS",
+      "Exploits",
+      "Fuzzers",
+      "Generic",
+      "Normal",
+      "Reconnaissance",
+      "Shellcode",
+      "Worms"
+    ],
+    "fit_seconds": 53.875,
+    "top_features": [
+      {
+        "feature": "smean",
+        "importance": 7756.0
+      },
+      {
+        "feature": "sbytes",
+        "importance": 7665.0
+      },
+      {
+        "feature": "stcpb",
+        "importance": 4844.0
+      },
+      {
+        "feature": "dtcpb",
+        "importance": 4668.0
+      },
+      {
+        "feature": "sload",
+        "importance": 4313.0
+      },
+      {
+        "feature": "proto",
+        "importance": 4217.0
+      },
+      {
+        "feature": "ackdat",
+        "importance": 3816.0
+      },
+      {
+        "feature": "dur",
+        "importance": 3649.0
+      },
+      {
+        "feature": "synack",
+        "importance": 3568.0
+      },
+      {
+        "feature": "ct_srv_src",
+        "importance": 3559.0
+      },
+      {
+        "feature": "ct_src_ltm",
+        "importance": 3489.0
+      },
+      {
+        "feature": "tcprtt",
+        "importance": 3105.0
+      },
+      {
+        "feature": "ct_dst_src_ltm",
+        "importance": 2819.0
+      },
+      {
+        "feature": "djit",
+        "importance": 2729.0
+      },
+      {
+        "feature": "sjit",
+        "importance": 2727.0
+      }
+    ]
+  },
+  "preprocessing": {
+    "strategy": "dedup_random",
+    "features": [
+      "dur",
+      "proto",
+      "service",
+      "state",
+      "spkts",
+      "dpkts",
+      "sbytes",
+      "dbytes",
+      "rate",
+      "sttl",
+      "dttl",
+      "sload",
+      "dload",
+      "sloss",
+      "dloss",
+      "sinpkt",
+      "dinpkt",
+      "sjit",
+      "djit",
+      "swin",
+      "stcpb",
+      "dtcpb",
+      "dwin",
+      "tcprtt",
+      "synack",
+      "ackdat",
+      "smean",
+      "dmean",
+      "trans_depth",
+      "response_body_len",
+      "ct_srv_src",
+      "ct_state_ttl",
+      "ct_dst_ltm",
+      "ct_src_dport_ltm",
+      "ct_dst_sport_ltm",
+      "ct_dst_src_ltm",
+      "is_ftp_login",
+      "ct_ftp_cmd",
+      "ct_flw_http_mthd",
+      "ct_src_ltm",
+      "ct_srv_dst",
+      "is_sm_ips_ports"
+    ],
+    "dropped_columns": [
+      "attack_cat",
+      "id",
+      "label"
+    ],
+    "category_maps": {
+      "proto": {
+        "3pc": 0,
+        "a/n": 1,
+        "aes-sp3-d": 2,
+        "any": 3,
+        "argus": 4,
+        "aris": 5,
+        "arp": 6,
+        "ax.25": 7,
+        "bbn-rcc": 8,
+        "bna": 9,
+        "br-sat-mon": 10,
+        "cbt": 11,
+        "cftp": 12,
+        "chaos": 13,
+        "compaq-peer": 14,
+        "cphb": 15,
+        "cpnx": 16,
+        "crtp": 17,
+        "crudp": 18,
+        "dcn": 19,
+        "ddp": 20,
+        "ddx": 21,
+        "dgp": 22,
+        "egp": 23,
+        "eigrp": 24,
+        "emcon": 25,
+        "encap": 26,
+        "etherip": 27,
+        "fc": 28,
+        "fire": 29,
+        "ggp": 30,
+        "gmtp": 31,
+        "gre": 32,
+        "hmp": 33,
+        "i-nlsp": 34,
+        "iatp": 35,
+        "ib": 36,
+        "icmp": 37,
+        "idpr": 38,
+        "idpr-cmtp": 39,
+        "idrp": 40,
+        "ifmp": 41,
+        "igmp": 42,
+        "igp": 43,
+        "il": 44,
+        "ip": 45,
+        "ipcomp": 46,
+        "ipcv": 47,
+        "ipip": 48,
+        "iplt": 49,
+        "ipnip": 50,
+        "ippc": 51,
+        "ipv6": 52,
+        "ipv6-frag": 53,
+        "ipv6-no": 54,
+        "ipv6-opts": 55,
+        "ipv6-route": 56,
+        "ipx-n-ip": 57,
+        "irtp": 58,
+        "isis": 59,
+        "iso-ip": 60,
+        "iso-tp4": 61,
+        "kryptolan": 62,
+        "l2tp": 63,
+        "larp": 64,
+        "leaf-1": 65,
+        "leaf-2": 66,
+        "merit-inp": 67,
+        "mfe-nsp": 68,
+        "mhrp": 69,
+        "micp": 70,
+        "mobile": 71,
+        "mtp": 72,
+        "mux": 73,
+        "narp": 74,
+        "netblt": 75,
+        "nsfnet-igp": 76,
+        "nvp": 77,
+        "ospf": 78,
+        "pgm": 79,
+        "pim": 80,
+        "pipe": 81,
+        "pnni": 82,
+        "pri-enc": 83,
+        "prm": 84,
+        "ptp": 85,
+        "pup": 86,
+        "pvp": 87,
+        "qnx": 88,
+        "rdp": 89,
+        "rsvp": 90,
+        "rtp": 91,
+        "rvd": 92,
+        "sat-expak": 93,
+        "sat-mon": 94,
+        "sccopmce": 95,
+        "scps": 96,
+        "sctp": 97,
+        "sdrp": 98,
+        "secure-vmtp": 99,
+        "sep": 100,
+        "skip": 101,
+        "sm": 102,
+        "smp": 103,
+        "snp": 104,
+        "sprite-rpc": 105,
+        "sps": 106,
+        "srp": 107,
+        "st2": 108,
+        "stp": 109,
+        "sun-nd": 110,
+        "swipe": 111,
+        "tcf": 112,
+        "tcp": 113,
+        "tlsp": 114,
+        "tp++": 115,
+        "trunk-1": 116,
+        "trunk-2": 117,
+        "ttp": 118,
+        "udp": 119,
+        "unas": 120,
+        "uti": 121,
+        "vines": 122,
+        "visa": 123,
+        "vmtp": 124,
+        "vrrp": 125,
+        "wb-expak": 126,
+        "wb-mon": 127,
+        "wsn": 128,
+        "xnet": 129,
+        "xns-idp": 130,
+        "xtp": 131,
+        "zero": 132
+      },
+      "service": {
+        "-": 0,
+        "dhcp": 1,
+        "dns": 2,
+        "ftp": 3,
+        "ftp-data": 4,
+        "http": 5,
+        "irc": 6,
+        "pop3": 7,
+        "radius": 8,
+        "smtp": 9,
+        "snmp": 10,
+        "ssh": 11,
+        "ssl": 12
+      },
+      "state": {
+        "ACC": 0,
+        "CLO": 1,
+        "CON": 2,
+        "ECO": 3,
+        "FIN": 4,
+        "INT": 5,
+        "PAR": 6,
+        "REQ": 7,
+        "RST": 8,
+        "no": 9
+      }
+    },
+    "imputation": "median fitted on training rows only",
+    "unseen_test_categories": [
+      "state: URN"
+    ],
+    "baselines": {
+      "majority_class": {
+        "accuracy": 0.526729,
+        "f1_macro": 0.069001,
+        "f1_weighted": 0.363448,
+        "recall_macro": 0.1,
+        "precision_macro": 0.052673,
+        "per_class": {
+          "Analysis": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 610.0
+          },
+          "Backdoor": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 564.0
+          },
+          "DoS": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 1650.0
+          },
+          "Exploits": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 8230.0
+          },
+          "Fuzzers": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 6288.0
+          },
+          "Generic": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2280.0
+          },
+          "Normal": {
+            "precision": 0.526729,
+            "recall": 1.0,
+            "f1-score": 0.69001,
+            "support": 25717.0
+          },
+          "Reconnaissance": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2997.0
+          },
+          "Shellcode": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 437.0
+          },
+          "Worms": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 51.0
+          },
+          "macro avg": {
+            "precision": 0.052673,
+            "recall": 0.1,
+            "f1-score": 0.069001,
+            "support": 48824.0
+          },
+          "weighted avg": {
+            "precision": 0.277443,
+            "recall": 0.526729,
+            "f1-score": 0.363448,
+            "support": 48824.0
+          }
+        }
+      },
+      "uniform_random": {
+        "accuracy": 0.099787,
+        "f1_macro": 0.064612,
+        "f1_weighted": 0.134895,
+        "recall_macro": 0.094834,
+        "precision_macro": 0.099371,
+        "per_class": {
+          "Analysis": {
+            "precision": 0.011946,
+            "recall": 0.095082,
+            "f1-score": 0.021226,
+            "support": 610.0
+          },
+          "Backdoor": {
+            "precision": 0.01015,
+            "recall": 0.088652,
+            "f1-score": 0.018215,
+            "support": 564.0
+          },
+          "DoS": {
+            "precision": 0.028901,
+            "recall": 0.086667,
+            "f1-score": 0.043346,
+            "support": 1650.0
+          },
+          "Exploits": {
+            "precision": 0.167294,
+            "recall": 0.097205,
+            "f1-score": 0.122963,
+            "support": 8230.0
+          },
+          "Fuzzers": {
+            "precision": 0.129489,
+            "recall": 0.10035,
+            "f1-score": 0.113072,
+            "support": 6288.0
+          },
+          "Generic": {
+            "precision": 0.044262,
+            "recall": 0.094737,
+            "f1-score": 0.060335,
+            "support": 2280.0
+          },
+          "Normal": {
+            "precision": 0.529317,
+            "recall": 0.1018,
+            "f1-score": 0.17076,
+            "support": 25717.0
+          },
+          "Reconnaissance": {
+            "precision": 0.062121,
+            "recall": 0.102436,
+            "f1-score": 0.07734,
+            "support": 2997.0
+          },
+          "Shellcode": {
+            "precision": 0.009412,
+            "recall": 0.102975,
+            "f1-score": 0.017248,
+            "support": 437.0
+          },
+          "Worms": {
+            "precision": 0.000818,
+            "recall": 0.078431,
+            "f1-score": 0.001619,
+            "support": 51.0
+          },
+          "macro avg": {
+            "precision": 0.099371,
+            "recall": 0.094834,
+            "f1-score": 0.064612,
+            "support": 48824.0
+          },
+          "weighted avg": {
+            "precision": 0.330891,
+            "recall": 0.099787,
+            "f1-score": 0.134895,
+            "support": 48824.0
+          }
+        }
+      }
+    },
+    "leakage_audit": {
+      "train_rows": 113921,
+      "test_rows": 48824,
+      "train_duplicate_rows": 5627,
+      "test_duplicate_rows": 1599,
+      "cross_split_duplicate_rows": 3367,
+      "cross_split_duplicate_share": 0.068962,
+      "shared_distinct_feature_vectors": 1835,
+      "shared_conversations": 369,
+      "total_conversations": 448,
+      "conflicting_label_rows": 2445,
+      "target_encoded_by_dropped_column": {
+        "id": 0.867168,
+        "label": 0.5
+      },
+      "notes": [
+        "3,367 test row(s) (6.90%) are identical to a training row on all 42 feature columns; a model can score these by memorisation alone",
+        "2,445 feature vector(s) carry more than one target value; they cap achievable accuracy",
+        "369 of 448 conversation groups appear in both splits"
+      ]
+    }
+  },
+  "environment": {},
+  "created_at": "2026-10-05T07:19:33+00:00",
+  "is_synthetic": false,
+  "limitations": [
+    "A classifier estimates a probability; it does not guarantee detection. Expect false positives and false negatives on real traffic.",
+    "Metrics reflect the training distribution. A lab dataset is not a production network: expect degradation under concept drift.",
+    "Verify every alert against the underlying evidence before acting.",
+    "Classifiers trained on encrypted or anonymised flows (e.g. some published CSV releases) see less signal than production captures.",
+    "UNSW-NB15 is a hybrid corpus: the authors combined real modern normal traffic with synthetic contemporary attack behaviours generated by the IXIA PerfectStorm tool in a cyber range. It is real published research data, not production captures, so accuracy here is an upper bound rather than a field estimate.",
+    "UNSW-NB15 releases flow *statistics*, not payloads and not IP addresses or ports, so the model cannot see the indicators an analyst would actually use.",
+    "Scores are on one lab capture. They are not a production detection rate and must not be presented as one.",
+    "The publisher's terms restrict this dataset to academic research use; commercial deployment is out of scope."
+  ],
+  "artifact_path": "D:\\CyberLLM\\artifacts\\models\\nids\\lightgbm\\model.pkl"
+}

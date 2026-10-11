@@ -1,0 +1,69 @@
+{
+  "feature_names": [
+    "duration",
+    "src_bytes",
+    "dst_bytes",
+    "protocol",
+    "service",
+    "flag",
+    "time_to_live",
+    "dst_time_to_live",
+    "sbytes packets",
+    "dbytes packets",
+    "sload",
+    "dload",
+    "scaled",
+    "stcp",
+    "dtcp",
+    "swin",
+    "dwin"
+  ],
+  "label_encoder": {
+    "Analysis": 0,
+    "DOS": 1,
+    "Exploits": 2,
+    "Flood": 3,
+    "Fuzzers": 4,
+    "Generic": 5,
+    "Heartbleed": 6,
+    "Normal": 7,
+    "Reconnaissance": 8,
+    "Shellcode": 9,
+    "Worms": 10
+  },
+  "dropped_columns": [
+    "dstip",
+    "dstipport",
+    "srcip",
+    "srcipport"
+  ],
+  "transformations": [
+    "loaded 3,316 rows x 22 columns",
+    "labels read from column 'Label'",
+    "removed 16 duplicate rows before splitting",
+    "dropped 4 leakage-prone/identifier column(s)",
+    "median-imputed 10,028 missing value(s)",
+    "stratified train/test split 80%/20% (seed=42)"
+  ],
+  "class_distribution": {
+    "Exploits": 300,
+    "Fuzzers": 300,
+    "Normal": 300,
+    "Generic": 300,
+    "Analysis": 300,
+    "Heartbleed": 300,
+    "Flood": 300,
+    "Reconnaissance": 300,
+    "DOS": 300,
+    "Worms": 300,
+    "Shellcode": 300
+  },
+  "source_hash": "ef864ab871b7a44fde37b9cea7e13f65",
+  "seed": 42,
+  "rows_in": 3316,
+  "rows_out": 3300,
+  "test_size": 0.2,
+  "stratify_applied": true,
+  "train_rows": 2640,
+  "test_rows": 660
+}

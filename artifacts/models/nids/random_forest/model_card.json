@@ -1,0 +1,465 @@
+{
+  "name": "nids_random_forest",
+  "algorithm": "random_forest",
+  "task": "network intrusion detection (tabular flow classification)",
+  "dataset": "nids_synthetic_fixture",
+  "dataset_sha256": "ef864ab871b7a44fde37b9cea7e13f65",
+  "features": [
+    "duration",
+    "src_bytes",
+    "dst_bytes",
+    "protocol",
+    "service",
+    "flag",
+    "time_to_live",
+    "dst_time_to_live",
+    "sbytes packets",
+    "dbytes packets",
+    "sload",
+    "dload",
+    "scaled",
+    "stcp",
+    "dtcp",
+    "swin",
+    "dwin"
+  ],
+  "classes": [
+    "Analysis",
+    "DOS",
+    "Exploits",
+    "Flood",
+    "Fuzzers",
+    "Generic",
+    "Heartbleed",
+    "Normal",
+    "Reconnaissance",
+    "Shellcode",
+    "Worms"
+  ],
+  "label_encoder": {
+    "Analysis": 0,
+    "DOS": 1,
+    "Exploits": 2,
+    "Flood": 3,
+    "Fuzzers": 4,
+    "Generic": 5,
+    "Heartbleed": 6,
+    "Normal": 7,
+    "Reconnaissance": 8,
+    "Shellcode": 9,
+    "Worms": 10
+  },
+  "seed": 42,
+  "split_strategy": "train_test_split(test_size=0.2, random_state=42, stratified)",
+  "rows_total": 3300,
+  "rows_train": 2640,
+  "rows_test": 660,
+  "class_distribution": {
+    "Exploits": 300,
+    "Fuzzers": 300,
+    "Normal": 300,
+    "Generic": 300,
+    "Analysis": 300,
+    "Heartbleed": 300,
+    "Flood": 300,
+    "Reconnaissance": 300,
+    "DOS": 300,
+    "Worms": 300,
+    "Shellcode": 300
+  },
+  "metrics": {
+    "accuracy": 0.998485,
+    "precision_weighted": 0.99851,
+    "recall_weighted": 0.998485,
+    "f1_weighted": 0.998485,
+    "precision_macro": 0.99851,
+    "recall_macro": 0.998485,
+    "f1_macro": 0.998485,
+    "per_class": {
+      "0": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "1": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "2": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "3": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "4": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "5": {
+        "precision": 0.983607,
+        "recall": 1.0,
+        "f1-score": 0.991736,
+        "support": 60.0
+      },
+      "6": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "7": {
+        "precision": 1.0,
+        "recall": 0.983333,
+        "f1-score": 0.991597,
+        "support": 60.0
+      },
+      "8": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "9": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "10": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "macro avg": {
+        "precision": 0.99851,
+        "recall": 0.998485,
+        "f1-score": 0.998485,
+        "support": 660.0
+      },
+      "weighted avg": {
+        "precision": 0.99851,
+        "recall": 0.998485,
+        "f1-score": 0.998485,
+        "support": 660.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        60,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        60,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        60,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        60,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        60,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        60,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        60,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        59,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        60,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        60,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        60
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "Analysis",
+      "DOS",
+      "Exploits",
+      "Flood",
+      "Fuzzers",
+      "Generic",
+      "Heartbleed",
+      "Normal",
+      "Reconnaissance",
+      "Shellcode",
+      "Worms"
+    ],
+    "fit_seconds": 0.547,
+    "n_features": 17,
+    "top_features": [
+      {
+        "feature": "sbytes packets",
+        "importance": 0.203948
+      },
+      {
+        "feature": "src_bytes",
+        "importance": 0.167044
+      },
+      {
+        "feature": "duration",
+        "importance": 0.131454
+      },
+      {
+        "feature": "dbytes packets",
+        "importance": 0.099713
+      },
+      {
+        "feature": "dst_time_to_live",
+        "importance": 0.087951
+      },
+      {
+        "feature": "dst_bytes",
+        "importance": 0.086004
+      },
+      {
+        "feature": "sload",
+        "importance": 0.067554
+      },
+      {
+        "feature": "dtcp",
+        "importance": 0.059387
+      },
+      {
+        "feature": "stcp",
+        "importance": 0.049797
+      },
+      {
+        "feature": "swin",
+        "importance": 0.041108
+      },
+      {
+        "feature": "dwin",
+        "importance": 0.001809
+      },
+      {
+        "feature": "dload",
+        "importance": 0.001554
+      },
+      {
+        "feature": "time_to_live",
+        "importance": 0.001353
+      },
+      {
+        "feature": "scaled",
+        "importance": 0.001324
+      },
+      {
+        "feature": "protocol",
+        "importance": 0.0
+      }
+    ]
+  },
+  "preprocessing": {
+    "feature_names": [
+      "duration",
+      "src_bytes",
+      "dst_bytes",
+      "protocol",
+      "service",
+      "flag",
+      "time_to_live",
+      "dst_time_to_live",
+      "sbytes packets",
+      "dbytes packets",
+      "sload",
+      "dload",
+      "scaled",
+      "stcp",
+      "dtcp",
+      "swin",
+      "dwin"
+    ],
+    "label_encoder": {
+      "Analysis": 0,
+      "DOS": 1,
+      "Exploits": 2,
+      "Flood": 3,
+      "Fuzzers": 4,
+      "Generic": 5,
+      "Heartbleed": 6,
+      "Normal": 7,
+      "Reconnaissance": 8,
+      "Shellcode": 9,
+      "Worms": 10
+    },
+    "dropped_columns": [
+      "dstip",
+      "dstipport",
+      "srcip",
+      "srcipport"
+    ],
+    "transformations": [
+      "loaded 3,316 rows x 22 columns",
+      "labels read from column 'Label'",
+      "removed 16 duplicate rows before splitting",
+      "dropped 4 leakage-prone/identifier column(s)",
+      "median-imputed 10,028 missing value(s)",
+      "stratified train/test split 80%/20% (seed=42)"
+    ],
+    "class_distribution": {
+      "Exploits": 300,
+      "Fuzzers": 300,
+      "Normal": 300,
+      "Generic": 300,
+      "Analysis": 300,
+      "Heartbleed": 300,
+      "Flood": 300,
+      "Reconnaissance": 300,
+      "DOS": 300,
+      "Worms": 300,
+      "Shellcode": 300
+    },
+    "source_hash": "ef864ab871b7a44fde37b9cea7e13f65",
+    "seed": 42,
+    "rows_in": 3316,
+    "rows_out": 3300,
+    "test_size": 0.2,
+    "stratify_applied": true,
+    "train_rows": 2640,
+    "test_rows": 660
+  },
+  "environment": {
+    "python": "3.12.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "scikit_learn": "1.9.0"
+  },
+  "created_at": "2026-10-01T18:48:59+00:00",
+  "is_synthetic": true,
+  "limitations": [
+    "A classifier estimates a probability; it does not guarantee detection. Expect false positives and false negatives on real traffic.",
+    "Metrics reflect the training distribution. A lab dataset is not a production network: expect degradation under concept drift.",
+    "Verify every alert against the underlying evidence before acting.",
+    "Classifiers trained on encrypted or anonymised flows (e.g. some published CSV releases) see less signal than production captures.",
+    "Metrics were computed on a small synthetic fixture and are NOT a real-world benchmark. Do not quote these numbers as field accuracy."
+  ],
+  "artifact_path": "D:\\CyberLLM\\artifacts\\models\\nids\\random_forest\\model.pkl"
+}
