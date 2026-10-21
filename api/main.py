@@ -1,14 +1,19 @@
 from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlsplit
+import os
+import secrets
 
 import joblib
-from fastapi import FastAPI, HTTPException
+from dotenv import load_dotenv
+from fastapi import Depends, FastAPI, HTTPException
+from fastapi.security import APIKeyHeader
 from pydantic import BaseModel, Field
 
 from cyberllm.retrieval.lexical import load_documents, search_documents
 
 ROOT = Path(__file__).resolve().parents[1]
+load_dotenv(ROOT / ".env")
 MODEL_PATH = ROOT / "models" / "phishing_url_model.joblib"
 KB_PATH = ROOT / "artifacts" / "vectorstore" / "cyberllm_kb.jsonl"
 
@@ -17,6 +22,26 @@ app = FastAPI(
     description="Defensive cybersecurity demo: phishing assessment and knowledge search",
     version="0.1.0",
 )
+
+api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
+
+
+def require_api_key(api_key: str | None = Depends(api_key_header)):
+    expected_key = os.getenv("CYBERLLM_API_KEY")
+
+    if not expected_key:
+        raise HTTPException(
+            status_code=503,
+            detail="API authentication is not configured",
+        )
+
+    if not api_key or not secrets.compare_digest(api_key, expected_key):
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid or missing API key",
+        )
+
+    return True
 
 
 @lru_cache(maxsize=1)
@@ -64,7 +89,7 @@ def health():
     return status
 
 
-@app.post("/phishing/predict")
+@app.post("/phishing/predict", dependencies=[Depends(require_api_key)])
 def predict_phishing(request: URLRequest):
     url = request.url.strip()
 
@@ -106,7 +131,7 @@ def predict_phishing(request: URLRequest):
     }
 
 
-@app.post("/knowledge/search")
+@app.post("/knowledge/search", dependencies=[Depends(require_api_key)])
 def knowledge_search(request: SearchRequest):
     try:
         documents = load_kb()
