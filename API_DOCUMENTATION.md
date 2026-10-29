@@ -1,0 +1,108 @@
+# CyberLLM API Documentation
+
+Base URL: `http://127.0.0.1:8765`
+Interactive docs: `http://127.0.0.1:8765/docs` (Swagger UI)
+
+## Authentication
+
+All endpoints except `/health` and `/capabilities` require the header:
+
+```
+X-API-Key: <your CYBERLLM_API_KEY>
+```
+
+The key is stored in `.env` at the project root as `CYBERLLM_API_KEY`.
+Never commit or expose it in frontend code.
+
+---
+
+## GET /health
+
+No auth. Reports service status.
+
+```json
+{
+  "status": "ok",
+  "phishing_model": "loaded",
+  "knowledge_base": "loaded (2427 documents)"
+}
+```
+
+## GET /capabilities
+
+No auth. Machine-readable capability summary for integrators (Zyra).
+
+## GET /models
+
+Auth required. Lists available models with honest descriptions.
+
+## POST /chat
+
+Auth required. The main conversational endpoint.
+
+**Request:**
+```json
+{"message": "What is ethical hacking?"}
+```
+
+**Response (200):**
+```json
+{
+  "answer": "Ethical hacking is the authorized process of identifying and assessing security vulnerabilities in systems and networks to help protect them. Ethical hackers operate with explicit permission, follow defined rules of engagement, and report findings so organizations can fix weaknesses before malicious attackers exploit them.",
+  "model": "cyberllm-rag-hybrid-v1",
+  "model_description": "Hybrid retrieval: TF-IDF over curated conversational cybersecurity pairs + BM25 lexical fallback over a 2,427-doc cybersecurity KB. Not a pretrained LLM; no generative weights.",
+  "source": "conversation_dataset",
+  "confidence": 1.0,
+  "matched_question": "What is ethical hacking?",
+  "category": "ethical_hacking",
+  "related_questions": ["Is ethical hacking legal?", "How is ethical hacking different from malicious hacking?"],
+  "refused": false,
+  "status": "ok",
+  "note": "Responses come from the actual loaded retrieval engine, not hardcoded strings."
+}
+```
+
+**Fields:**
+- `answer` — the text to display (or read aloud via Zyra TTS).
+- `source` — one of `conversation_dataset`, `knowledge_base`, `safety_filter`, `fallback`.
+- `confidence` — 0.0 to 1.0; callers may choose to display only if ≥ threshold.
+- `refused` — true when the safety filter declined the request.
+
+**Error responses:**
+- `401` — missing/invalid API key.
+- `422` — empty message or message >2000 chars.
+- `503` — chat engine failed to load.
+
+## POST /phishing/predict
+
+Auth required. Unchanged from the original project.
+
+```json
+{"url": "https://www.google.com/"}
+```
+
+Returns prediction (`PHISHING`/`LEGITIMATE`), score, and disclaimer.
+
+## POST /knowledge/search
+
+Auth required. Unchanged from the original project.
+
+```json
+{"query": "phishing attack detection", "top_k": 3}
+```
+
+---
+
+## Rate / Size Limits
+
+- `/chat` message max length: 2000 chars.
+- No built-in rate limiting yet — deploy behind a reverse proxy if exposed.
+
+## PowerShell Example
+
+```powershell
+$key = (Get-Content .env | Select-String 'CYBERLLM_API_KEY=(.*)').Matches.Groups[1].Value
+$h = @{ 'X-API-Key' = $key; 'Content-Type'='application/json' }
+Invoke-RestMethod -Uri http://127.0.0.1:8765/chat -Method Post -Headers $h `
+  -Body '{"message":"What is ethical hacking?"}'
+```

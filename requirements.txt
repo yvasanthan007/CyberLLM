@@ -13,6 +13,13 @@ accelerate
 peft
 trl
 bitsandbytes
-sentencepiece   
+sentencepiece
 GitPython
-PyYAML 
+
+# CyberLLM API, model, and testing dependencies
+fastapi
+uvicorn
+httpx
+scikit-learn
+joblib
+pytest

@@ -1,0 +1,23 @@
+{
+  "timestamp_utc": "2026-10-29T15:44:15.517243+00:00",
+  "model": "phishing_url_tfidf_logreg",
+  "artifact": "models\\phishing_url_model.joblib",
+  "dataset": "data\\raw\\PhiUSIIL_Phishing_URL_Dataset.csv",
+  "test_size": 47074,
+  "accuracy": 0.9961,
+  "precision_phishing": 1.0,
+  "recall_phishing": 0.9909,
+  "f1_phishing": 0.9955,
+  "confusion_matrix_labels_0_1": [
+    [
+      19922,
+      182
+    ],
+    [
+      0,
+      26970
+    ]
+  ],
+  "classification_report": "                precision    recall  f1-score   support\n\n  phishing (0)     1.0000    0.9909    0.9955     20104\nlegitimate (1)     0.9933    1.0000    0.9966     26970\n\n      accuracy                         0.9961     47074\n     macro avg     0.9966    0.9955    0.9960     47074\n  weighted avg     0.9962    0.9961    0.9961     47074\n",
+  "disclaimer": "Metrics are on the held-out split of PhiUSIIL; real-world performance on unseen campaigns differs."
+}

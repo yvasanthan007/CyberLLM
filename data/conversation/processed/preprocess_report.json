@@ -1,0 +1,31 @@
+{
+  "seed": 42,
+  "train_frac": 0.8,
+  "val_frac": 0.1,
+  "test_frac": 0.1,
+  "processed_path": "data\\conversation\\processed\\conversations_clean.jsonl",
+  "splits_dir": "data\\conversation\\splits",
+  "counts": {
+    "total_lines_scanned": 72,
+    "invalid_rejected": 0,
+    "duplicates_removed": 0,
+    "valid_unique": 72,
+    "train": 57,
+    "validation": 7,
+    "test": 8
+  },
+  "category_counts": {
+    "encryption": 7,
+    "ethical_hacking": 8,
+    "greetings": 6,
+    "incident_response": 7,
+    "linux_tools": 7,
+    "networking": 8,
+    "passwords_auth": 6,
+    "phishing_malware": 8,
+    "privacy_risk": 8,
+    "web_security": 7
+  },
+  "invalid_examples": [],
+  "phishing_data_touched": false
+}
