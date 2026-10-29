@@ -1,0 +1,81 @@
+{
+  "timestamp_utc": "2026-10-29T15:35:02.888910+00:00",
+  "pipeline_version": "1.0",
+  "stages": {
+    "hardware": {
+      "platform": "Windows-11-10.0.26300-SP0",
+      "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+      "cpu_count": 12,
+      "torch_version": "2.14.1+cpu",
+      "cuda_available": false
+    },
+    "dataset_discovery": {
+      "files": [
+        "data\\conversation\\raw_synthetic_conversations.jsonl"
+      ]
+    },
+    "preprocess": {
+      "output": "{\n  \"total_lines_scanned\": 72,\n  \"invalid_rejected\": 0,\n  \"duplicates_removed\": 0,\n  \"valid_unique\": 72,\n  \"train\": 57,\n  \"validation\": 7,\n  \"test\": 8\n}\nProcessed file: D:\\CyberLLM\\data\\conversation\\processed\\conversations_clean.jsonl\nSplits dir:     D:\\CyberLLM\\data\\conversation\\splits\nReport:         D:\\CyberLLM\\data\\conversation\\processed\\preprocess_report.json"
+    },
+    "index": {
+      "records_indexed": 72,
+      "kb_documents": 2427,
+      "vocabulary_size": 168
+    },
+    "smoke_evaluation": {
+      "questions": [
+        {
+          "question": "What is ethical hacking?",
+          "source": "conversation_dataset",
+          "confidence": 1.0,
+          "answer_preview": "Ethical hacking is the authorized process of identifying and assessing security vulnerabilities in systems and networks to help protect them. Ethical ",
+          "nonempty_answer": true,
+          "answered_from_knowledge": true
+        },
+        {
+          "question": "What is phishing?",
+          "source": "conversation_dataset",
+          "confidence": 0.992,
+          "answer_preview": "Phishing is a social engineering attack in which an attacker impersonates a trusted party — by email, SMS, voice, or chat — to trick a victim into rev",
+          "nonempty_answer": true,
+          "answered_from_knowledge": true
+        },
+        {
+          "question": "What is ransomware?",
+          "source": "conversation_dataset",
+          "confidence": 1.0,
+          "answer_preview": "Ransomware is malware that encrypts a victim's files or locks systems and demands payment, usually in cryptocurrency, for restoration. Modern ransomwa",
+          "nonempty_answer": true,
+          "answered_from_knowledge": true
+        },
+        {
+          "question": "What is multi-factor authentication?",
+          "source": "conversation_dataset",
+          "confidence": 1.0,
+          "answer_preview": "Multi-factor authentication (MFA) requires two or more independent proofs of identity: something you know (password), something you have (phone, hardw",
+          "nonempty_answer": true,
+          "answered_from_knowledge": true
+        },
+        {
+          "question": "What is TLS?",
+          "source": "conversation_dataset",
+          "confidence": 1.0,
+          "answer_preview": "TLS (Transport Layer Security) is the protocol that encrypts and authenticates internet traffic — it is the 'S' in HTTPS. It provides confidentiality,",
+          "nonempty_answer": true,
+          "answered_from_knowledge": true
+        },
+        {
+          "question": "How do I secure SSH?",
+          "source": "conversation_dataset",
+          "confidence": 1.0,
+          "answer_preview": "SSH is a cryptographic protocol for secure remote shell access. To harden it: use key-based authentication instead of passwords, disable root login, r",
+          "nonempty_answer": true,
+          "answered_from_knowledge": true
+        }
+      ],
+      "passed": 6,
+      "total": 6
+    }
+  },
+  "duration_seconds": 11.77
+}

@@ -1,0 +1,25 @@
+requests
+python-dotenv
+pandas
+numpy
+PyYAML
+beautifulsoup4
+lxml
+tqdm
+datasets
+transformers
+torch
+accelerate
+peft
+trl
+bitsandbytes
+sentencepiece
+GitPython
+
+# CyberLLM API, model, and testing dependencies
+fastapi
+uvicorn
+httpx
+scikit-learn
+joblib
+pytest

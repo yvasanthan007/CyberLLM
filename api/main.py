@@ -11,6 +11,7 @@ from fastapi.security import APIKeyHeader
 from pydantic import BaseModel, Field
 
 from cyberllm.retrieval.lexical import load_documents, search_documents
+from cyberllm.conversation.engine import get_engine, ENGINE_ID, ENGINE_DESCRIPTION
 
 ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(ROOT / ".env")
@@ -19,8 +20,8 @@ KB_PATH = ROOT / "artifacts" / "vectorstore" / "cyberllm_kb.jsonl"
 
 app = FastAPI(
     title="CyberLLM Security API",
-    description="Defensive cybersecurity demo: phishing assessment and knowledge search",
-    version="0.1.0",
+    description="Defensive cybersecurity API: conversational assistant, phishing assessment, and knowledge search",
+    version="0.2.0",
 )
 
 api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
@@ -56,6 +57,19 @@ def load_kb():
     if not KB_PATH.is_file():
         raise FileNotFoundError(f"Knowledge base not found: {KB_PATH}")
     return load_documents(KB_PATH)
+
+
+class ChatRequest(BaseModel):
+    message: str = Field(min_length=1, max_length=2000)
+
+
+class ChatResponse(BaseModel):
+    answer: str
+    model: str
+    model_description: str
+    source: str
+    confidence: float
+    status: str = "ok"
 
 
 class URLRequest(BaseModel):
@@ -151,4 +165,87 @@ def knowledge_search(request: SearchRequest):
         "count": len(results),
         "results": results,
         "note": "Results are lexical matches, not generated LLM answers.",
+    }
+
+
+# ------------------------------------------------------------------
+# Conversational endpoints (CyberLLM chat)
+# ------------------------------------------------------------------
+
+
+@app.get("/capabilities")
+def capabilities():
+    """Public capability summary for integrators (no auth required)."""
+    try:
+        engine = get_engine()
+        conversation_loaded = len(engine.records) > 0
+    except Exception:
+        conversation_loaded = False
+
+    return {
+        "service": "CyberLLM",
+        "chat": conversation_loaded,
+        "chat_model": ENGINE_ID if conversation_loaded else None,
+        "chat_description": ENGINE_DESCRIPTION,
+        "phishing_predict": MODEL_PATH.is_file(),
+        "knowledge_search": KB_PATH.is_file(),
+        "auth_required": True,
+        "auth_header": "X-API-Key",
+        "endpoints": [
+            "GET /health",
+            "GET /capabilities",
+            "GET /models",
+            "POST /chat",
+            "POST /phishing/predict",
+            "POST /knowledge/search",
+        ],
+    }
+
+
+@app.get("/models", dependencies=[Depends(require_api_key)])
+def list_models():
+    return {
+        "models": [
+            {
+                "id": ENGINE_ID,
+                "kind": "conversational",
+                "description": ENGINE_DESCRIPTION,
+                "trained_from_scratch": False,
+                "is_pretrained_llm": False,
+                "approach": "TF-IDF retrieval over curated conversational dataset + BM25 fallback over knowledge base",
+            },
+            {
+                "id": "phishing_url_tfidf_logreg",
+                "kind": "classification",
+                "description": "TF-IDF char n-gram + LogisticRegression URL classifier",
+                "artifact": "models/phishing_url_model.joblib",
+            },
+        ]
+    }
+
+
+@app.post("/chat", dependencies=[Depends(require_api_key)])
+def chat(request: ChatRequest):
+    message = request.message.strip()
+    if not message:
+        raise HTTPException(status_code=422, detail="Message cannot be empty")
+
+    try:
+        engine = get_engine()
+        answer, metadata = engine.respond(message)
+    except Exception:
+        raise HTTPException(status_code=503, detail="Chat engine is unavailable")
+
+    return {
+        "answer": answer,
+        "model": ENGINE_ID,
+        "model_description": ENGINE_DESCRIPTION,
+        "source": metadata.get("source", "unknown"),
+        "confidence": metadata.get("confidence", 0.0),
+        "matched_question": metadata.get("matched_question"),
+        "category": metadata.get("category"),
+        "related_questions": metadata.get("related_questions", []),
+        "refused": metadata.get("refused", False),
+        "status": "ok",
+        "note": "Responses come from the actual loaded retrieval engine, not hardcoded strings.",
     }

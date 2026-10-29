@@ -1,105 +1,82 @@
-# CyberLLM — Defensive Cybersecurity Assistant
+# CyberLLM — Conversational Cybersecurity Assistant
 
-CyberLLM is a defensive cybersecurity project combining phishing URL
-classification with searchable cybersecurity knowledge.
+CyberLLM answers cybersecurity questions conversationally, assesses URLs
+for phishing, and searches a local cybersecurity knowledge base — all
+locally, with no external LLM dependency.
 
-## Features
-
-- **Phishing URL assessment:** Uses a trained scikit-learn model to classify
-  submitted HTTP/HTTPS URLs as PHISHING or LEGITIMATE.
-- **Cybersecurity knowledge retrieval:** Searches a local knowledge base
-  containing 2,427 documents using lexical ranking.
-- **REST API:** FastAPI endpoints with interactive Swagger documentation.
-- **Input validation:** Rejects malformed URL inputs.
-- **Health monitoring:** Reports whether the model and knowledge base load.
-
-## Technology
-
-- Python
-- FastAPI and Uvicorn
-- scikit-learn and joblib
-- HTTPX
-- Pytest
-- MITRE ATT&CK knowledge sources
-
-## Prerequisites
-
-Use a compatible Python environment and install the dependencies listed
-in `requirements.txt`.
-
-## Run locally on Windows
-
-From the project root:
+## Quick Start (one command pipeline)
 
 ```powershell
+cd D:\CyberLLM
 .\.venv\Scripts\Activate.ps1
-python -m uvicorn api.main:app --host 127.0.0.1 --port 8765
+
+# Setup + data + evaluation (safe, non-training, ~10 seconds)
+.\.venv\Scripts\python.exe scripts\train_conversations.py
+
+# Evaluate the conversational engine
+.\.venv\Scripts\python.exe scripts\evaluate_conversations.py
+
+# Evaluate the phishing classifier (separate pipeline)
+.\.venv\Scripts\python.exe scripts\evaluate_phishing.py
+
+# Start the API
+.\.venv\Scripts\python.exe -m uvicorn api.main:app --host 127.0.0.1 --port 8765
 ```
 
-Open the interactive API documentation:
-
-http://127.0.0.1:8765/docs
-
-Keep the server terminal running while sending API requests.
-
-## API endpoints
-
-### Health check
-
-`GET /health`
-
-Reports API status, model availability, and knowledge-base availability.
-
-### Phishing URL assessment
-
-`POST /phishing/predict`
-
-Example request:
-
-```json
-{
-  "url": "https://www.google.com/"
-}
-```
-
-The response includes a prediction and a phishing score.
-
-### Knowledge search
-
-`POST /knowledge/search`
-
-Example request:
-
-```json
-{
-  "query": "phishing attack detection",
-  "top_k": 3
-}
-```
-
-Returns ranked knowledge-base documents. This endpoint currently performs
-lexical retrieval; it does not generate LLM answers.
-
-## Run tests
+Then test a conversational request (in another terminal):
 
 ```powershell
-python -m pytest -q
+$key = (Get-Content .env | Select-String 'CYBERLLM_API_KEY=(.*)').Matches.Groups[1].Value
+$h = @{ 'X-API-Key' = $key; 'Content-Type'='application/json' }
+Invoke-RestMethod -Uri http://127.0.0.1:8765/chat -Method Post -Headers $h `
+  -Body '{"message":"What is ethical hacking?"}'
 ```
 
-## Security and limitations
+Expected answer begins: *"Ethical hacking is the authorized process of
+identifying and assessing security vulnerabilities..."*
 
-- Predictions are model assessments, not guarantees of safety.
-- False positives and false negatives are possible.
-- The phishing score is not a calibrated probability.
-- Search results are lexical matches, not generated answers.
-- A URL classification alone does not establish that a website is safe.
-- Use the platform for defensive and educational purposes.
+## Endpoints
 
-## Current verification
+| Endpoint | Auth | Purpose |
+|---|---|---|
+| GET  /health            | no  | Service status |
+| GET  /capabilities      | no  | Capability summary for integrators |
+| GET  /models            | yes | Model registry with honest descriptions |
+| POST /chat              | yes | Conversational cybersecurity Q&A |
+| POST /phishing/predict  | yes | URL phishing classifier |
+| POST /knowledge/search  | yes | Lexical KB retrieval |
 
-The API health check, clean URL prediction requests, knowledge search,
-and invalid URL validation have been exercised successfully.
-The existing test suite passed 6 tests in the recorded run.
+Auth header: `X-API-Key: <CYBERLLM_API_KEY from .env>`
 
-Run the tests again against your current checkout before relying on this
-status for a release.
+See `API_DOCUMENTATION.md` for full request/response schemas.
+
+## Project Layout
+
+```
+api/main.py                     FastAPI backend
+cyberllm/conversation/          Conversational retrieval engine
+cyberllm/retrieval/lexical.py   BM25-style KB search
+data/conversation/              Conversational dataset (synthetic)
+data/raw/                       Original external datasets (untouched)
+dataset/                        CVE/MITRE/Sigma instruction data (untouched)
+models/                         Trained artifacts (phishing classifier)
+artifacts/reports/              Training and evaluation reports
+scripts/                        Automated pipeline scripts
+phishing/                       Original phishing pipeline (untouched)
+tests/                          pytest suite (run: python -m pytest -q)
+```
+
+## Honest Capability Statement
+
+The conversational engine is **retrieval-based (RAG hybrid)**, not a
+pretrained LLM. See `MODEL_CARD.md` and `TRAINING_REPORT.md` for why, and
+what would change if a CUDA-enabled PyTorch were installed.
+
+## Key Documents
+
+- `AUDIT_REPORT.md` — initial project audit
+- `DATASET_REPORT.md` — conversational dataset provenance and stats
+- `TRAINING_REPORT.md` — pipeline runs and evaluation results
+- `MODEL_CARD.md` — model description and limitations
+- `API_DOCUMENTATION.md` — full endpoint reference
+- `ZYRA_INTEGRATION.md` — how to connect Zyra desktop assistant
