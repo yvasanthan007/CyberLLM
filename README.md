@@ -80,3 +80,5 @@ what would change if a CUDA-enabled PyTorch were installed.
 - `MODEL_CARD.md` — model description and limitations
 - `API_DOCUMENTATION.md` — full endpoint reference
 - `ZYRA_INTEGRATION.md` — how to connect Zyra desktop assistant
+- `RUNTIME_SETUP.md` — how to install/verify the local Llama preset
+- `PHASES.md` — current implementation status of every pipeline phase

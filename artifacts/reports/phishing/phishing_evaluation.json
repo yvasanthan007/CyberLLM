@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-10-29T15:44:15.517243+00:00",
+  "timestamp_utc": "2026-10-30T03:35:39.849052+00:00",
   "model": "phishing_url_tfidf_logreg",
   "artifact": "models\\phishing_url_model.joblib",
   "dataset": "data\\raw\\PhiUSIIL_Phishing_URL_Dataset.csv",

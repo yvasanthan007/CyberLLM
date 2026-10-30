@@ -1,15 +1,20 @@
 # Model Card — CyberLLM Conversational Assistant
 
-**Model ID:** `cyberllm-rag-hybrid-v1`
-**Version:** 1.0
-**Date:** 2026-10-29
-**License:** MIT (project code, per root `LICENSE`)
+**Model ID:** `cyberllm-rag-hybrid-v1`  +  local LLM **`Qwen/Qwen2.5-0.5B-Instruct`**
+**Version:** 1.1
+**Date:** 2026-10-30 (updated)
+**License:** MIT (project code); Qwen2.5-0.5B-Instruct is Apache-2.0
 **Developer:** CyberLLM project
 
 ## Model Type
 
-**Hybrid retrieval-based conversational assistant** — *not* a pretrained or
-fine-tuned neural language model. Two cooperating retrievers:
+**Hybrid: local pretrained LLM + retrieval.** Since 2026-10-30 the stack
+includes the pretrained (NOT fine-tuned) Qwen2.5-0.5B-Instruct model running
+locally on CPU via the Transformers inference adapter
+(`cyberllm/llm/adapter.py`), augmented with BM25 RAG context from the
+2,427-document KB. The original retrieval engine remains the fast path for
+curated-dataset direct hits and the honest fallback when the LLM is
+unavailable. Two cooperating retrievers:
 
 1. **Primary:** TF-IDF cosine similarity router over 72 curated
    cybersecurity Q&A pairs (`data/conversation/processed/conversations_clean.jsonl`).

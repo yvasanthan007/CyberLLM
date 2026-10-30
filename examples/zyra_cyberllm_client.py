@@ -3,9 +3,18 @@
 # Copy this file into Zyra's source tree and adapt imports as needed.
 
 import os
+import re
 from typing import Optional
 
 import httpx
+
+# Greeting pattern: when the user just says hi, Zyra greets locally and
+# skips the API call entirely (see is_greeting()).
+_GREETING_RE = re.compile(r"^\s*(hi+|hello+|hey+|good (morning|evening|afternoon))\b[!,. ]*$", re.I)
+
+
+def is_greeting(text: str) -> bool:
+    return bool(_GREETING_RE.match(text or ""))
 
 
 class CyberLLMClient:
@@ -49,7 +58,11 @@ class CyberLLMClient:
         return response.json()
 
     def chat(self, message: str) -> dict:
-        """Ask CyberLLM a cybersecurity question. Returns dict with 'answer'."""
+        """Ask CyberLLM a cybersecurity question. Returns dict with 'answer'.
+
+        Raises httpx errors on failure so the caller can decide what to
+        say; this module never invents an answer for a failed request.
+        """
         response = httpx.post(
             f"{self.base_url}/chat",
             headers=self._headers(),
@@ -84,4 +97,14 @@ if __name__ == "__main__":
     import json
 
     client = CyberLLMClient()
-    print(json.dumps(client.chat("What is ethical hacking?"), indent=2))
+    user_text = input("You: ")
+    if is_greeting(user_text):
+        print("Zyra: Welcome, how can I help you?")
+    else:
+        try:
+            result = client.chat(user_text)
+            print(f"Zyra: {result['answer']}")
+        except httpx.ConnectError:
+            print("Zyra: CyberLLM service is not running.")
+        except httpx.HTTPStatusError as exc:
+            print(f"Zyra: CyberLLM error {exc.response.status_code}")

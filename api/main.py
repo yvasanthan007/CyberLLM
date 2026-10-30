@@ -12,6 +12,8 @@ from pydantic import BaseModel, Field
 
 from cyberllm.retrieval.lexical import load_documents, search_documents
 from cyberllm.conversation.engine import get_engine, ENGINE_ID, ENGINE_DESCRIPTION
+from cyberllm.orchestrator import get_inference
+from cyberllm.llm.adapter import get_adapter
 
 ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(ROOT / ".env")
@@ -81,13 +83,37 @@ class SearchRequest(BaseModel):
     top_k: int = Field(default=5, ge=1, le=10)
 
 
+@app.on_event("startup")
+def _load_llm_once():
+    """Load the local LLM exactly once at server startup (best-effort).
+
+    Failure never crashes the API; /health and /chat report the real status.
+    """
+    try:
+        get_adapter().ensure_loaded()
+    except Exception:
+        pass
+
+
 @app.get("/health")
 def health():
     status = {
         "status": "ok",
         "phishing_model": "unavailable",
         "knowledge_base": "unavailable",
+        "local_llm": "disabled_or_not_loaded",
     }
+    try:
+        adapter = get_adapter()
+        info = adapter.status()
+        if info["loaded"]:
+            status["local_llm"] = f"loaded ({info['model_id']} on {info['device']})"
+        elif not info["enabled"]:
+            status["local_llm"] = "disabled"
+        elif info["load_error"]:
+            status["local_llm"] = f"error: {info['load_error']}"
+    except Exception:
+        pass
 
     try:
         load_model()
@@ -187,6 +213,7 @@ def capabilities():
         "chat": conversation_loaded,
         "chat_model": ENGINE_ID if conversation_loaded else None,
         "chat_description": ENGINE_DESCRIPTION,
+        "local_llm": get_adapter().status(),
         "phishing_predict": MODEL_PATH.is_file(),
         "knowledge_search": KB_PATH.is_file(),
         "auth_required": True,
@@ -204,24 +231,35 @@ def capabilities():
 
 @app.get("/models", dependencies=[Depends(require_api_key)])
 def list_models():
-    return {
-        "models": [
-            {
-                "id": ENGINE_ID,
-                "kind": "conversational",
-                "description": ENGINE_DESCRIPTION,
-                "trained_from_scratch": False,
-                "is_pretrained_llm": False,
-                "approach": "TF-IDF retrieval over curated conversational dataset + BM25 fallback over knowledge base",
-            },
-            {
-                "id": "phishing_url_tfidf_logreg",
-                "kind": "classification",
-                "description": "TF-IDF char n-gram + LogisticRegression URL classifier",
-                "artifact": "models/phishing_url_model.joblib",
-            },
-        ]
-    }
+    inf = get_inference().capabilities()
+    llm_cap = inf["llm"]
+    models = [
+        {
+            "id": ENGINE_ID,
+            "kind": "conversational",
+            "description": ENGINE_DESCRIPTION,
+            "trained_from_scratch": False,
+            "is_pretrained_llm": False,
+            "approach": "TF-IDF retrieval over curated conversational dataset + BM25 fallback over knowledge base",
+        },
+        {
+            "id": "phishing_url_tfidf_logreg",
+            "kind": "classification",
+            "description": "TF-IDF char n-gram + LogisticRegression URL classifier",
+            "artifact": "models/phishing_url_model.joblib",
+        },
+    ]
+    if llm_cap["available"]:
+        models.insert(0, {
+            "id": llm_cap["model_id"],
+            "kind": "conversational",
+            "description": "Local pretrained instruction-tuned LLM (inference adapter)",
+            "trained_from_scratch": False,
+            "is_pretrained_llm": True,
+            "fine_tuned_adapter": llm_cap.get("fine_tuned_adapter"),
+            "approach": "Transformers generation, optionally RAG-augmented from the local KB",
+        })
+    return {"models": models}
 
 
 @app.post("/chat", dependencies=[Depends(require_api_key)])
@@ -231,21 +269,28 @@ def chat(request: ChatRequest):
         raise HTTPException(status_code=422, detail="Message cannot be empty")
 
     try:
-        engine = get_engine()
-        answer, metadata = engine.respond(message)
+        answer, metadata = get_inference().respond(message)
     except Exception:
         raise HTTPException(status_code=503, detail="Chat engine is unavailable")
 
+    source = metadata.get("source", "unknown")
+    is_llm = source in ("llm", "llm+rag")
     return {
         "answer": answer,
-        "model": ENGINE_ID,
-        "model_description": ENGINE_DESCRIPTION,
+        "model": metadata.get("model_id", ENGINE_ID),
+        "model_description": (
+            metadata.get("note") or
+            f"Local LLM generation" if is_llm else ENGINE_DESCRIPTION),
         "source": metadata.get("source", "unknown"),
         "confidence": metadata.get("confidence", 0.0),
         "matched_question": metadata.get("matched_question"),
         "category": metadata.get("category"),
         "related_questions": metadata.get("related_questions", []),
         "refused": metadata.get("refused", False),
+        "llm_generated": is_llm,
+        "retrieved_sources": metadata.get("retrieved_sources", []),
         "status": "ok",
-        "note": "Responses come from the actual loaded retrieval engine, not hardcoded strings.",
+        "note": (
+            "Answer generated by the local LLM." if is_llm
+            else "Responses come from the actual loaded retrieval engine, not hardcoded strings."),
     }

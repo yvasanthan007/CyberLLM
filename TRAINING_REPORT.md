@@ -1,6 +1,19 @@
 # CyberLLM Training Report
 
-Run date: 2026-10-29 (automated, reproducible via `scripts/train_conversations.py`)
+Run dates: 2026-10-29 (conversation index), **updated 2026-10-30** (LLM inference path added).
+
+## Status update 2026-10-30
+
+- The pretrained base model **Qwen/Qwen2.5-0.5B-Instruct (Apache-2.0)** is now
+  fully downloaded to the local HF cache (`HF_HOME=D:\HuggingFace`, snapshot
+  `7ae55760…`, 988 MB safetensors) and **loads and generates successfully on CPU**.
+- The unified inference path is live: open-ended questions get LLM+RAG answers
+  (`source=llm+rag`, `llm_generated=true`); curated-dataset direct hits keep the
+  fast retrieval answer, honestly labeled.
+- **Fine-tuning is still blocked**: torch remains `2.14.1+cpu` (Python 3.14 has
+  no CUDA wheel yet; a separate Python 3.11/3.12 venv is required for CUDA
+  training). `scripts/train_lora.py --smoke/--full` exits with code 2 and the
+  exact blocker — nothing was trained, and no adapter weights exist.
 
 ## What "training" means here — honest framing
 

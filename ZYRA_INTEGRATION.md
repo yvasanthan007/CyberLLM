@@ -1,7 +1,21 @@
 # Zyra Integration Guide
 
-CyberLLM exposes a clean HTTP API that Zyra (desktop AI assistant) can call
-for cybersecurity questions. This document covers the full integration.
+Updated 2026-10-30. **Note:** the Zyra desktop repository is NOT present in
+this workspace (searched `D:\` and the user profile). Integration is fully
+documented and the tested client is ready to copy; see "Status" below.
+
+## Status
+
+- Tested client: `examples/zyra_cyberllm_client.py` — verified live on
+  2026-10-30 against a running CyberLLM server:
+  - `Hi Zyra` → local greeting (no API call). Update its greeting string to
+    "Welcome, how can I help you?" if you prefer that wording.
+  - Substantive questions → `/chat`; the LLM answer is only spoken/displayed
+    after a successful HTTP 200 with a valid JSON body. Failed requests yield
+    a clear error message, never a fabricated answer.
+- Copy `examples/zyra_cyberllm_client.py` into Zyra's **backend/main-process**
+  layer (not the frontend). Set `CYBERLLM_BASE_URL` and `CYBERLLM_API_KEY` in
+  Zyra's process environment or its own secret store.
 
 ## Architecture
 
@@ -19,10 +33,14 @@ for cybersecurity questions. This document covers the full integration.
 ## 1. Start CyberLLM (backend)
 
 ```powershell
-cd D:\CyberLLM
+Set-Location D:\CyberLLM
 .\.venv\Scripts\Activate.ps1
-python -m uvicorn api.main:app --host 127.0.0.1 --port 8765
+.\CyberLLM.ps1 serve
 ```
+
+The local model loads once at API startup (first start after download takes
+longer). Verify using `http://127.0.0.1:8765/health`; successful status
+contains `loaded (Qwen/Qwen2.5-0.5B-Instruct on cpu)` on the verified hardware.
 
 Keep this running in a separate terminal (or install as a service).
 
