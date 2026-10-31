@@ -1,0 +1,122 @@
+{
+  "dataset_rows_after_deduplication": 235370,
+  "label_mapping": {
+    "0": "PHISHING",
+    "1": "LEGITIMATE"
+  },
+  "patterns": {
+    "google_host": {
+      "rows": 782,
+      "phishing_label_0": 782,
+      "legitimate_label_1": 0,
+      "sample_urls": [
+        "https://docs.google.com/forms/d/1casphevkfdaz2okqj70wdai3pdwwg1weh_rpk9v0z3a/viewform",
+        "https://docs.google.com/forms/d/e/1faipqlscckv1-rxhipcmrhnwfvq2lhuxx18nzcm1e7e0oz8ienixtgw/viewform",
+        "https://www.google.com/url?q=https://ipfs.io/ipfs/qmpovsvevlyhp2gj6vfhkqvhaydz1o7y2xn3xt87kkghtv%23%5bemail%5d&amp;source=gmail&amp;ust=1663915474090000&amp;usg=aovvaw1usggtmp1ivavtzsxcz8g1",
+        "https://docs.google.com/forms/d/e/1faipqlsdnega_6c_pz9_q9ep9epm4iwqfsrxqsnaz-j9dyldimaoocg/viewform?usp=send_form",
+        "https://docs.google.com/forms/d/e/1faipqlsfp1eukgsktriyraz2csynqwfwtv6ehlnbszu69dbxz9lirtq/viewform"
+      ]
+    },
+    "youtube_host": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "wikipedia_host": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "microsoft_host": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "office_host": {
+      "rows": 7,
+      "phishing_label_0": 6,
+      "legitimate_label_1": 1,
+      "sample_urls": [
+        "https://forms.office.com/pages/responsepage.aspx?id=dqsikwdsw0yxejajblztrqaaaaaaaaaaaanaauvucvpuqzngvly2rte2mfbws0u5rdnyredwte9rmi4u",
+        "https://forms.office.com/pages/responsepage.aspx?id=ohdyclicseeuggrjwocnyc_obsknc9faprsbco6mlnhurtnevvdzuzzewddiq0xoskixulbontdsrs4u",
+        "https://forms.office.com/r/v0rrdpppff",
+        "https://forms.office.com/r/wmexhawg58",
+        "https://forms.office.com/pages/responsepage.aspx?id=dqsikwdsw0yxejajblztrqaaaaaaaaaaaan__gdpmarun1y5qlrqnjbkuvlhuvgyu0q1q1axszg2wi4u"
+      ]
+    },
+    "example_host": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "has_login_word": {
+      "rows": 4774,
+      "phishing_label_0": 4726,
+      "legitimate_label_1": 48,
+      "sample_urls": [
+        "http://forcedie17.temp.swtest.ru/postounatou/postounatou/post/login/login.php",
+        "http://www.mail-nepalarmy-mil-np-login-download.netlify.app",
+        "http://43.134.167.94/servicelogin?passive=1209600&amp;continue=https://accounts.google.com/?&amp;xrealip=107.178.232.242&amp;followup=https://accounts.google.com/?&amp;xrealip=107.178.232.242",
+        "http://cpanel10wh.bkk1.cloud.z.com/~cp785288/hlep/login/billing.php?verify_account=session=nl&amp;c9af20c816b1cce4f06368be3327e297=&amp;dispatch=15464ad822e0af50d3b1df6196cac08a9e8edfbd",
+        "http://cn52393.tw1.ru/ups/login/details.php"
+      ]
+    },
+    "has_redirect_word": {
+      "rows": 600,
+      "phishing_label_0": 598,
+      "legitimate_label_1": 2,
+      "sample_urls": [
+        "http://43.134.167.94/servicelogin?passive=1209600&amp;continue=https://accounts.google.com/?&amp;xrealip=107.178.232.242&amp;followup=https://accounts.google.com/?&amp;xrealip=107.178.232.242",
+        "http://43.128.92.128/servicelogin?passive=1209600&amp;continue=https://accounts.google.com/?&amp;xrealip=107.178.232.247&amp;followup=https://accounts.google.com/?",
+        "http://43.134.167.94/v3/signin/identifier?dsh=s151927330%3a1679418096294349&amp%3bfollowup=https%3a%2f%2faccounts.google.com%2f%3f&amp%3bifkv=aqmjq7que0i0y0zqvxr-psd9dopzofl1azrhfrg8jha1fo5atztmzkxpzsdd8dd9wxed0vlkukpb&amp%3bpassive=1209600&amp%3bxrealip=107.178.232.242&continue=https%3a%2f%2faccounts.google.com%2f%3f&xrealip=107.21.207.171&flowname=weblitesignin&flowentry=servicelogin&ifkv=awnoghdd3bcsqfutafhqg0s1jix1d0uxzq28f0tkgnl9zhq-dfvgzt7n2gzib78ijohixqaaraothg",
+        "https://redirection3-20361.web.app/",
+        "http://43.153.207.103/v3/signin/identifier?dsh=s-16339560%3a1679418180081355&amp%3bfollowup=https%3a%2f%2faccounts.google.com%2f%3f&amp%3bifkv=awnoghedjeezlxxcukyobikksrlskkbb8naftymojf2pwikab-md99nj9vzjmeshc1trpqxmz-t9&amp%3bpassive=1209600&amp%3bxrealip=107.178.200.216&continue=https%3a%2f%2faccounts.google.com%2f%3f&xrealip=107.21.207.171&flowname=weblitesignin&flowentry=servicelogin&ifkv=awnoghdkbq5_bcbcs7t_jbbb9kh3txpcqomjbjvtodoolkfraglnqnbwsicqnuymo66jb13fvsxv"
+      ]
+    },
+    "has_at_symbol": {
+      "rows": 1506,
+      "phishing_label_0": 1506,
+      "legitimate_label_1": 0,
+      "sample_urls": [
+        "https://ipfs.io/ipfs/qmrvvyr84esa2assw9vvwupqjgsdn4c3dwkusfdwzdz3kn?clientid=noc@protocol.ai",
+        "https://ipfs.io/ipfs/bafybeidmmks6ka5vki6djnohox7mminfrzcjkw2mowpft7xtu2sjyxzi64/ufx!xch@",
+        "http://1636365.com/assets/@popperjs.36402333.js/assets/@ctrl.fd318bfa.js/assets/@ctrl.b082b0c1.js/assets/@vueuse.7ab573ac.js/",
+        "https://s3.ap-southeast-1.wasabisys.com/mailbusiness/appsuite/tlyappioox/mailfolderdefault9/inbox.html#redacted@abuse.ionos.com",
+        "https://storageapi.fleek.co/b620e7da-f4f5-4e6e-8d8e-8c4c3783180b-bucket/vat11/index.html#a@b.com"
+      ]
+    },
+    "has_percent_encoding": {
+      "rows": 883,
+      "phishing_label_0": 883,
+      "legitimate_label_1": 0,
+      "sample_urls": [
+        "https://s3.amazonaws.com/appforest_uf/f1678949673383x832048620362898600/index%20%284%29.html",
+        "https://bafybeieykrmvpnwd7ifrl4qjnxeaxfbic4vrv767gz74oj5wpucvdngdkm.ipfs.dweb.link/pxpsoauth.html?contimetra@contimetra.com%20",
+        "https://www.google.com/url?q=https://ipfs.io/ipfs/qmpovsvevlyhp2gj6vfhkqvhaydz1o7y2xn3xt87kkghtv%23%5bemail%5d&amp;source=gmail&amp;ust=1663915474090000&amp;usg=aovvaw1usggtmp1ivavtzsxcz8g1",
+        "https://av-receiver-experte.de/st%c3%b8ttesystemnew/organiseresimp/simply/",
+        "http://43.134.167.94/v3/signin/identifier?dsh=s151927330%3a1679418096294349&amp%3bfollowup=https%3a%2f%2faccounts.google.com%2f%3f&amp%3bifkv=aqmjq7que0i0y0zqvxr-psd9dopzofl1azrhfrg8jha1fo5atztmzkxpzsdd8dd9wxed0vlkukpb&amp%3bpassive=1209600&amp%3bxrealip=107.178.232.242&continue=https%3a%2f%2faccounts.google.com%2f%3f&xrealip=107.21.207.171&flowname=weblitesignin&flowentry=servicelogin&ifkv=awnoghdd3bcsqfutafhqg0s1jix1d0uxzq28f0tkgnl9zhq-dfvgzt7n2gzib78ijohixqaaraothg"
+      ]
+    },
+    "has_ip_address_text": {
+      "rows": 706,
+      "phishing_label_0": 706,
+      "legitimate_label_1": 0,
+      "sample_urls": [
+        "http://198.98.58.123/",
+        "http://43.134.167.94/servicelogin?passive=1209600&amp;continue=https://accounts.google.com/?&amp;xrealip=107.178.232.242&amp;followup=https://accounts.google.com/?&amp;xrealip=107.178.232.242",
+        "http://43.128.92.128/servicelogin?passive=1209600&amp;continue=https://accounts.google.com/?&amp;xrealip=107.178.232.247&amp;followup=https://accounts.google.com/?",
+        "http://43.134.167.94/v3/signin/identifier?dsh=s151927330%3a1679418096294349&amp%3bfollowup=https%3a%2f%2faccounts.google.com%2f%3f&amp%3bifkv=aqmjq7que0i0y0zqvxr-psd9dopzofl1azrhfrg8jha1fo5atztmzkxpzsdd8dd9wxed0vlkukpb&amp%3bpassive=1209600&amp%3bxrealip=107.178.232.242&continue=https%3a%2f%2faccounts.google.com%2f%3f&xrealip=107.21.207.171&flowname=weblitesignin&flowentry=servicelogin&ifkv=awnoghdd3bcsqfutafhqg0s1jix1d0uxzq28f0tkgnl9zhq-dfvgzt7n2gzib78ijohixqaaraothg",
+        "http://43.153.207.103/v3/signin/identifier?dsh=s-16339560%3a1679418180081355&amp%3bfollowup=https%3a%2f%2faccounts.google.com%2f%3f&amp%3bifkv=awnoghedjeezlxxcukyobikksrlskkbb8naftymojf2pwikab-md99nj9vzjmeshc1trpqxmz-t9&amp%3bpassive=1209600&amp%3bxrealip=107.178.200.216&continue=https%3a%2f%2faccounts.google.com%2f%3f&xrealip=107.21.207.171&flowname=weblitesignin&flowentry=servicelogin&ifkv=awnoghdkbq5_bcbcs7t_jbbb9kh3txpcqomjbjvtodoolkfraglnqnbwsicqnuymo66jb13fvsxv"
+      ]
+    }
+  },
+  "limitations": [
+    "Pattern matches are not proof of maliciousness.",
+    "URL query parameters can contain external destinations.",
+    "Dataset label distributions may reflect collection bias."
+  ]
+}

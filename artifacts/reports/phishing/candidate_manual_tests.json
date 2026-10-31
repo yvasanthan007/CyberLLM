@@ -1,0 +1,92 @@
+[
+  {
+    "Test": "Google homepage",
+    "Expected": "LEGITIMATE",
+    "Production": "LEGITIMATE",
+    "Production_Phasing_Score": 0.05589032173156738,
+    "Candidate": "LEGITIMATE",
+    "Candidate_Phishing_Score": 0.04713296890258789,
+    "Production_Match": true,
+    "Candidate_Match": true
+  },
+  {
+    "Test": "YouTube homepage",
+    "Expected": "LEGITIMATE",
+    "Production": "LEGITIMATE",
+    "Production_Phasing_Score": 0.17016267776489258,
+    "Candidate": "LEGITIMATE",
+    "Candidate_Phishing_Score": 0.1788223385810852,
+    "Production_Match": true,
+    "Candidate_Match": true
+  },
+  {
+    "Test": "Wikipedia homepage",
+    "Expected": "LEGITIMATE",
+    "Production": "PHISHING",
+    "Production_Phasing_Score": 0.8209657669067383,
+    "Candidate": "PHISHING",
+    "Candidate_Phishing_Score": 0.8141098022460938,
+    "Production_Match": false,
+    "Candidate_Match": false
+  },
+  {
+    "Test": "Microsoft homepage",
+    "Expected": "LEGITIMATE",
+    "Production": "LEGITIMATE",
+    "Production_Phasing_Score": 0.257803738117218,
+    "Candidate": "LEGITIMATE",
+    "Candidate_Phishing_Score": 0.2425299882888794,
+    "Production_Match": true,
+    "Candidate_Match": true
+  },
+  {
+    "Test": "Reserved example domain",
+    "Expected": "LEGITIMATE",
+    "Production": "PHISHING",
+    "Production_Phasing_Score": 0.9959527850151062,
+    "Candidate": "PHISHING",
+    "Candidate_Phishing_Score": 0.9952611327171326,
+    "Production_Match": false,
+    "Candidate_Match": false
+  },
+  {
+    "Test": "Example login path",
+    "Expected": "LEGITIMATE",
+    "Production": "PHISHING",
+    "Production_Phasing_Score": 0.9989011287689209,
+    "Candidate": "PHISHING",
+    "Candidate_Phishing_Score": 0.9988782405853271,
+    "Production_Match": false,
+    "Candidate_Match": false
+  },
+  {
+    "Test": "YouTube video URL",
+    "Expected": "LEGITIMATE",
+    "Production": "PHISHING",
+    "Production_Phasing_Score": 0.6550110578536987,
+    "Candidate": "PHISHING",
+    "Candidate_Phishing_Score": 0.6577826738357544,
+    "Production_Match": false,
+    "Candidate_Match": false
+  },
+  {
+    "Test": "PayPal lookalike hostname",
+    "Expected": "PHISHING",
+    "Production": "PHISHING",
+    "Production_Phasing_Score": 0.9997187852859497,
+    "Candidate": "PHISHING",
+    "Candidate_Phishing_Score": 0.9996747970581055,
+    "Production_Match": true,
+    "Candidate_Match": true
+  },
+  {
+    "Test": "Suspicious reserved test URL",
+    "Expected": "PHISHING",
+    "Production": "PHISHING",
+    "Production_Phasing_Score": 0.9998952150344849,
+    "Candidate": "PHISHING",
+    "Candidate_Phishing_Score": 0.9998902678489685,
+    "Production_Match": true,
+    "Candidate_Match": true
+  }
+]

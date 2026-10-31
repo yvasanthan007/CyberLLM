@@ -1,0 +1,49 @@
+{
+  "model_path": "D:\\CyberLLM\\models\\phishing_url_model.joblib",
+  "model_size_bytes": 10279392,
+  "model_sha256": "ff98f78e0e52c22a1888d2859820b0a9bc524b2e72b3ac8dbc79c9f832845342",
+  "model_classes": [
+    0,
+    1
+  ],
+  "pipeline_steps": [
+    {
+      "name": "tfidf",
+      "class": "sklearn.feature_extraction.text.TfidfVectorizer",
+      "parameters": {
+        "max_features": 300000,
+        "min_df": 2,
+        "ngram_range": [
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "name": "classifier",
+      "class": "sklearn.linear_model._logistic.LogisticRegression",
+      "parameters": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "max_iter": 1000
+      }
+    }
+  ],
+  "dataset_path": "D:\\CyberLLM\\data\\raw\\PhiUSIIL_Phishing_URL_Dataset.csv",
+  "dataset_rows_after_basic_cleaning": 235795,
+  "unique_urls": 235370,
+  "duplicate_url_rows": 425,
+  "label_counts": {
+    "1": 134850,
+    "0": 100945
+  },
+  "label_mapping": {
+    "0": "PHISHING",
+    "1": "LEGITIMATE"
+  },
+  "limitations": [
+    "This script inspects metadata and dataset counts only.",
+    "It does not establish when or on which exact rows the model was trained.",
+    "It does not change the model, dataset, or API."
+  ]
+}

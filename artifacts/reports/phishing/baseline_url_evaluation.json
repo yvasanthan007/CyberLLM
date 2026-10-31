@@ -1,0 +1,78 @@
+{
+  "created_at_utc": "2026-10-31T14:49:35.146959+00:00",
+  "model_path": "models\\phishing_url_model.joblib",
+  "model_classes": [
+    0,
+    1
+  ],
+  "notes": [
+    "Scores are not calibrated probabilities.",
+    "This small hand-picked test is not a statistical benchmark.",
+    "Synthetic suspicious URLs are not live threat intelligence."
+  ],
+  "results": [
+    {
+      "url": "https://www.google.com/",
+      "expected": "legitimate",
+      "reason": "Known legitimate homepage",
+      "predicted": "legitimate",
+      "phishing_score": 0.05589,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "https://www.youtube.com/",
+      "expected": "legitimate",
+      "reason": "Known legitimate homepage",
+      "predicted": "legitimate",
+      "phishing_score": 0.170163,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "https://www.wikipedia.org/",
+      "expected": "legitimate",
+      "reason": "Known legitimate homepage",
+      "predicted": "legitimate",
+      "phishing_score": 0.01182,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "https://www.microsoft.com/",
+      "expected": "legitimate",
+      "reason": "Known legitimate homepage",
+      "predicted": "legitimate",
+      "phishing_score": 0.257804,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "https://example.com/",
+      "expected": "legitimate",
+      "reason": "Reserved example domain",
+      "predicted": "phishing",
+      "phishing_score": 0.995953,
+      "score_is_calibrated_probability": false,
+      "matches_expected": false
+    },
+    {
+      "url": "http://paypal.com.security-check.example/",
+      "expected": "phishing",
+      "reason": "Suspicious hostname structure",
+      "predicted": "phishing",
+      "phishing_score": 0.999719,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "http://login-example.invalid/verify?account=123",
+      "expected": "phishing",
+      "reason": "Synthetic suspicious URL",
+      "predicted": "phishing",
+      "phishing_score": 0.999895,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    }
+  ]
+}

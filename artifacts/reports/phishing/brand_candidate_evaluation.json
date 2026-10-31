@@ -1,0 +1,258 @@
+{
+  "candidate_path": "D:\\CyberLLM\\models\\phishing_url_brand_candidate.joblib",
+  "production_path": "D:\\CyberLLM\\models\\phishing_url_model.joblib",
+  "label_mapping": {
+    "0": "PHISHING",
+    "1": "LEGITIMATE"
+  },
+  "threshold": 0.5,
+  "score_is_calibrated_probability": false,
+  "candidate_sha256": "2ea5aec72c73d95ca6cd2140ae3ad6606c7b9b75a97530bf988e8e19d4bc3d53",
+  "production_model": {
+    "sha256_before": "ff98f78e0e52c22a1888d2859820b0a9bc524b2e72b3ac8dbc79c9f832845342",
+    "sha256_after": "ff98f78e0e52c22a1888d2859820b0a9bc524b2e72b3ac8dbc79c9f832845342",
+    "size_bytes_before": 10279392,
+    "size_bytes_after": 10279392,
+    "unchanged": true
+  },
+  "grouped_holdout_metrics": {
+    "accuracy": 0.9968009428799932,
+    "phishing_precision": 0.9999508406253073,
+    "phishing_recall": 0.992631270739801,
+    "phishing_f1": 0.9962776117940931,
+    "confusion_matrix": {
+      "true_legitimate": 27021,
+      "false_phishing_alerts": 1,
+      "missed_phishing": 151,
+      "detected_phishing": 20341
+    },
+    "test_rows": 47514,
+    "train_hostnames": 176061,
+    "test_hostnames": 44016,
+    "shared_hostnames": 0,
+    "threshold": 0.5,
+    "score_is_calibrated_probability": false
+  },
+  "targeted_diagnostic": {
+    "cases": 18,
+    "candidate_correct": 9,
+    "candidate_accuracy": 0.5,
+    "production_correct": 10,
+    "production_accuracy": 0.5555555555555556,
+    "previous_candidate_status": {
+      "available": true,
+      "compatible": false,
+      "reason": "X has 25 features, but StandardScaler is expecting 23 features as input."
+    },
+    "results": [
+      {
+        "name": "Google homepage",
+        "url": "https://www.google.com/",
+        "expected_label": 1,
+        "candidate_label": 1,
+        "candidate_phishing_score": 0.17655837672075547,
+        "candidate_correct": true,
+        "production_label": 1,
+        "production_phishing_score": 0.05589032173156738,
+        "production_correct": true
+      },
+      {
+        "name": "YouTube homepage",
+        "url": "https://www.youtube.com/",
+        "expected_label": 1,
+        "candidate_label": 0,
+        "candidate_phishing_score": 0.5398410633482309,
+        "candidate_correct": false,
+        "production_label": 1,
+        "production_phishing_score": 0.17016267776489258,
+        "production_correct": true
+      },
+      {
+        "name": "YouTube watch URL",
+        "url": "https://www.youtube.com/watch?v=example",
+        "expected_label": 1,
+        "candidate_label": 0,
+        "candidate_phishing_score": 0.9999917246222556,
+        "candidate_correct": false,
+        "production_label": 0,
+        "production_phishing_score": 0.6550110578536987,
+        "production_correct": false
+      },
+      {
+        "name": "Wikipedia homepage",
+        "url": "https://en.wikipedia.org/",
+        "expected_label": 1,
+        "candidate_label": 0,
+        "candidate_phishing_score": 0.662184920049546,
+        "candidate_correct": false,
+        "production_label": 0,
+        "production_phishing_score": 0.8209657669067383,
+        "production_correct": false
+      },
+      {
+        "name": "Wikipedia article",
+        "url": "https://en.wikipedia.org/wiki/Phishing",
+        "expected_label": 1,
+        "candidate_label": 0,
+        "candidate_phishing_score": 0.9999999814912535,
+        "candidate_correct": false,
+        "production_label": 0,
+        "production_phishing_score": 0.8353698253631592,
+        "production_correct": false
+      },
+      {
+        "name": "Microsoft homepage",
+        "url": "https://www.microsoft.com/",
+        "expected_label": 1,
+        "candidate_label": 1,
+        "candidate_phishing_score": 0.4320525157821108,
+        "candidate_correct": true,
+        "production_label": 1,
+        "production_phishing_score": 0.257803738117218,
+        "production_correct": true
+      },
+      {
+        "name": "Microsoft login",
+        "url": "https://login.microsoft.com/",
+        "expected_label": 1,
+        "candidate_label": 0,
+        "candidate_phishing_score": 0.9993207272596939,
+        "candidate_correct": false,
+        "production_label": 0,
+        "production_phishing_score": 0.9985120296478271,
+        "production_correct": false
+      },
+      {
+        "name": "Office homepage",
+        "url": "https://www.office.com/",
+        "expected_label": 1,
+        "candidate_label": 1,
+        "candidate_phishing_score": 0.08832634023045749,
+        "candidate_correct": true,
+        "production_label": 1,
+        "production_phishing_score": 0.09832102060317993,
+        "production_correct": true
+      },
+      {
+        "name": "Reserved example domain",
+        "url": "https://example.com/",
+        "expected_label": 1,
+        "candidate_label": 0,
+        "candidate_phishing_score": 0.9561578567463016,
+        "candidate_correct": false,
+        "production_label": 0,
+        "production_phishing_score": 0.9959527850151062,
+        "production_correct": false
+      },
+      {
+        "name": "Reserved example login path",
+        "url": "https://example.com/login",
+        "expected_label": 1,
+        "candidate_label": 0,
+        "candidate_phishing_score": 0.9999328449614583,
+        "candidate_correct": false,
+        "production_label": 0,
+        "production_phishing_score": 0.9989011287689209,
+        "production_correct": false
+      },
+      {
+        "name": "GitHub homepage",
+        "url": "https://github.com/",
+        "expected_label": 1,
+        "candidate_label": 0,
+        "candidate_phishing_score": 0.9621051840183757,
+        "candidate_correct": false,
+        "production_label": 0,
+        "production_phishing_score": 0.9947848320007324,
+        "production_correct": false
+      },
+      {
+        "name": "Wikipedia security article",
+        "url": "https://en.wikipedia.org/wiki/Computer_security",
+        "expected_label": 1,
+        "candidate_label": 0,
+        "candidate_phishing_score": 0.9999999999999215,
+        "candidate_correct": false,
+        "production_label": 0,
+        "production_phishing_score": 0.9114735722541809,
+        "production_correct": false
+      },
+      {
+        "name": "PayPal lookalike",
+        "url": "http://paypal.com.security-check.example/verify",
+        "expected_label": 0,
+        "candidate_label": 0,
+        "candidate_phishing_score": 1.0,
+        "candidate_correct": true,
+        "production_label": 0,
+        "production_phishing_score": 0.999740719795227,
+        "production_correct": true
+      },
+      {
+        "name": "Microsoft lookalike",
+        "url": "http://microsoft.com.security-check.example/login",
+        "expected_label": 0,
+        "candidate_label": 0,
+        "candidate_phishing_score": 1.0,
+        "candidate_correct": true,
+        "production_label": 0,
+        "production_phishing_score": 0.9998593330383301,
+        "production_correct": true
+      },
+      {
+        "name": "YouTube lookalike",
+        "url": "http://youtube.com.account-check.example/login",
+        "expected_label": 0,
+        "candidate_label": 0,
+        "candidate_phishing_score": 1.0,
+        "candidate_correct": true,
+        "production_label": 0,
+        "production_phishing_score": 0.9996652007102966,
+        "production_correct": true
+      },
+      {
+        "name": "Wikipedia lookalike",
+        "url": "http://wikipedia.org.security-check.example/verify",
+        "expected_label": 0,
+        "candidate_label": 0,
+        "candidate_phishing_score": 1.0,
+        "candidate_correct": true,
+        "production_label": 0,
+        "production_phishing_score": 0.998866617679596,
+        "production_correct": true
+      },
+      {
+        "name": "Synthetic suspicious URL",
+        "url": "http://login-example.invalid/verify?account=123",
+        "expected_label": 0,
+        "candidate_label": 0,
+        "candidate_phishing_score": 1.0,
+        "candidate_correct": true,
+        "production_label": 0,
+        "production_phishing_score": 0.9998952150344849,
+        "production_correct": true
+      },
+      {
+        "name": "Synthetic account URL",
+        "url": "http://secure-login-example.invalid/account",
+        "expected_label": 0,
+        "candidate_label": 0,
+        "candidate_phishing_score": 1.0,
+        "candidate_correct": true,
+        "production_label": 0,
+        "production_phishing_score": 0.9999217987060547,
+        "production_correct": true
+      }
+    ]
+  },
+  "limitations": [
+    "The dataset may contain collection and label biases.",
+    "The targeted diagnostic set is small and hand-selected.",
+    "Synthetic phishing examples do not represent all real attacks.",
+    "Hostname-grouped holdout performance does not guarantee real-world performance.",
+    "The score is not a calibrated probability.",
+    "The brand-feature extractor is a heuristic and is not a full public-suffix-list implementation.",
+    "The candidate has not been promoted to production."
+  ],
+  "elapsed_seconds": 67.05
+}

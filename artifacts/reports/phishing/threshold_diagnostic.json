@@ -1,0 +1,146 @@
+{
+  "model_path": "D:\\CyberLLM\\models\\phishing_url_model.joblib",
+  "class_mapping": {
+    "0": "PHISHING",
+    "1": "LEGITIMATE"
+  },
+  "score_is_calibrated_probability": false,
+  "thresholds": [
+    {
+      "threshold": 0.5,
+      "correct": 6,
+      "diagnostic_cases": 12,
+      "false_positives": 6,
+      "false_negatives": 0,
+      "diagnostic_match_rate": 0.5
+    },
+    {
+      "threshold": 0.6,
+      "correct": 6,
+      "diagnostic_cases": 12,
+      "false_positives": 6,
+      "false_negatives": 0,
+      "diagnostic_match_rate": 0.5
+    },
+    {
+      "threshold": 0.7,
+      "correct": 7,
+      "diagnostic_cases": 12,
+      "false_positives": 5,
+      "false_negatives": 0,
+      "diagnostic_match_rate": 0.5833333333333334
+    },
+    {
+      "threshold": 0.8,
+      "correct": 7,
+      "diagnostic_cases": 12,
+      "false_positives": 5,
+      "false_negatives": 0,
+      "diagnostic_match_rate": 0.5833333333333334
+    },
+    {
+      "threshold": 0.9,
+      "correct": 9,
+      "diagnostic_cases": 12,
+      "false_positives": 3,
+      "false_negatives": 0,
+      "diagnostic_match_rate": 0.75
+    },
+    {
+      "threshold": 0.95,
+      "correct": 9,
+      "diagnostic_cases": 12,
+      "false_positives": 3,
+      "false_negatives": 0,
+      "diagnostic_match_rate": 0.75
+    },
+    {
+      "threshold": 0.99,
+      "correct": 9,
+      "diagnostic_cases": 12,
+      "false_positives": 3,
+      "false_negatives": 0,
+      "diagnostic_match_rate": 0.75
+    }
+  ],
+  "cases": [
+    {
+      "name": "Google homepage",
+      "url": "https://www.google.com/",
+      "expected_label": 1,
+      "phishing_score": 0.05589032173156738
+    },
+    {
+      "name": "YouTube homepage",
+      "url": "https://www.youtube.com/",
+      "expected_label": 1,
+      "phishing_score": 0.17016267776489258
+    },
+    {
+      "name": "YouTube watch URL",
+      "url": "https://www.youtube.com/watch?v=example",
+      "expected_label": 1,
+      "phishing_score": 0.6550110578536987
+    },
+    {
+      "name": "Wikipedia homepage",
+      "url": "https://en.wikipedia.org/",
+      "expected_label": 1,
+      "phishing_score": 0.8209657669067383
+    },
+    {
+      "name": "Wikipedia article",
+      "url": "https://en.wikipedia.org/wiki/Phishing",
+      "expected_label": 1,
+      "phishing_score": 0.8353698253631592
+    },
+    {
+      "name": "Microsoft homepage",
+      "url": "https://www.microsoft.com/",
+      "expected_label": 1,
+      "phishing_score": 0.257803738117218
+    },
+    {
+      "name": "Microsoft login",
+      "url": "https://login.microsoft.com/",
+      "expected_label": 1,
+      "phishing_score": 0.9985120296478271
+    },
+    {
+      "name": "Office homepage",
+      "url": "https://www.office.com/",
+      "expected_label": 1,
+      "phishing_score": 0.09832102060317993
+    },
+    {
+      "name": "Example reserved domain",
+      "url": "https://example.com/",
+      "expected_label": 1,
+      "phishing_score": 0.9959527850151062
+    },
+    {
+      "name": "Example login path",
+      "url": "https://example.com/login",
+      "expected_label": 1,
+      "phishing_score": 0.9989011287689209
+    },
+    {
+      "name": "PayPal lookalike",
+      "url": "http://paypal.com.security-check.example/",
+      "expected_label": 0,
+      "phishing_score": 0.9997187852859497
+    },
+    {
+      "name": "Suspicious test URL",
+      "url": "http://login-example.invalid/verify?account=123",
+      "expected_label": 0,
+      "phishing_score": 0.9998952150344849
+    }
+  ],
+  "limitations": [
+    "Only 12 hand-picked diagnostic URLs were evaluated.",
+    "Synthetic suspicious URLs are not live threat intelligence.",
+    "These results are not a statistically representative benchmark.",
+    "No model, API threshold, or production setting was changed."
+  ]
+}

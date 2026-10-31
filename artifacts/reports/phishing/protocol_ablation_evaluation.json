@@ -1,0 +1,146 @@
+{
+  "experiment": "protocol_ablation",
+  "dataset": "D:\\CyberLLM\\data\\raw\\PhiUSIIL_Phishing_URL_Dataset.csv",
+  "label_mapping": {
+    "0": "PHISHING",
+    "1": "LEGITIMATE"
+  },
+  "split_method": "GroupShuffleSplit by hostname",
+  "random_state": 42,
+  "test_size": 0.2,
+  "training_rows": 187856,
+  "testing_rows": 47514,
+  "training_hostnames": 176061,
+  "testing_hostnames": 44016,
+  "shared_hostnames": 0,
+  "invalid_rows_removed": 0,
+  "baseline": {
+    "name": "BASELINE: ORIGINAL URL",
+    "accuracy": 0.9962116428842025,
+    "per_class": {
+      "PHISHING": {
+        "precision": 1.0,
+        "recall": 0.9912160843255905,
+        "f1": 0.9955886677776689,
+        "support": 20492
+      },
+      "LEGITIMATE": {
+        "precision": 0.9933828394970958,
+        "recall": 1.0,
+        "f1": 0.9966804367069932,
+        "support": 27022
+      }
+    },
+    "confusion_matrix_labels_0_then_1": [
+      [
+        20312,
+        180
+      ],
+      [
+        0,
+        27022
+      ]
+    ],
+    "classification_report": {
+      "PHISHING": {
+        "precision": 1.0,
+        "recall": 0.9912160843255905,
+        "f1-score": 0.9955886677776689,
+        "support": 20492.0
+      },
+      "LEGITIMATE": {
+        "precision": 0.9933828394970958,
+        "recall": 1.0,
+        "f1-score": 0.9966804367069932,
+        "support": 27022.0
+      },
+      "accuracy": 0.9962116428842025,
+      "macro avg": {
+        "precision": 0.9966914197485479,
+        "recall": 0.9956080421627953,
+        "f1-score": 0.996134552242331,
+        "support": 47514.0
+      },
+      "weighted avg": {
+        "precision": 0.9962367110512802,
+        "recall": 0.9962116428842025,
+        "f1-score": 0.9962095748789065,
+        "support": 47514.0
+      }
+    }
+  },
+  "protocol_ablation": {
+    "name": "PROTOCOL ABLATION: SCHEME REMOVED",
+    "accuracy": 0.9114576756324452,
+    "per_class": {
+      "PHISHING": {
+        "precision": 0.962195606516433,
+        "recall": 0.8272008588717549,
+        "f1": 0.8896061297856149,
+        "support": 20492
+      },
+      "LEGITIMATE": {
+        "precision": 0.881560022744757,
+        "recall": 0.9753534157353267,
+        "f1": 0.9260879495423321,
+        "support": 27022
+      }
+    },
+    "confusion_matrix_labels_0_then_1": [
+      [
+        16951,
+        3541
+      ],
+      [
+        666,
+        26356
+      ]
+    ],
+    "classification_report": {
+      "PHISHING": {
+        "precision": 0.962195606516433,
+        "recall": 0.8272008588717549,
+        "f1-score": 0.8896061297856149,
+        "support": 20492.0
+      },
+      "LEGITIMATE": {
+        "precision": 0.881560022744757,
+        "recall": 0.9753534157353267,
+        "f1-score": 0.9260879495423321,
+        "support": 27022.0
+      },
+      "accuracy": 0.9114576756324452,
+      "macro avg": {
+        "precision": 0.921877814630595,
+        "recall": 0.9012771373035409,
+        "f1-score": 0.9078470396639735,
+        "support": 47514.0
+      },
+      "weighted avg": {
+        "precision": 0.9163368123783215,
+        "recall": 0.9114576756324452,
+        "f1-score": 0.910353945870685,
+        "support": 47514.0
+      }
+    }
+  },
+  "production_model": {
+    "path": "D:\\CyberLLM\\models\\phishing_url_model.joblib",
+    "sha256_before": "ff98f78e0e52c22a1888d2859820b0a9bc524b2e72b3ac8dbc79c9f832845342",
+    "sha256_after": "ff98f78e0e52c22a1888d2859820b0a9bc524b2e72b3ac8dbc79c9f832845342",
+    "unchanged": true
+  },
+  "experimental_models": {
+    "baseline": "D:\\CyberLLM\\models\\phishing_url_protocol_baseline_candidate.joblib",
+    "protocol_ablation": "D:\\CyberLLM\\models\\phishing_url_no_protocol_candidate.joblib"
+  },
+  "limitations": [
+    "A single hostname-grouped split is not proof of real-world performance.",
+    "The dataset contains a strong protocol-label association.",
+    "Removing the scheme does not remove all dataset bias.",
+    "This experiment does not validate performance on independently verified URLs.",
+    "Candidate models are not production replacements.",
+    "Model scores are not calibrated probabilities."
+  ],
+  "elapsed_seconds": 136.86
+}

@@ -1,0 +1,108 @@
+{
+  "model_path": "models\\phishing_url_model.joblib",
+  "dataset": "PhiUSIIL_Phishing_URL_Dataset.csv",
+  "evaluation_type": "manual_diagnostic",
+  "production_model_modified": false,
+  "score_is_calibrated_probability": false,
+  "total_cases": 10,
+  "matches": 6,
+  "mismatches": 4,
+  "results": [
+    {
+      "url": "https://example.com/",
+      "expected": "LEGITIMATE",
+      "reason": "Reserved example domain",
+      "predicted": "PHISHING",
+      "phishing_score": 0.995953,
+      "score_is_calibrated_probability": false,
+      "matches_expected": false
+    },
+    {
+      "url": "https://www.google.com/",
+      "expected": "LEGITIMATE",
+      "reason": "Known legitimate homepage",
+      "predicted": "LEGITIMATE",
+      "phishing_score": 0.05589,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "https://www.youtube.com/",
+      "expected": "LEGITIMATE",
+      "reason": "Known legitimate homepage",
+      "predicted": "LEGITIMATE",
+      "phishing_score": 0.170163,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "https://www.wikipedia.org/",
+      "expected": "LEGITIMATE",
+      "reason": "Known legitimate homepage",
+      "predicted": "LEGITIMATE",
+      "phishing_score": 0.01182,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "https://www.microsoft.com/",
+      "expected": "LEGITIMATE",
+      "reason": "Known legitimate homepage",
+      "predicted": "LEGITIMATE",
+      "phishing_score": 0.257804,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "https://example.com/login",
+      "expected": "LEGITIMATE",
+      "reason": "Reserved example domain with a path",
+      "predicted": "PHISHING",
+      "phishing_score": 0.998901,
+      "score_is_calibrated_probability": false,
+      "matches_expected": false
+    },
+    {
+      "url": "https://example.com/account/verify",
+      "expected": "LEGITIMATE",
+      "reason": "Reserved example domain with a path",
+      "predicted": "PHISHING",
+      "phishing_score": 0.997211,
+      "score_is_calibrated_probability": false,
+      "matches_expected": false
+    },
+    {
+      "url": "http://paypal.com.security-check.example/",
+      "expected": "PHISHING",
+      "reason": "Deceptive-looking hostname pattern",
+      "predicted": "PHISHING",
+      "phishing_score": 0.999719,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "http://login-example.invalid/verify?account=123",
+      "expected": "PHISHING",
+      "reason": "Suspicious-looking test URL using a reserved invalid domain",
+      "predicted": "PHISHING",
+      "phishing_score": 0.999895,
+      "score_is_calibrated_probability": false,
+      "matches_expected": true
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=example",
+      "expected": "LEGITIMATE",
+      "reason": "Known legitimate hostname with a video path",
+      "predicted": "PHISHING",
+      "phishing_score": 0.655011,
+      "score_is_calibrated_probability": false,
+      "matches_expected": false
+    }
+  ],
+  "limitations": [
+    "Small manually selected diagnostic set",
+    "Not representative of real-world traffic",
+    "Expected labels are supplied by the test author",
+    "Model scores are not calibrated probabilities"
+  ]
+}

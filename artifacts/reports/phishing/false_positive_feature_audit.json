@@ -1,0 +1,347 @@
+{
+  "model_path": "D:\\CyberLLM\\models\\phishing_url_model.joblib",
+  "false_positive_count": 5,
+  "cases": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Phishing",
+      "expected_class": "legitimate",
+      "predicted_class": "phishing",
+      "phishing_score": 0.8353698253631592,
+      "top_feature_contributions": [
+        {
+          "feature": ".org/",
+          "contribution": -0.2148233191587927,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "org/",
+          "contribution": -0.21455567311936363,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "rg/",
+          "contribution": -0.2144043716034858,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": ".or",
+          "contribution": 0.20000164320072678,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": ".org",
+          "contribution": 0.19596142115705817,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "org",
+          "contribution": 0.19516511781819368,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "s://e",
+          "contribution": -0.147411638987756,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "ps://",
+          "contribution": 0.14419136084910633,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "s://",
+          "contribution": 0.14419136084910633,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "tps:/",
+          "contribution": 0.14413722428727738,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ps:/",
+          "contribution": 0.1441351925732297,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "s:/",
+          "contribution": 0.1441351925732297,
+          "direction": "toward phishing"
+        }
+      ]
+    },
+    {
+      "url": "https://example.com/",
+      "expected_class": "legitimate",
+      "predicted_class": "phishing",
+      "phishing_score": 0.9959527850151062,
+      "top_feature_contributions": [
+        {
+          "feature": "om/",
+          "contribution": -1.1671332390489226,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "com/",
+          "contribution": -1.1668485690993577,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": ".com/",
+          "contribution": -1.1664376815379,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "s://e",
+          "contribution": -0.26177875612225954,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "ps://",
+          "contribution": 0.2560600747209065,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "s://",
+          "contribution": 0.2560600747209065,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "tps:/",
+          "contribution": 0.25596395287698925,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ps:/",
+          "contribution": 0.25596031715614487,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "s:/",
+          "contribution": 0.25596031715614487,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "tps:",
+          "contribution": 0.25594259892332616,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ttps:",
+          "contribution": 0.25594259892332616,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ps:",
+          "contribution": 0.2559389787385058,
+          "direction": "toward phishing"
+        }
+      ]
+    },
+    {
+      "url": "https://example.com/login",
+      "expected_class": "legitimate",
+      "predicted_class": "phishing",
+      "phishing_score": 0.9989011287689209,
+      "top_feature_contributions": [
+        {
+          "feature": "om/",
+          "contribution": -0.986534720024963,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "com/",
+          "contribution": -0.9862940922582482,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": ".com/",
+          "contribution": -0.9859467072411832,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "s://e",
+          "contribution": -0.22127193549258095,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "ps://",
+          "contribution": 0.21643812799408835,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "s://",
+          "contribution": 0.21643812799408835,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "tps:/",
+          "contribution": 0.2163568714571431,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ps:/",
+          "contribution": 0.2163538152034823,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "s:/",
+          "contribution": 0.2163538152034823,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "tps:",
+          "contribution": 0.21633882174914376,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ttps:",
+          "contribution": 0.21633882174914376,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ps:",
+          "contribution": 0.2163357786261022,
+          "direction": "toward phishing"
+        }
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=example",
+      "expected_class": "legitimate",
+      "predicted_class": "phishing",
+      "phishing_score": 0.6550110578536987,
+      "top_feature_contributions": [
+        {
+          "feature": "om/",
+          "contribution": -0.7198589283648005,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "com/",
+          "contribution": -0.7196833424115141,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": ".com/",
+          "contribution": -0.719429895685721,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "s://w",
+          "contribution": 0.5032253237176185,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "/www.",
+          "contribution": 0.2515178202349233,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "www.",
+          "contribution": 0.25128449583044343,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ww.",
+          "contribution": 0.24850631792188693,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "//www",
+          "contribution": 0.2435523241622235,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "/www",
+          "contribution": 0.2431807041009293,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "www",
+          "contribution": 0.24254103593031928,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "//ww",
+          "contribution": 0.24228385100764527,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "://ww",
+          "contribution": 0.24228385100764527,
+          "direction": "toward phishing"
+        }
+      ]
+    },
+    {
+      "url": "https://login.microsoft.com/",
+      "expected_class": "legitimate",
+      "predicted_class": "phishing",
+      "phishing_score": 0.9985120296478271,
+      "top_feature_contributions": [
+        {
+          "feature": "om/",
+          "contribution": -0.8750076724438145,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "com/",
+          "contribution": -0.8747942290121387,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": ".com/",
+          "contribution": -0.8744861916196243,
+          "direction": "toward legitimate"
+        },
+        {
+          "feature": "ps://",
+          "contribution": 0.19196994039570292,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "s://",
+          "contribution": 0.19196994039570292,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "tps:/",
+          "contribution": 0.19189788212786318,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ps:/",
+          "contribution": 0.19189517073355145,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "s:/",
+          "contribution": 0.19189517073355145,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "tps:",
+          "contribution": 0.1918818729264231,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ttps:",
+          "contribution": 0.1918818729264231,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ps:",
+          "contribution": 0.19187917317837755,
+          "direction": "toward phishing"
+        },
+        {
+          "feature": "ttps",
+          "contribution": 0.1906060584461251,
+          "direction": "toward phishing"
+        }
+      ]
+    }
+  ],
+  "warning": "Feature contributions are model associations, not proof that a URL is malicious. Scores are not calibrated probabilities."
+}

@@ -1,0 +1,79 @@
+{
+  "model_type": "experimental_url_only_tfidf_logistic_regression",
+  "production_model_modified": false,
+  "dataset": "D:\\CyberLLM\\data\\raw\\PhiUSIIL_Phishing_URL_Dataset.csv",
+  "split_method": "GroupShuffleSplit by hostname",
+  "random_state": 42,
+  "test_size": 0.2,
+  "training_rows": 187856,
+  "testing_rows": 47514,
+  "training_hostnames": 176061,
+  "testing_hostnames": 44016,
+  "shared_hostnames": 0,
+  "invalid_hostname_rows_removed": 0,
+  "label_mapping": {
+    "0": "PHISHING",
+    "1": "LEGITIMATE"
+  },
+  "accuracy": 0.9962116428842025,
+  "per_class": {
+    "PHISHING": {
+      "precision": 1.0,
+      "recall": 0.9912160843255905,
+      "f1": 0.9955886677776689,
+      "support": 20492
+    },
+    "LEGITIMATE": {
+      "precision": 0.9933828394970958,
+      "recall": 1.0,
+      "f1": 0.9966804367069932,
+      "support": 27022
+    }
+  },
+  "confusion_matrix_labels_0_then_1": [
+    [
+      20312,
+      180
+    ],
+    [
+      0,
+      27022
+    ]
+  ],
+  "classification_report": {
+    "PHISHING": {
+      "precision": 1.0,
+      "recall": 0.9912160843255905,
+      "f1-score": 0.9955886677776689,
+      "support": 20492.0
+    },
+    "LEGITIMATE": {
+      "precision": 0.9933828394970958,
+      "recall": 1.0,
+      "f1-score": 0.9966804367069932,
+      "support": 27022.0
+    },
+    "accuracy": 0.9962116428842025,
+    "macro avg": {
+      "precision": 0.9966914197485479,
+      "recall": 0.9956080421627953,
+      "f1-score": 0.996134552242331,
+      "support": 47514.0
+    },
+    "weighted avg": {
+      "precision": 0.9962367110512802,
+      "recall": 0.9962116428842025,
+      "f1-score": 0.9962095748789065,
+      "support": 47514.0
+    }
+  },
+  "limitations": [
+    "Evaluation uses a single hostname-grouped split.",
+    "Dataset collection and labelling biases may remain.",
+    "Unseen hostnames do not represent all real-world URLs.",
+    "Scores are not calibrated probabilities.",
+    "This is an experimental candidate, not a production replacement."
+  ],
+  "elapsed_seconds": 38.08,
+  "candidate_model_path": "D:\\CyberLLM\\models\\phishing_url_candidate.joblib"
+}

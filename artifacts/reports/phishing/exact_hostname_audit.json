@@ -1,0 +1,29 @@
+{
+  "dataset_rows": 235795,
+  "label_mapping": {
+    "0": "PHISHING",
+    "1": "LEGITIMATE"
+  },
+  "domains": {
+    "youtube.com": {
+      "matching_rows": 0,
+      "label_counts": {},
+      "examples": []
+    },
+    "wikipedia.org": {
+      "matching_rows": 0,
+      "label_counts": {},
+      "examples": []
+    },
+    "microsoft.com": {
+      "matching_rows": 0,
+      "label_counts": {},
+      "examples": []
+    },
+    "example.com": {
+      "matching_rows": 0,
+      "label_counts": {},
+      "examples": []
+    }
+  }
+}

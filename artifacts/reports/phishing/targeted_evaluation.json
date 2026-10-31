@@ -1,0 +1,106 @@
+[
+  {
+    "url": "https://www.google.com/",
+    "expected": "LEGITIMATE",
+    "category": "official_domain",
+    "predicted": "LEGITIMATE",
+    "phishing_score": 0.04713296890258789,
+    "match": true
+  },
+  {
+    "url": "https://www.youtube.com/",
+    "expected": "LEGITIMATE",
+    "category": "official_domain",
+    "predicted": "LEGITIMATE",
+    "phishing_score": 0.1788223385810852,
+    "match": true
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=example",
+    "expected": "LEGITIMATE",
+    "category": "official_domain",
+    "predicted": "PHISHING",
+    "phishing_score": 0.6577826738357544,
+    "match": false
+  },
+  {
+    "url": "https://en.wikipedia.org/",
+    "expected": "LEGITIMATE",
+    "category": "official_domain",
+    "predicted": "PHISHING",
+    "phishing_score": 0.8141098022460938,
+    "match": false
+  },
+  {
+    "url": "https://www.microsoft.com/",
+    "expected": "LEGITIMATE",
+    "category": "official_domain",
+    "predicted": "LEGITIMATE",
+    "phishing_score": 0.2425299882888794,
+    "match": true
+  },
+  {
+    "url": "https://example.com/",
+    "expected": "LEGITIMATE",
+    "category": "reserved_example_domain",
+    "predicted": "PHISHING",
+    "phishing_score": 0.9952611327171326,
+    "match": false
+  },
+  {
+    "url": "https://example.com/login",
+    "expected": "LEGITIMATE",
+    "category": "reserved_example_domain",
+    "predicted": "PHISHING",
+    "phishing_score": 0.9988782405853271,
+    "match": false
+  },
+  {
+    "url": "https://login.microsoft.com/",
+    "expected": "LEGITIMATE",
+    "category": "official_domain",
+    "predicted": "PHISHING",
+    "phishing_score": 0.998279333114624,
+    "match": false
+  },
+  {
+    "url": "https://www.office.com/",
+    "expected": "LEGITIMATE",
+    "category": "official_domain",
+    "predicted": "LEGITIMATE",
+    "phishing_score": 0.09090566635131836,
+    "match": true
+  },
+  {
+    "url": "http://office365-microsoft.com/",
+    "expected": "REVIEW",
+    "category": "brand_lookalike",
+    "predicted": "PHISHING",
+    "phishing_score": 0.9999879002571106,
+    "match": null
+  },
+  {
+    "url": "http://search-microsoft.com/",
+    "expected": "REVIEW",
+    "category": "brand_lookalike",
+    "predicted": "PHISHING",
+    "phishing_score": 0.9999845623970032,
+    "match": null
+  },
+  {
+    "url": "http://paypal.com.security-check.example/",
+    "expected": "REVIEW",
+    "category": "brand_lookalike",
+    "predicted": "PHISHING",
+    "phishing_score": 0.9996747970581055,
+    "match": null
+  },
+  {
+    "url": "http://login-example.invalid/verify?account=123",
+    "expected": "REVIEW",
+    "category": "reserved_invalid_domain",
+    "predicted": "PHISHING",
+    "phishing_score": 0.9998902678489685,
+    "match": null
+  }
+]

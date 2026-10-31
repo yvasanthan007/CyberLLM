@@ -1,0 +1,100 @@
+{
+  "dataset": "D:\\CyberLLM\\data\\raw\\PhiUSIIL_Phishing_URL_Dataset.csv",
+  "unique_url_rows": 235370,
+  "label_mapping": {
+    "0": "PHISHING",
+    "1": "LEGITIMATE"
+  },
+  "selected_hostnames": {
+    "youtube.com": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "www.youtube.com": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "en.wikipedia.org": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "wikipedia.org": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "microsoft.com": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "www.microsoft.com": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "login.microsoft.com": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "office.com": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "www.office.com": {
+      "rows": 1,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 1,
+      "sample_urls": [
+        "https://www.office.com"
+      ]
+    },
+    "example.com": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "www.example.com": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "google.com": {
+      "rows": 0,
+      "phishing_label_0": 0,
+      "legitimate_label_1": 0,
+      "sample_urls": []
+    },
+    "www.google.com": {
+      "rows": 10,
+      "phishing_label_0": 10,
+      "legitimate_label_1": 0,
+      "sample_urls": [
+        "https://www.google.com/url?q=https://ipfs.io/ipfs/qmpovsvevlyhp2gj6vfhkqvhaydz1o7y2xn3xt87kkghtv%23%5bemail%5d&amp;source=gmail&amp;ust=1663915474090000&amp;usg=aovvaw1usggtmp1ivavtzsxcz8g1",
+        "https://www.google.com/url?q=https%3a%2f%2f51.fi%2fai6n&amp;sa=d&amp;sntz=1&amp;usg=aovvaw3ztrphk75w64vrj-rkdbza",
+        "https://www.google.com/search?ei=xb9pzni9lfgx8gl7samacw&gclid=eaiaiqobchminfcyssbz_givawgrch059g9weaayasaaeglolfd_bwe&gs_lcp=cgxnd3mtd2l6lxnlcnaqaziecaaqrziecaaqrziecaaqrziecaaqrziecaaqrziecaaqrziecaaqrziecaaqrzokcaaqrxdwbbcwazokcaaqiguqsamqqzovcc4qiguqxweq0qmqyamqsamqqxgbohuilhckbrdharcvardiaxcwaxbdgafkbahbgabkbqhaegexukckwkckykuoaajwangagaeaiaeakgeamaeaoaebyaeiwaeb2gegcaeqargi&oq=cs+money&q=cs+money&sclient=gws-wiz-serp&uact=5&utm_campaign=d123&ved=0ahukewiy4jdondt-ahxxmfwkhftycraq4dudca8",
+        "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahukewjnkn6lxud7ahuuhxiehrx0d98qfnoeccuqaq&url=https%3a%2f%2fcolonialinnhebersprings.com%2findex.php%3ftitle%3dan_incredibly_interesting_web_site_along_with_excellent_articles!_a4o3b7p6&usg=aovvaw1aichstkuazezl3h1rrjkx",
+        "https://www.google.com/url?q=http://www.customer-portal.info:8081?rid%3d92360zx%26pcode%3dpztnt&source=gmail-imap&ust=1664953377000000&usg=aovvaw0vpjehqhb1nmi-zmwqaqm2"
+      ]
+    }
+  },
+  "limitations": [
+    "Dataset labels are not independent proof that a URL is malicious or safe.",
+    "Hostname patterns and label frequencies do not establish live-site reputation."
+  ]
+}

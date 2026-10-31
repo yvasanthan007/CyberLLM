@@ -1,0 +1,115 @@
+{
+  "dataset_rows": 235795,
+  "label_mapping": {
+    "0": "PHISHING",
+    "1": "LEGITIMATE"
+  },
+  "targets": {
+    "youtube.com": {
+      "substring_match_rows": 12,
+      "label_counts": {
+        "0": 12
+      },
+      "examples": [
+        {
+          "url": "https://lps.onevoda.com/mjud_clc_es_gt_onv/?coc=ld_gt_gglabltm_2667_bi&amp;target=&amp;utm_campaign=19664214703&amp;utm_adgroup=151787854972&amp;keyword=&amp;placement=youtube.com&amp;network=ytv&amp;curr_city=9077191&amp;device=c&amp;creative=649946088427&amp;targetid=&amp;feedtimeid=&amp;adposition=&amp;device_model=&amp;serial=?coc=ld_gt_gglabltm_2667_bi&amp;target=&amp;utm_campaign=19664214703&amp;utm_adgroup=151787854972&amp;keyword=&amp;placement=youtube.com&amp;network=ytv&amp;curr_city=9077191&amp;device=c&amp;creative=649946088427&amp;targetid=&amp;feedtimeid=&amp;adposition=&amp;device_model=&amp;serial=&amp;gclid=cjwkcaia3pugbhaweiwawfzwdy27ofjqzr_byl9esve-fcbxtcrlgvqc7unrwxivxzfhd_zvrlseqhocpkgqavd_bwe",
+          "label": 0
+        },
+        {
+          "url": "https://lps.onevoda.com/ouys_clc_es_gt_onv/?coc=ld_gt_gglabltm_2667_bi&amp;target=&amp;utm_campaign=19664214703&amp;utm_adgroup=151787854972&amp;keyword=&amp;placement=youtube.com&amp;network=ytv&amp;curr_city=1007583&amp;device=c&amp;creative=649946088427&amp;targetid=&amp;feedtimeid=&amp;adposition=&amp;device_model=&amp;serial=?coc=ld_gt_gglabltm_2667_bi&amp;target=&amp;utm_campaign=19664214703&amp;utm_adgroup=151787854972&amp;keyword=&amp;placement=youtube.com&amp;network=ytv&amp;curr_city=1007583&amp;device=c&amp;creative=649946088427&amp;targetid=&amp;feedtimeid=&amp;adposition=&amp;device_model=&amp;serial=&amp;gclid=eaiaiqobchmindvavuzm_qivqtoobr3_uwmieaeyasaaegkcwfd_bwe",
+          "label": 0
+        },
+        {
+          "url": "https://lps.onevoda.com/goid_clc_es_gt_onv/?coc=ld_gt_gglabltm_2667_bi&amp;target=&amp;utm_campaign=19664214703&amp;utm_adgroup=151787854972&amp;keyword=&amp;placement=youtube.com&amp;network=ytv&amp;curr_city=1007583&amp;device=c&amp;creative=649946088430&amp;targetid=&amp;feedtimeid=&amp;adposition=&amp;device_model=&amp;serial=?coc=ld_gt_gglabltm_2667_bi&amp;target=&amp;utm_campaign=19664214703&amp;utm_adgroup=151787854972&amp;keyword=&amp;placement=youtube.com&amp;network=ytv&amp;curr_city=1007583&amp;device=c&amp;creative=649946088430&amp;targetid=&amp;feedtimeid=&amp;adposition=&amp;device_model=&amp;serial=&amp;gclid=eaiaiqobchmi4njl29jc_qivwey1bb2-rwfpeaeyasaaegk9jvd_bwe",
+          "label": 0
+        },
+        {
+          "url": "https://lps.onevoda.com/tius_clc_es_gt_onv/?coc=ld_gt_gglabltm_2667_bi&amp;target=&amp;utm_campaign=19664214703&amp;utm_adgroup=151787854972&amp;keyword=&amp;placement=youtube.com&amp;network=ytv&amp;curr_city=1007583&amp;device=c&amp;creative=649946088430&amp;targetid=&amp;feedtimeid=&amp;adposition=&amp;device_model=&amp;serial=?coc=ld_gt_gglabltm_2667_bi&amp;target=&amp;utm_campaign=19664214703&amp;utm_adgroup=151787854972&amp;keyword=&amp;placement=youtube.com&amp;network=ytv&amp;curr_city=1007583&amp;device=c&amp;creative=649946088430&amp;targetid=&amp;feedtimeid=&amp;adposition=&amp;device_model=&amp;serial=&amp;gclid=eaiaiqobchmi9sa54brm_qivrwqkax2kdwqjeaeyasaaeglicpd_bwe",
+          "label": 0
+        },
+        {
+          "url": "https://lps.daizyteamsonline.com/bi_clc_es_dai/?coc=ld_gt_ytbrf50018_2589_bi&amp;target=&amp;utm_campaign=19519314705&amp;utm_adgroup=145447319736&amp;keyword=&amp;placement=youtube.com&amp;network=ytv&amp;curr_city=9069801&amp;device=m&amp;creative=644432087729&amp;targetid=&amp;feedtimeid=&amp;adposition=&amp;device_model=&amp;serial=&amp;gclid=cjwkcaia_vkebhadeiwafb_nrfcrffg0ccojivroy0onr3narpn_pu5cdiveiszv_ydclzqtvgc_dxocoheqavd_bwe",
+          "label": 0
+        }
+      ],
+      "test_urls": [
+        "https://www.youtube.com/",
+        "https://www.youtube.com/watch?v=example"
+      ]
+    },
+    "wikipedia.org": {
+      "substring_match_rows": 0,
+      "label_counts": {},
+      "examples": [],
+      "test_urls": [
+        "https://en.wikipedia.org/",
+        "https://en.wikipedia.org/wiki/Phishing"
+      ]
+    },
+    "microsoft.com": {
+      "substring_match_rows": 8,
+      "label_counts": {
+        "0": 8
+      },
+      "examples": [
+        {
+          "url": "http://www.office365-microsoft.com",
+          "label": 0
+        },
+        {
+          "url": "http://www.search-microsoft.com",
+          "label": 0
+        },
+        {
+          "url": "http://www.supports-microsoft.com",
+          "label": 0
+        },
+        {
+          "url": "https://anvservices.com/bitrix/admin/sax/dhl_top/cmd-login=f871294f53067d9d4745bf106dc0c3ea/?email=admin@microsoft.com&amp;loginpage=&amp;reff=nda2ztflzjlmmwfky2uwn2iyntrlzda3njqymjqxmdc=",
+          "label": 0
+        },
+        {
+          "url": "http://www.onedrivemicrosoft.com",
+          "label": 0
+        }
+      ],
+      "test_urls": [
+        "https://www.microsoft.com/",
+        "https://login.microsoft.com/"
+      ]
+    },
+    "example.com": {
+      "substring_match_rows": 333,
+      "label_counts": {
+        "0": 332,
+        "1": 1
+      },
+      "examples": [
+        {
+          "url": "https://atpproduct.com/asdf/fixed0/index.php?user=test@example.com",
+          "label": 0
+        },
+        {
+          "url": "https://mailres.remodels.best/conceptions.html?grant=example@example.com",
+          "label": 0
+        },
+        {
+          "url": "https://storage.cloud.google.com/maintainancecomponeta.appspot.com/myautoindex.html#example@example.com",
+          "label": 0
+        },
+        {
+          "url": "http://1975.canadawaterfilters.ca#example@example.com",
+          "label": 0
+        },
+        {
+          "url": "https://bafybeienbcpiqmw6jwvunfcwj2pk6kmpgiaqekf4agd52p5gsliwyw6wva.ipfs.ipfs.joaoleitao.org/?filename=tigar.html#example@example.com",
+          "label": 0
+        }
+      ],
+      "test_urls": [
+        "https://example.com/",
+        "https://example.com/login"
+      ]
+    }
+  }
+}

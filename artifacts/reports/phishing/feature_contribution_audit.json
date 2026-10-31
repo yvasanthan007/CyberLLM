@@ -1,0 +1,434 @@
+{
+  "model_path": "D:\\CyberLLM\\models\\phishing_url_model.joblib",
+  "classes": [
+    0,
+    1
+  ],
+  "interpretation": {
+    "negative_coefficient": "Favors phishing class 0",
+    "positive_coefficient": "Favors legitimate class 1",
+    "warning": "Individual feature contributions are model associations, not proof that a URL is malicious or safe."
+  },
+  "urls": [
+    {
+      "name": "Wikipedia homepage",
+      "url": "https://en.wikipedia.org/",
+      "predicted_class": 0,
+      "predicted_label": "PHISHING",
+      "phishing_score": 0.8209657669067383,
+      "top_15_features_by_absolute_contribution": [
+        {
+          "ngram": ".org/",
+          "tfidf_value": 0.13172486424446106,
+          "contribution_to_class_1": -0.28508853912353516
+        },
+        {
+          "ngram": "org/",
+          "tfidf_value": 0.13159020245075226,
+          "contribution_to_class_1": -0.2847333550453186
+        },
+        {
+          "ngram": "rg/",
+          "tfidf_value": 0.13145647943019867,
+          "contribution_to_class_1": -0.2845325767993927
+        },
+        {
+          "ngram": ".or",
+          "tfidf_value": 0.06517293304204941,
+          "contribution_to_class_1": 0.2654189169406891
+        },
+        {
+          "ngram": ".org",
+          "tfidf_value": 0.06581560522317886,
+          "contribution_to_class_1": 0.2600572407245636
+        },
+        {
+          "ngram": "org",
+          "tfidf_value": 0.06517621129751205,
+          "contribution_to_class_1": 0.2590004503726959
+        },
+        {
+          "ngram": "s://e",
+          "tfidf_value": 0.12502264976501465,
+          "contribution_to_class_1": -0.1956276148557663
+        },
+        {
+          "ngram": "ps://",
+          "tfidf_value": 0.024166345596313477,
+          "contribution_to_class_1": 0.19135402143001556
+        },
+        {
+          "ngram": "s://",
+          "tfidf_value": 0.024166345596313477,
+          "contribution_to_class_1": 0.19135402143001556
+        },
+        {
+          "ngram": "tps:/",
+          "tfidf_value": 0.02416318468749523,
+          "contribution_to_class_1": 0.19128219783306122
+        },
+        {
+          "ngram": "ps:/",
+          "tfidf_value": 0.024163052439689636,
+          "contribution_to_class_1": 0.19127948582172394
+        },
+        {
+          "ngram": "s:/",
+          "tfidf_value": 0.024163052439689636,
+          "contribution_to_class_1": 0.19127948582172394
+        },
+        {
+          "ngram": "tps:",
+          "tfidf_value": 0.02416318468749523,
+          "contribution_to_class_1": 0.1912662386894226
+        },
+        {
+          "ngram": "ttps:",
+          "tfidf_value": 0.02416318468749523,
+          "contribution_to_class_1": 0.1912662386894226
+        },
+        {
+          "ngram": "ps:",
+          "tfidf_value": 0.024163052439689636,
+          "contribution_to_class_1": 0.19126354157924652
+        }
+      ]
+    },
+    {
+      "name": "Wikipedia article",
+      "url": "https://en.wikipedia.org/wiki/Phishing",
+      "predicted_class": 0,
+      "predicted_label": "PHISHING",
+      "phishing_score": 0.8353698253631592,
+      "top_15_features_by_absolute_contribution": [
+        {
+          "ngram": ".org/",
+          "tfidf_value": 0.0992588922381401,
+          "contribution_to_class_1": -0.21482332050800323
+        },
+        {
+          "ngram": "org/",
+          "tfidf_value": 0.0991574227809906,
+          "contribution_to_class_1": -0.21455566585063934
+        },
+        {
+          "ngram": "rg/",
+          "tfidf_value": 0.0990566536784172,
+          "contribution_to_class_1": -0.2144043743610382
+        },
+        {
+          "ngram": ".or",
+          "tfidf_value": 0.04910988733172417,
+          "contribution_to_class_1": 0.20000164210796356
+        },
+        {
+          "ngram": ".org",
+          "tfidf_value": 0.04959415644407272,
+          "contribution_to_class_1": 0.19596141576766968
+        },
+        {
+          "ngram": "org",
+          "tfidf_value": 0.04911235719919205,
+          "contribution_to_class_1": 0.19516511261463165
+        },
+        {
+          "ngram": "s://e",
+          "tfidf_value": 0.09420854598283768,
+          "contribution_to_class_1": -0.14741164445877075
+        },
+        {
+          "ngram": "ps://",
+          "tfidf_value": 0.018210113048553467,
+          "contribution_to_class_1": 0.14419135451316833
+        },
+        {
+          "ngram": "s://",
+          "tfidf_value": 0.018210113048553467,
+          "contribution_to_class_1": 0.14419135451316833
+        },
+        {
+          "ngram": "tps:/",
+          "tfidf_value": 0.01820772886276245,
+          "contribution_to_class_1": 0.1441372185945511
+        },
+        {
+          "ngram": "ps:/",
+          "tfidf_value": 0.018207630142569542,
+          "contribution_to_class_1": 0.14413519203662872
+        },
+        {
+          "ngram": "s:/",
+          "tfidf_value": 0.018207630142569542,
+          "contribution_to_class_1": 0.14413519203662872
+        },
+        {
+          "ngram": "tps:",
+          "tfidf_value": 0.01820772886276245,
+          "contribution_to_class_1": 0.14412519335746765
+        },
+        {
+          "ngram": "ttps:",
+          "tfidf_value": 0.01820772886276245,
+          "contribution_to_class_1": 0.14412519335746765
+        },
+        {
+          "ngram": "ps:",
+          "tfidf_value": 0.018207630142569542,
+          "contribution_to_class_1": 0.14412318170070648
+        }
+      ]
+    },
+    {
+      "name": "Microsoft login",
+      "url": "https://login.microsoft.com/",
+      "predicted_class": 0,
+      "predicted_label": "PHISHING",
+      "phishing_score": 0.9985120296478271,
+      "top_15_features_by_absolute_contribution": [
+        {
+          "ngram": "om/",
+          "tfidf_value": 0.06300608813762665,
+          "contribution_to_class_1": -0.875007688999176
+        },
+        {
+          "ngram": "com/",
+          "tfidf_value": 0.06302063167095184,
+          "contribution_to_class_1": -0.8747942447662354
+        },
+        {
+          "ngram": ".com/",
+          "tfidf_value": 0.06304587423801422,
+          "contribution_to_class_1": -0.8744862079620361
+        },
+        {
+          "ngram": "ps://",
+          "tfidf_value": 0.02424413152039051,
+          "contribution_to_class_1": 0.19196994602680206
+        },
+        {
+          "ngram": "s://",
+          "tfidf_value": 0.02424413152039051,
+          "contribution_to_class_1": 0.19196994602680206
+        },
+        {
+          "ngram": "tps:/",
+          "tfidf_value": 0.02424095943570137,
+          "contribution_to_class_1": 0.19189788401126862
+        },
+        {
+          "ngram": "ps:/",
+          "tfidf_value": 0.024240827187895775,
+          "contribution_to_class_1": 0.19189517199993134
+        },
+        {
+          "ngram": "s:/",
+          "tfidf_value": 0.024240827187895775,
+          "contribution_to_class_1": 0.19189517199993134
+        },
+        {
+          "ngram": "tps:",
+          "tfidf_value": 0.02424095943570137,
+          "contribution_to_class_1": 0.19188188016414642
+        },
+        {
+          "ngram": "ttps:",
+          "tfidf_value": 0.02424095943570137,
+          "contribution_to_class_1": 0.19188188016414642
+        },
+        {
+          "ngram": "ps:",
+          "tfidf_value": 0.024240827187895775,
+          "contribution_to_class_1": 0.19187916815280914
+        },
+        {
+          "ngram": "ttps",
+          "tfidf_value": 0.02422352507710457,
+          "contribution_to_class_1": 0.19060605764389038
+        },
+        {
+          "ngram": "https",
+          "tfidf_value": 0.02422352507710457,
+          "contribution_to_class_1": 0.19060319662094116
+        },
+        {
+          "ngram": "tps",
+          "tfidf_value": 0.024222731590270996,
+          "contribution_to_class_1": 0.19055849313735962
+        },
+        {
+          "ngram": "s://l",
+          "tfidf_value": 0.12212371826171875,
+          "contribution_to_class_1": -0.18195925652980804
+        }
+      ]
+    },
+    {
+      "name": "Reserved example domain",
+      "url": "https://example.com/",
+      "predicted_class": 0,
+      "predicted_label": "PHISHING",
+      "phishing_score": 0.9959527850151062,
+      "top_15_features_by_absolute_contribution": [
+        {
+          "ngram": "om/",
+          "tfidf_value": 0.08404097706079483,
+          "contribution_to_class_1": -1.1671332120895386
+        },
+        {
+          "ngram": "com/",
+          "tfidf_value": 0.08406037837266922,
+          "contribution_to_class_1": -1.1668485403060913
+        },
+        {
+          "ngram": ".com/",
+          "tfidf_value": 0.08409404754638672,
+          "contribution_to_class_1": -1.1664376258850098
+        },
+        {
+          "ngram": "s://e",
+          "tfidf_value": 0.1672988384962082,
+          "contribution_to_class_1": -0.26177874207496643
+        },
+        {
+          "ngram": "ps://",
+          "tfidf_value": 0.032338157296180725,
+          "contribution_to_class_1": 0.25606006383895874
+        },
+        {
+          "ngram": "s://",
+          "tfidf_value": 0.032338157296180725,
+          "contribution_to_class_1": 0.25606006383895874
+        },
+        {
+          "ngram": "tps:/",
+          "tfidf_value": 0.03233392536640167,
+          "contribution_to_class_1": 0.2559639513492584
+        },
+        {
+          "ngram": "ps:/",
+          "tfidf_value": 0.032333746552467346,
+          "contribution_to_class_1": 0.2559603154659271
+        },
+        {
+          "ngram": "s:/",
+          "tfidf_value": 0.032333746552467346,
+          "contribution_to_class_1": 0.2559603154659271
+        },
+        {
+          "ngram": "tps:",
+          "tfidf_value": 0.03233392536640167,
+          "contribution_to_class_1": 0.25594261288642883
+        },
+        {
+          "ngram": "ttps:",
+          "tfidf_value": 0.03233392536640167,
+          "contribution_to_class_1": 0.25594261288642883
+        },
+        {
+          "ngram": "ps:",
+          "tfidf_value": 0.032333746552467346,
+          "contribution_to_class_1": 0.25593897700309753
+        },
+        {
+          "ngram": "ttps",
+          "tfidf_value": 0.032310668379068375,
+          "contribution_to_class_1": 0.25424084067344666
+        },
+        {
+          "ngram": "https",
+          "tfidf_value": 0.032310668379068375,
+          "contribution_to_class_1": 0.25423699617385864
+        },
+        {
+          "ngram": "tps",
+          "tfidf_value": 0.03230961039662361,
+          "contribution_to_class_1": 0.25417739152908325
+        }
+      ]
+    },
+    {
+      "name": "YouTube watch URL",
+      "url": "https://www.youtube.com/watch?v=example",
+      "predicted_class": 0,
+      "predicted_label": "PHISHING",
+      "phishing_score": 0.6550110578536987,
+      "top_15_features_by_absolute_contribution": [
+        {
+          "ngram": "om/",
+          "tfidf_value": 0.05183439701795578,
+          "contribution_to_class_1": -0.7198589444160461
+        },
+        {
+          "ngram": "com/",
+          "tfidf_value": 0.05184636265039444,
+          "contribution_to_class_1": -0.7196833491325378
+        },
+        {
+          "ngram": ".com/",
+          "tfidf_value": 0.051867127418518066,
+          "contribution_to_class_1": -0.7194299101829529
+        },
+        {
+          "ngram": "s://w",
+          "tfidf_value": 0.024467265233397484,
+          "contribution_to_class_1": 0.5032253265380859
+        },
+        {
+          "ngram": "/www.",
+          "tfidf_value": 0.02060098573565483,
+          "contribution_to_class_1": 0.2515178322792053
+        },
+        {
+          "ngram": "www.",
+          "tfidf_value": 0.020598379895091057,
+          "contribution_to_class_1": 0.25128450989723206
+        },
+        {
+          "ngram": "ww.",
+          "tfidf_value": 0.020594190806150436,
+          "contribution_to_class_1": 0.2485063225030899
+        },
+        {
+          "ngram": "//www",
+          "tfidf_value": 0.02057529240846634,
+          "contribution_to_class_1": 0.2435523271560669
+        },
+        {
+          "ngram": "/www",
+          "tfidf_value": 0.020569976419210434,
+          "contribution_to_class_1": 0.24318070709705353
+        },
+        {
+          "ngram": "www",
+          "tfidf_value": 0.020561615005135536,
+          "contribution_to_class_1": 0.24254103004932404
+        },
+        {
+          "ngram": "//ww",
+          "tfidf_value": 0.020565344020724297,
+          "contribution_to_class_1": 0.24228385090827942
+        },
+        {
+          "ngram": "://ww",
+          "tfidf_value": 0.020565344020724297,
+          "contribution_to_class_1": 0.24228385090827942
+        },
+        {
+          "ngram": "/ww",
+          "tfidf_value": 0.020558563992381096,
+          "contribution_to_class_1": 0.24179798364639282
+        },
+        {
+          "ngram": "://w",
+          "tfidf_value": 0.020443405956029892,
+          "contribution_to_class_1": 0.22966483235359192
+        },
+        {
+          "ngram": "//w",
+          "tfidf_value": 0.02043970488011837,
+          "contribution_to_class_1": 0.22941970825195312
+        }
+      ]
+    }
+  ]
+}
